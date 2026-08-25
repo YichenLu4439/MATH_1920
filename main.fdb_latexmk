@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1787666178.31081 "/Users/yichen/Desktop/MATH 1920/main.tex" "main.pdf" "main" 1787666180.29484 0
-  "/Users/yichen/Desktop/MATH 1920/main.tex" 1787666175.70914 13233 0e08fcaaff160bfdc38c9ddf8e5f2bdb ""
+["pdflatex"] 1787699534.36355 "/Users/yichen/Desktop/MATH_1920/main.tex" "main.pdf" "main" 1787699536.41767 0
+  "/Users/yichen/Desktop/MATH_1920/main.tex" 1787666623.37126 13233 0e08fcaaff160bfdc38c9ddf8e5f2bdb ""
   "/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -247,8 +247,8 @@
   "/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1787582906 5573038 b99aad5e4898a9034e953632f940512b ""
   "/usr/local/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt" 1774209607 3636776 dc5fa9b6b1453b9d196cd42edf876004 ""
   "/usr/local/texlive/2026/texmf.cnf" 1774209515 577 648cd9f92f9c0eac486f4c71c85cfbbe ""
-  "main.aux" 1787666180.20928 2656 bf11cd53f9a2f23b650fda4626d964d1 "pdflatex"
-  "main.tex" 1787666175.70914 13233 0e08fcaaff160bfdc38c9ddf8e5f2bdb ""
+  "main.aux" 1787699536.32556 2656 bf11cd53f9a2f23b650fda4626d964d1 "pdflatex"
+  "main.tex" 1787666623.37126 13233 0e08fcaaff160bfdc38c9ddf8e5f2bdb ""
   (generated)
   "main.aux"
   "main.log"

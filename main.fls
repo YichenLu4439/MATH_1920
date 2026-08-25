@@ -1,8 +1,8 @@
-PWD /Users/yichen/Desktop/MATH 1920
+PWD /Users/yichen/Desktop/MATH_1920
 INPUT /usr/local/texlive/2026/texmf.cnf
 INPUT /usr/local/texlive/2026/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/yichen/Desktop/MATH 1920/main.tex
+INPUT /Users/yichen/Desktop/MATH_1920/main.tex
 OUTPUT main.log
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/base/article.cls

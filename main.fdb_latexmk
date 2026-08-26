@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1787699534.36355 "/Users/yichen/Desktop/MATH_1920/main.tex" "main.pdf" "main" 1787699536.41767 0
-  "/Users/yichen/Desktop/MATH_1920/main.tex" 1787666623.37126 13233 0e08fcaaff160bfdc38c9ddf8e5f2bdb ""
+["pdflatex"] 1787757992.92141 "/Users/yichen/Desktop/MATH_1920/main.tex" "main.pdf" "main" 1787757995.31943 0
+  "/Users/yichen/Desktop/MATH_1920/main.tex" 1787757992.79568 21523 39081a65ff5ccf82104d41a231718590 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -49,6 +49,7 @@
   "/usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1248133631 32080 340ef9bf63678554ee606688e7b5339d ""
   "/usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1248133631 30251 6afa5cb1d0204815a708a080681d4674 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb" 1248133631 36741 fa121aac0049305630cf160b86157ee4 ""
+  "/usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1248133631 35469 70d41d2b9ea31d5d813066df7c99281c ""
   "/usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
@@ -58,6 +59,7 @@
   "/usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb" 1215737283 136101 f533469f523533d38317ab5729d00c8a ""
   "/usr/local/texlive/2026/texmf-dist/fonts/type1/public/esvect/vect10.pfb" 1238776476 18279 772052a8794705f886186d0ebf2af187 ""
+  "/usr/local/texlive/2026/texmf-dist/fonts/type1/public/esvect/vect8.pfb" 1238776476 18418 2a1839073a25c33d340e30afb3b289e8 ""
   "/usr/local/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2026/texmf-dist/tex/generic/iftex/iftex.sty" 1734129479 7984 7dbb9280f03c0a315425f1b4f35d43ee ""
   "/usr/local/texlive/2026/texmf-dist/tex/generic/iftex/ifvtex.sty" 1572645307 1057 525c2192b5febbd8c1f662c9468335bb ""
@@ -247,8 +249,8 @@
   "/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1787582906 5573038 b99aad5e4898a9034e953632f940512b ""
   "/usr/local/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt" 1774209607 3636776 dc5fa9b6b1453b9d196cd42edf876004 ""
   "/usr/local/texlive/2026/texmf.cnf" 1774209515 577 648cd9f92f9c0eac486f4c71c85cfbbe ""
-  "main.aux" 1787699536.32556 2656 bf11cd53f9a2f23b650fda4626d964d1 "pdflatex"
-  "main.tex" 1787666623.37126 13233 0e08fcaaff160bfdc38c9ddf8e5f2bdb ""
+  "main.aux" 1787757995.22881 3021 f8e2043fbbb3e370ae3ebe119d7ea6b8 "pdflatex"
+  "main.tex" 1787757992.79568 21523 39081a65ff5ccf82104d41a231718590 ""
   (generated)
   "main.aux"
   "main.log"

@@ -42,6 +42,18 @@
   fonttitle=\bfseries
 }{prob}
 
+\newtcbtheorem[number within=section]{solution}{Solution}{
+  colback=green!5!white, 
+  colframe=green!60!black, 
+  fonttitle=\bfseries
+}{sol}
+
+\newenvironment{sol}{%
+  \begin{solution}{}{}%
+}{%
+  \end{solution}%
+}
+
 \theoremstyle{definition}
 \newtheorem{example}{Example}[section]
 
@@ -175,12 +187,13 @@ A vector $\vv{v}$ is called a \textbf{unit vector} if its magnitude is 1, i.e., 
 
 \begin{problem}{Describing Unit Vectors}{unit_vectors}
 Describe all unit vectors in $\mathbb{R}^2$.
+\end{problem}
 
+\begin{sol}
 A vector $\vv{v} = \ang{x, y}$ is a unit vector if and only if $x^2 + y^2 = 1$. Equivalently, using polar parameterization:
 \[
 \vv{v}(t) = \ang{\cos t, \sin t} \quad \text{for } 0 \le t < 2\pi
 \]
-
 % --- Unit Circle TikZ Plot ---
 \begin{center}
 \begin{tikzpicture}[scale=1.5, >=Stealth]
@@ -201,8 +214,7 @@ A vector $\vv{v} = \ang{x, y}$ is a unit vector if and only if $x^2 + y^2 = 1$. 
     \draw (0.3,0) arc (0:45:0.3cm) node[midway, right] {$t$};
 \end{tikzpicture}
 \end{center}
-
-\end{problem}
+\end{sol}
 
 \paragraph{Standard Basis Vectors:}
 \begin{itemize}
@@ -241,8 +253,8 @@ For any scalar $\lambda \in \mathbb{R}$ and vector $\vv{v} = \ang{v_1, v_2}$:
     \draw[->, very thick, green!60!black] (O) -- (W) node[midway, above left] {$\vv{w}$};
     
     % Dashed parallelogram lines
-    \draw[dashed, thick, gray] (V) -- (VW);
-    \draw[dashed, thick, gray] (W) -- (VW);
+    \draw[dashed, thick, gray] (V) -- (VW) node[midway, right] {$\vv{w}'$};
+    \draw[dashed, thick, gray] (W) -- (VW) node[midway, above] {$\vv{v}'$};
     
     % Resultant vector
     \draw[->, very thick, red] (O) -- (VW) node[above right] {$\vv{v} + \vv{w} = \vv{w} + \vv{v}$};
@@ -273,11 +285,11 @@ $\vv{v} \parallel \vv{w}$ if and only if both vectors define or lie on the \text
 \begin{definition}{Distance Formula in $\mathbb{R}^2$}{dist_2d}
 Let $(x,y) \in \mathbb{R}^2$ and points $P=(x_1,y_1)$, $Q=(x_2,y_2)$. The distance between $P$ and $Q$ is given by:
 \[
-d(P,Q) = \norm{\vec{PQ}} = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}
+d(P,Q) = \norm{\vv{PQ}} = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}
 \]
 \end{definition}
 
-This distance formula is a direct application of the Pythagorean theorem, where the distance $d(P,Q)$ forms the hypotenuse of a right-angled triangle with legs $|x_2 - x_1|$ and $|y_2 - y_1|$.
+This distance formula is a direct application of the Pythagorean theorem, where the distance $d(P,Q)$ forms the hypotenuse of a right-angled triangle with legs $|x_2 - x_1|$ and $|y_2 - y_1|$, as shown in the figure below.
 
 \begin{figure}[htbp]
 \centering
@@ -293,20 +305,19 @@ This distance formula is a direct application of the Pythagorean theorem, where 
     \coordinate (R) at (4,1);
     
     % Triangle legs
-    \draw[dashed, blue, thick] (P) -- (R) node[midway, below] {$|x_2 - x_1|$};
+    \draw[dashed, blue, thick] (P) -- (R) node[midway, above] {$|x_2 - x_1|$};
     \draw[dashed, blue, thick] (R) -- (Q) node[midway, right] {$|y_2 - y_1|$};
     
     % Hypotenuse / Vector
-    \draw[-{Stealth}, red, ultra thick] (P) -- (Q) node[midway, above left] {$d(P,Q) = \norm{\vec{PQ}}$};
+    \draw[-{Stealth}, red, ultra thick] (P) -- (Q) node[midway, above=15pt, left=-7pt] {$d(P,Q) = \norm{\vv{PQ}}$};
     
     % Draw right angle symbol
     \draw[thick] (3.7,1) -- (3.7,1.3) -- (4,1.3);
     
     % Label Points
-    \filldraw (P) circle (2pt) node[below left] {$P(x_1,y_1)$};
+    \filldraw (P) circle (2pt) node[below] {$P(x_1,y_1)$};
     \filldraw (Q) circle (2pt) node[above right] {$Q(x_2,y_2)$};
 \end{tikzpicture}
-\caption{Vector $\vec{PQ}$ in $\mathbb{R}^2$ visualized using the Pythagorean theorem.}
 \end{figure}
 
 The case in $\mathbb{R}^3$ follows similarly:
@@ -314,7 +325,7 @@ The case in $\mathbb{R}^3$ follows similarly:
 \begin{definition}{Distance Formula in $\mathbb{R}^3$}{dist_3d}
 Let $(x,y,z) \in \mathbb{R}^3$ and points $P=(x_1,y_1,z_1)$, $Q=(x_2,y_2,z_2)$. The distance between $P$ and $Q$ is given by:
 \[
-d(P,Q) = \norm{\vec{PQ}} = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2 + (z_2-z_1)^2}
+d(P,Q) = \norm{\vv{PQ}} = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2 + (z_2-z_1)^2}
 \]
 \end{definition}
 
@@ -336,7 +347,7 @@ Now consider the equation $x^2 + y^2 = 1$ in three-dimensional space, $\mathbb{R
 \[
 \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 = 1\}
 \]
-Because $z$ is completely unrestricted, the cross-section at any constant height $z=c$ forms the unit circle $x^2 + y^2 = 1$. Consequently, this equation describes a \textit{right circular cylinder} extending infinitely along the $z$-axis.
+Because $z$ is completely unrestricted, the cross-section at any constant height $z=c$ forms the unit circle $x^2 + y^2 = 1$. Consequently, this equation describes a \textit{right circular cylinder} extending infinitely along the $z$-axis, as shown.
 
 \begin{figure}[htbp]
 \centering
@@ -370,7 +381,6 @@ Because $z$ is completely unrestricted, the cross-section at any constant height
     
 \end{axis}
 \end{tikzpicture}
-\caption{The equation $x^2 + y^2 = 1$ plotted in $\mathbb{R}^3$ forms a right circular cylinder.}
 \end{figure}
 
 \subsection{Linear Equations across Dimensions}
@@ -384,5 +394,238 @@ This equation represents a \textit{line} in two-dimensional space.
 In $\mathbb{R}^3$, however, the exact same algebraic equation $Ax + By + C = 0$ represents a \textit{plane} parallel to the $z$-axis (since $z$ is a free variable), not a line. 
 
 To uniquely define a line in three-dimensional space, a single linear equation is insufficient; we require a system of \textit{two} independent linear equations (representing the intersection of two non-parallel planes).
+
+\section{Vector and Directions}
+
+\begin{problem}{Vector Directions}{vector_directions}
+Let $\vv{v} = \ang{3, -4, 2}$. Find a unit vector in the same direction as $\vv{v}$.
+\end{problem}
+
+\begin{sol}
+To find a unit vector in the same direction as $\vv{v}$, we first compute its magnitude:
+\[
+\norm{\vv{v}} = \sqrt{3^2 + (-4)^2 + 2^2} = \sqrt{9 + 16 + 4} = \sqrt{29}
+\]
+
+The unit vector in the same direction as $\vv{v}$ is then:
+\[
+\hat{v} = \frac{\vv{v}}{\norm{\vv{v}}} = \frac{1}{\sqrt{29}} \ang{3, -4, 2}
+\]
+\end{sol}
+
+In general, for any non-zero vector $\vv{w}$, 
+\begin{align*}
+\norm{\lambda \vv{w}} &= \sqrt{(\lambda w_1)^2 + (\lambda w_2)^2 + (\lambda w_3)^2} \\
+                      &= \sqrt{\lambda^2 (w_1^2 + w_2^2 + w_3^2)} \\
+                      &= |\lambda| \norm{\vv{w}}
+\end{align*}
+
+Hence, if we want a unit vector in the same direction as $\vv{w}$, we can choose $\lambda = \displaystyle\frac{1}{\norm{\vv{w}}}$, giving us:
+\[
+\hat{w} = \frac{\vv{w}}{\norm{\vv{w}}}
+\]
+
+\paragraph{Right-Hand Rule}
+The relative position of the $x$-, $y$-, and $z$-axes in $\mathbb{R}^3$ is determined by the \textit{right-hand rule}. If you point your right thumb along the positive $x$-axis and your index finger along the positive $y$-axis, then your middle finger (perpendicular to both) will point along the positive $z$-axis.
+
+\begin{center}
+\begin{minipage}{0.48\textwidth}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      view={120}{30},
+      axis lines=center,
+      hide axis,
+      axis on top,
+      ticks=none,
+      xmin=-0.3, xmax=2.2,
+      ymin=-0.3, ymax=2.2,
+      zmin=-0.3, zmax=2.2,
+      width=\textwidth, height=\textwidth,
+      enlargelimits=false
+    ]
+      \draw[-{Stealth[scale=1.2]}, line width=1.2pt, blue] (axis cs:0,0,0) -- (axis cs:2,0,0) node[above left] {$x$};
+      \draw[-{Stealth[scale=1.2]}, line width=1.2pt, red!80!black] (axis cs:0,0,0) -- (axis cs:0,2,0) node[right] {$y$};
+      \draw[-{Stealth[scale=1.2]}, line width=1.2pt, green!50!black] (axis cs:0,0,0) -- (axis cs:0,0,2) node[above] {$z$};
+
+      \draw[-{Stealth[scale=1]}, thick, orange, domain=0:90, samples=30] 
+        plot ({1.1*cos(\x)}, {1.1*sin(\x)}, {0});
+    \end{axis}
+  \end{tikzpicture}
+\end{minipage}%
+\hfill
+\begin{minipage}{0.48\textwidth}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      view={60}{20},
+      axis lines=center,
+      hide axis,
+      axis on top,
+      ticks=none,
+      xmin=-0.3, xmax=2.2,
+      ymin=-0.3, ymax=2.2,
+      zmin=-0.3, zmax=2.2,
+      width=\textwidth, height=\textwidth,
+      enlargelimits=false
+    ]
+      \draw[-{Stealth[scale=1.2]}, line width=1.2pt, blue] (axis cs:0,0,0) -- (axis cs:2,0,0) node[below left] {$x$};
+      \draw[-{Stealth[scale=1.2]}, line width=1.2pt, red!80!black] (axis cs:0,0,0) -- (axis cs:0,2,0) node[above right] {$y$};
+      \draw[-{Stealth[scale=1.2]}, line width=1.2pt, green!50!black] (axis cs:0,0,0) -- (axis cs:0,0,2) node[above] {$z$};
+
+      \draw[-{Stealth[scale=1]}, thick, orange, domain=0:90, samples=30] 
+        plot ({1.1*cos(\x)}, {1.1*sin(\x)}, {0});
+    \end{axis}
+  \end{tikzpicture}
+\end{minipage}
+\end{center}
+
+\begin{definition}{Parameterizations}{parameterizations}
+A parameterization is a function whose range is a given geometric object. \\
+For example, a parameterization of the unit circle is given by:
+\[
+f(t) = (\cos t, \sin t)
+\]
+\end{definition}
+
+\begin{example}
+To parameterize the line $y = 2x + 3$:
+\begin{align*}
+\ell(t) &= (t, 2t + 3) \\
+        &= \ang{0, 3} + \ang{t, 2t}
+\end{align*}
+
+The plot is then given:
+\begin{center}
+\begin{tikzpicture}
+  \begin{axis}[
+    axis lines=middle,
+    xlabel={$x$}, ylabel={$y$},
+    xmin=-3.5, xmax=2.5,
+    ymin=-2.5, ymax=6.5,
+    grid=major,
+    grid style={dashed, gray!30},
+    height=8cm,
+    width=8cm
+  ]
+    % The line y = 2x + 3
+    \addplot[domain=-2.7:1.7, thick, blue!80!black, opacity=0.7] {2*x + 3};
+
+    % Base point P(0,3)
+    \coordinate (P) at (axis cs:0,3);
+    \fill[red] (P) circle (2.5pt) node[left=4pt, black] {$(0,3)$}; 
+    \draw[-{Stealth}, line width=1pt, purple] (axis cs:0,0) -- (P) node[midway, right=2pt] {$\ang{0,3}$};
+
+    % Direction vector v = <1,2> starting from (0,3)
+    \coordinate (V) at (axis cs:1,5);
+    \draw[-{Stealth}, line width=1.5pt, red!80!black] (P) -- (V) node[midway, below right=1.5pt, right=4pt] {$\vv{v} = \ang{1,2}$}; % 向右外侧移
+    
+    \node[blue!80!black, anchor=west] at (axis cs:-1.7, -1.3) {$\ell(t) = (0,3) + t(1,2)$};
+  \end{axis}
+\end{tikzpicture}
+\end{center}
+
+\end{example}
+
+To generalize, to parameterize a line in $\mathbb{R}^2$, we can first take a point on the line. Then, we take some $\vv{v}$ in the direction of the line. Then, we can write the parameterization as:
+\[
+\ell(t) = (p_1 + v_1 t,\ p_2 + v_2 t)
+\]
+
+In $\mathbb{R}^3$, we can do the same thing.
+
+\begin{example}
+Parameterize the line passing through $P(1, 2, 0)$ and $Q(5, -1, 1)$.
+\begin{align*}
+\vv{PQ} &= \ang{5 - 1, -1 - 2, 1 - 0} \\
+        &= \ang{4, -3, 1} \\
+\ell(t) &= (1, 2, 0) + t(4, -3, 1) \\
+        &= (1 + 4t, 2 - 3t, t) 
+\end{align*}
+\end{example}
+
+\subsection{Dot Product}
+\begin{definition}{Dot Product}{dot_product}
+The dot product of two vectors $\vv{v} = \ang{v_1, v_2}$ and $\vv{w} = \ang{w_1, w_2}$ is defined as:
+\[
+\vv{v} \cdot \vv{w} = v_1 w_1 + v_2 w_2
+\]
+\end{definition}
+
+\begin{example}
+\begin{align*}
+\vv{v} \cdot \vv{v} &= v_1^2 + v_2^2 = \norm{\vv{v}}^2\\
+\vv{i} \cdot \vv{j} &= 1 \cdot 0 + 0 \cdot 1 = 0
+\end{align*}
+\end{example}
+
+\begin{problem}{Dot Product and Angle}{dot_product_angle}
+Find pairs of vectors with:
+\begin{itemize}
+    \item Dot product $> 0$
+    \item Dot product $= 0$
+    \item Dot product $< 0$
+\end{itemize}
+\end{problem}
+
+\begin{sol}
+\begin{itemize}
+    \item $\vv{v} \cdot \vv{v} = \norm{\vv{v}}^2 > 0$ for any non-zero vector $\vv{v}$.
+    \item $\vv{i} \cdot \vv{j} = 0$ since they are orthogonal.
+    \item $\ang{-1, -1} \cdot \ang{1, 1} = -1 - 1 = -2 < 0$.
+\end{itemize}
+\end{sol}
+
+To conclude, the dot products of any two vectors corresponds to the following situations:
+\begin{itemize}
+    \item Dot product $= 0$ if and only if the two vectors are orthogonal (perpendicular).
+    \item Dot product $> 0$ if the angle between the two vectors is acute (less than 90 degrees).
+    \item Dot product $< 0$ if the angle between the two vectors is obtuse (greater than 90 degrees).
+\end{itemize}
+
+This is because $\vv{v} \cdot \vv{w} = \norm{\vv{v}} \norm{\vv{w}} \cos \theta$, where $\theta$ is the angle between the vectors. Hence, 
+\[
+\theta = \arccos\displaystyle\left(\frac{\vv{v} \cdot \vv{w}}{\norm{\vv{v}} \norm{\vv{w}}}\right)
+\]
+
+\begin{definition}{Orthogonal Projection}{orthogonal_projection}
+Write $\vv{u} = \vv{u}_{\parallel} + \vv{u}_{\perp}$, where $\vv{u}_{\parallel} \parallel \vv{v}$ and $\vv{u}_{\perp} \perp \vv{u}_{\parallel}$.
+Then, $\vv{u}_{\parallel}$ is called the \textbf{orthogonal projection} of $\vv{u}$ onto $\vv{v}$.
+\end{definition}
+
+\begin{example}
+Below is an illustration of orthogonal projection:
+
+\begin{center}
+\begin{tikzpicture}[scale=1.2]
+  \coordinate (O) at (0,0);
+  
+  \coordinate (V) at (5.5,0);
+  
+  \coordinate (U) at (30:4); % (4*cos(30°), 4*sin(30°)) = (2*sqrt(3), 2)
+  
+  \coordinate (P) at ({4*cos(30)}, 0);
+  
+  \draw[gray!50, dashed] (P) -- (6,0);
+  
+  \draw[-{Stealth[scale=1.2]}, line width=1.2pt, blue!80!black] (O) -- (V) node[below] {$\vv{v}$};
+  
+  \draw[-{Stealth[scale=1.2]}, line width=1.2pt, red!80!black] (O) -- (U) node[above left] {$\vv{u}$};
+  
+  \draw[-{Stealth[scale=1.2]}, line width=1.5pt, green!50!black] (O) -- (P) node[midway, below=2pt] {$\vv{u}_{\parallel} = \text{proj}_{\vv{v}}\vv{u}$};
+  
+  \draw[-{Stealth[scale=1.2]}, line width=1.5pt, orange!90!black] (P) -- (U) node[midway, right=2pt] {$\vv{u}_{\perp}$};
+  
+  \draw[->, thick, purple] (0.8,0) arc (0:30:0.8);
+  \node[purple, right] at (15:0.85) {$\theta = 30^\circ$};
+  
+  \draw[thick, gray!80] ($(P)+(-0.25,0)$) -- ($(P)+(-0.25,0.25)$) -- ($(P)+(0,0.25)$);
+  
+  \fill[black] (O) circle (1.5pt);
+  \fill[black] (U) circle (1.5pt);
+  \fill[black] (P) circle (1.5pt);
+\end{tikzpicture}
+\end{center}
+\end{example}
 
 \end{document}

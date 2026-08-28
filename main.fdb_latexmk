@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1787758484.08796 "/Users/yichen/Desktop/MATH_1920/main.tex" "main.pdf" "main" 1787758486.55658 0
-  "/Users/yichen/Desktop/MATH_1920/main.tex" 1787758483.888 22575 579c81c8e2d6f54d957db6f2d681bcb0 ""
+["pdflatex"] 1787928744.40318 "/Users/yichen/Desktop/MATH_1920/main.tex" "main.pdf" "main" 1787928747.04329 0
+  "/Users/yichen/Desktop/MATH_1920/main.tex" 1787928744.18087 29275 8eda5199f2460c4f18c07793fe3ba6d6 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -93,12 +93,14 @@
   "/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex" 1755201859 35251 5ff5b5b310c5ac882610e0ccc99095e7 ""
   "/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex" 1673816307 22012 81b34a0aa8fa1a6158cc6220b00e4f10 ""
   "/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex" 1601326656 8893 e851de2175338fdf7c17f3e091d94618 ""
+  "/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryangles.code.tex" 1673816307 3644 e9b9c24022f5a439aa80f5032fb9b6c6 ""
   "/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex" 1601326656 15929 463535aa2c4268fead6674a75c0e8266 ""
   "/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex" 1755201859 5650 0ccd824135f363f45d6a97602e59d55a ""
   "/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex" 1601326656 321 cdd11262840e01e25374a2d458f15e99 ""
   "/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex" 1601326656 1319 0b2de5126c6cbc295f0eb77f7344b34d ""
   "/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfadings.code.tex" 1601326656 1179 5483d86c1582c569e665c74efab6281f ""
   "/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryplotmarks.code.tex" 1601326656 325 36322b0789619b270aec5993d5a9ed08 ""
+  "/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryquotes.code.tex" 1673816307 3970 c199216b190c70e45bff870bacf0da00 ""
   "/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex" 1608933718 11518 738408f795261b70ce8dd47459171309 ""
   "/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex" 1755201859 186859 0445d9a41a87648b4723e04765409541 ""
   "/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex" 1601326656 8843 5533436db3e30fbad1e0440db6027dac ""
@@ -268,10 +270,10 @@
   "/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1787582906 5573038 b99aad5e4898a9034e953632f940512b ""
   "/usr/local/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt" 1774209607 3636776 dc5fa9b6b1453b9d196cd42edf876004 ""
   "/usr/local/texlive/2026/texmf.cnf" 1774209515 577 648cd9f92f9c0eac486f4c71c85cfbbe ""
-  "main.aux" 1787758486.46117 3358 da53184ae3b807e6a7e10b2e4b2981eb "pdflatex"
-  "main.out" 1787758486.46201 2023 eb034d0d90b3d6ea72ffc01fbf3df3e0 "pdflatex"
-  "main.tex" 1787758483.888 22575 579c81c8e2d6f54d957db6f2d681bcb0 ""
-  "main.toc" 1787758486.46226 1412 b62e3b4531fd63bb5fb2fab1b27345d6 "pdflatex"
+  "main.aux" 1787928746.94047 3859 033abcbf2edc40aa6f471cd020b258e4 "pdflatex"
+  "main.out" 1787928746.94161 2149 44c4683a239d26e18556fffe9f3faef7 "pdflatex"
+  "main.tex" 1787928744.18087 29275 8eda5199f2460c4f18c07793fe3ba6d6 ""
+  "main.toc" 1787928746.94189 1492 1636a321fcc7af152936d26a84a6533e "pdflatex"
   (generated)
   "main.aux"
   "main.log"

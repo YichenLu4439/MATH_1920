@@ -16,3 +16,4 @@
 \contentsline {section}{\numberline {3}Vector and Directions}{7}{section.3}%
 \contentsline {paragraph}{Right-Hand Rule}{7}{section*.7}%
 \contentsline {subsection}{\numberline {3.1}Dot Product}{9}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Cross Product}{13}{subsection.3.2}%

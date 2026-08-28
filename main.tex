@@ -31,7 +31,7 @@
 \usepackage{tikz}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
-\usetikzlibrary{arrows.meta, calc}
+\usetikzlibrary{arrows.meta, calc, angles, quotes}
 
 % --- Custom Multivariable Macros ---
 \newcommand{\pdv}[2]{\frac{\partial #1}{\partial #2}}
@@ -666,7 +666,7 @@ Below is an illustration of orthogonal projection:
   \draw[-{Stealth[scale=1.2]}, line width=1.5pt, orange!90!black] (P) -- (U) node[midway, right=2pt] {$\vv{u}_{\perp}$};
   
   \draw[->, thick, purple] (0.8,0) arc (0:30:0.8);
-  \node[purple, right] at (15:0.85) {$\theta = 30^\circ$};
+  \node[purple, right] at (15:0.85) {$\theta$};
   
   \draw[thick, gray!80] ($(P)+(-0.25,0)$) -- ($(P)+(-0.25,0.25)$) -- ($(P)+(0,0.25)$);
   
@@ -675,6 +675,172 @@ Below is an illustration of orthogonal projection:
   \fill[black] (P) circle (1.5pt);
 \end{tikzpicture}
 \end{center}
+
+By this, we could see that 
+\[
+\vv{u} = \vv{u}_{\parallel} + \vv{u}_{\perp}
+\]
+
+Then, we solve for $\vv{u}_{\parallel}$ and $\vv{u}_{\perp}$.
+
+Taking the dot product with $\vv{v}$:
+\begin{align*}
+\vv{u} \cdot \vv{v} &= (\vv{u}_{\parallel} + \vv{u}_{\perp}) \cdot \vv{v} \\
+                    &= \vv{u}_{\parallel} \cdot \vv{v} + \vv{u}_{\perp} \cdot \vv{v} \\
+                    &= \vv{u}_{\parallel} \cdot \vv{v} + 0 \quad \text{(since } \vv{u}_{\perp} \perp \vv{v}\text{)} \\
+                    &= \vv{u}_{\parallel} \cdot \vv{v}
+\end{align*}
+
+Let $\vv{e}_{v} = \displaystyle\frac{1}{\norm{\vv{v}}} \vv{v}$ be the unit vector in the direction of $\vv{v}$, and write $\vv{u}_{\parallel} = \lambda \vv{e}_{v}$. Then:
+\begin{align*}
+\vv{u} \cdot \vv{v} &= (\lambda \vv{e}_{v}) \cdot (\norm{\vv{v}} \vv{e}_{v}) \\
+                    &= \lambda \norm{\vv{v}} (\vv{e}_{v} \cdot \vv{e}_{v}) \\
+                    &= \lambda \norm{\vv{v}} \norm{\vv{e}_{v}}^2 \\
+                    &= \lambda \norm{\vv{v}} \quad \text{(since } \norm{\vv{e}_{v}} = 1\text{)}
+\end{align*}
+
+Solving for $\lambda$:
+\[
+\lambda = \frac{\vv{u} \cdot \vv{v}}{\norm{\vv{v}}}
+\]
+
+Thus, the parallel projection vector $\vv{u}_{\parallel}$ and the orthogonal component $\vv{u}_{\perp}$ are given by:
+\begin{align*}
+\vv{u}_{\parallel} &= \left(\frac{\vv{u} \cdot \vv{v}}{\norm{\vv{v}}}\right) \vv{e}_v = \frac{\vv{u} \cdot \vv{v}}{\norm{\vv{v}}^2} \vv{v} = \frac{\vv{u} \cdot \vv{v}}{\vv{v} \cdot \vv{v}} \vv{v} \\
+\vv{u}_{\perp} &= \vv{u} - \vv{u}_{\parallel} = \vv{u} - \frac{\vv{u} \cdot \vv{v}}{\vv{v} \cdot \vv{v}} \vv{v}
+\end{align*}
+
+Furthermore, the magnitude of the parallel projection is:
+\[
+\norm{\vv{u}_{\parallel}} = \norm{\vv{u}} |\cos \theta|
+\]
+
 \end{example}
+
+\begin{problem}{Vector Projection}{vector_projection}
+Find the projection of $\vv{u} = \ang{3, 2, 2}$ onto $\vv{v} \ang{1, -2, 0}$
+\end{problem}
+
+\begin{sol}
+\begin{align*}
+\vv{u}_{\parallel} &= \frac{3 \cdot 1 + 2 \cdot (-1) + 2 \cdot 0}{1^2 + (-1)^2 + 0^2} \ang{1, -1, 0} \\
+                   &= \frac{1}{2} \ang{1, -1, 0} \\
+                   &= \ang{\frac{1}{2}, - \frac{1}{2}, 0}
+\end{align*}
+\end{sol}
+
+%% another problem waiting to be inserted
+%% corresponding solution
+%-------------------------------------------
+% --- Application Example from Blackboard ---
+\begin{problem}{Acceleration on an Inclined Plane}{aceleration_on_an_inclined_plane}
+Consider a block sliding down an inclined plane with an angle of inclination $\alpha$. \\
+
+\begin{center}
+\begin{tikzpicture}[scale=1.2, >=Stealth]
+    % Inclined Plane Triangle
+    \draw[thick] (0,0) -- (4,0) -- (4,2.3) -- cycle;
+    \draw (0.8,0) arc (0:30:0.8) node[midway, right] {$\alpha$};
+
+    % Block
+    \begin{scope}[shift={(2.5,1.44)}, rotate=30]
+        \draw[fill=gray!20, thick] (-0.4,0) rectangle (0.4,0.6);
+        \coordinate (Center) at (0,0.3);
+    \end{scope}
+
+    % Velocity vector
+    \draw[->, thick, dashed, color=black] (Center) -- ++(1.8,1.04) node[above] {$\vv{v} = \ang{\cos \alpha, \sin \alpha}$};
+
+    % Gravity and its components
+    \draw[->, ultra thick, color=red] (Center) -- ++(0,-1.6) node[below] {$\vv{F}_g$};
+    \draw[->, ultra thick, color=purple] (Center) -- ++(-60:{1.6*cos(30)}) node[midway, right] {$\vv{F}_{g\perp}$};
+    
+    \draw[->, ultra thick, color=blue] (Center) -- ++(210:{1.6*sin(30)}) node[midway, above left] {$\vv{F}_{g\parallel}$};\end{tikzpicture}
+\end{center}
+\end{problem}
+
+\begin{sol}
+To find the magnitude of acceleration down the incline, we project the gravitational force $\vv{F}_g$ along the incline direction:
+\begin{align*}
+\text{acceleration} &= \norm{\vv{F}_{g\parallel}} \\
+                    &= \norm{\vv{F}_g} |\cos \theta| \\
+                    &= \norm{\vv{F}_g} \sin \alpha = 9.8 \sin \alpha \quad \text{(m/s}^2\text{)}
+\end{align*}
+\end{sol}
+\begin{problem}{Vector Projection}{vector_projection}
+Find the projection of $\vv{u} = \ang{3, 2, 2}$ onto $\vv{v} = \ang{1, -1, 0}$.
+\end{problem}
+
+\begin{sol}
+Using the vector projection formula:
+\begin{align*}
+\vv{u}_{\parallel} &= \frac{\vv{u} \cdot \vv{v}}{\norm{\vv{v}}^2} \vv{v} \\
+                   &= \frac{3(1) + 2(-1) + 2(0)}{1^2 + (-1)^2 + 0^2} \ang{1, -1, 0} \\
+                   &= \frac{3 - 2 + 0}{1 + 1 + 0} \ang{1, -1, 0} \\
+                   &= \frac{1}{2} \ang{1, -1, 0} \\
+                   &= \ang{\frac{1}{2}, -\frac{1}{2}, 0}
+\end{align*}
+\end{sol}
+
+\subsection{Cross Product}
+
+\begin{definition}{Vector Cross Product}{cross_product}
+Let $\vv{u}, \vv{v} \in \mathbb{R}^3$. The \textbf{cross product} $\vv{u} \times \vv{v}$ is a vector in $\mathbb{R}^3$ satisfying the following three geometric properties:
+\begin{enumerate}
+    \item \textbf{Orthogonality:} $\vv{u} \times \vv{v} \perp \vv{u}$ and $\vv{u} \times \vv{v} \perp \vv{v}$.
+    \item \textbf{Magnitude:} $\norm{\vv{u} \times \vv{v}} = \norm{\vv{u}}\norm{\vv{v}}\sin\theta$, which equals the area of the parallelogram formed by $\vv{u}$ and $\vv{v}$.
+    \item \textbf{Orientation:} The ordered triple $(\vv{u}, \vv{v}, \vv{u} \times \vv{v})$ is right-handed (positively oriented).
+\end{enumerate}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.2, >=Stealth]
+    % Origin
+    \coordinate (O) at (0,0);
+    
+    % Vectors u and v
+    \coordinate (U) at (4, 0.6);
+    \coordinate (V) at (2, 3);
+    \coordinate (UV) at ($(U)+(V)$);
+    
+    % Shaded Parallelogram
+    \fill[orange!20, opacity=0.7] (O) -- (U) -- (UV) -- (V) -- cycle;
+    \draw[dashed, color=orange!80!black] (U) -- (UV) -- (V);
+
+    % Cross product vector
+    \coordinate (Cross) at (0, 2.2);
+
+    % Draw Vectors
+    \draw[->, ultra thick, color=blue] (O) -- (U) node[below right] {$\vv{u}$};
+    \draw[->, ultra thick, color=green!50!black] (O) -- (V) node[above left] {$\vv{v}$};
+    \draw[->, ultra thick, color=red] (O) -- (Cross) node[above] {$\vv{u} \times \vv{v}$};
+
+    % Right angle symbols to indicate orthogonality
+    \def\absLen{0.25cm}
+
+    \path (O) -- (U) coordinate[pos=0] (dummy) coordinate[pos=1] (U_end);
+    \coordinate (u_step) at ($(O)! \absLen !(U)$);
+    \coordinate (h_step) at (0, 0.25);
+    
+    \draw[thick, color=black] 
+        (u_step) -- ($(u_step) + (h_step)$) -- (h_step);
+
+    \coordinate (v_step) at ($(O)! \absLen !(V)$);
+    
+    \draw[thick, color=black] 
+        (v_step) -- ($(v_step) + (h_step)$) -- (h_step);
+    % Labels
+    \node at (3, 1.8)[orange] {$\text{Area} = \norm{\vv{u} \times \vv{v}}$};
+\end{tikzpicture}
+\end{center}
+\end{definition}
+
+From Property (2), we have for the standard basis vectors:
+\[
+\norm{\vv{i} \times \vv{i}} = \norm{\vv{i}}\norm{\vv{i}}\sin 0^\circ = 0 \implies \vv{i} \times \vv{i} = \vv{0}
+\]
+And by the Right-Hand Rule:
+\[
+\vv{i} \times \vv{j} = \vv{k}
+\]
 
 \end{document}

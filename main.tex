@@ -31,7 +31,7 @@
 \usepackage{tikz}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
-\usetikzlibrary{arrows.meta, calc, angles, quotes}
+\usetikzlibrary{arrows.meta, calc, angles, quotes, patterns, 3d, positioning, shapes.geometric}
 
 % --- Custom Multivariable Macros ---
 \newcommand{\pdv}[2]{\frac{\partial #1}{\partial #2}}
@@ -47,32 +47,35 @@
 \newtcbtheorem[number within=section]{definition}{Definition}{
   colback=blue!5!white, 
   colframe=blue!60!black, 
-  fonttitle=\bfseries
+  fonttitle=\bfseries,
+  breakable
 }{def}
 
 \newtcbtheorem[number within=section]{problem}{Problem}{
   colback=orange!5!white, 
   colframe=orange!80!black, 
-  fonttitle=\bfseries
+  fonttitle=\bfseries,
+  breakable
 }{prob}
 
 \newtcbtheorem[number within=section]{solution}{Solution}{
   colback=green!5!white, 
   colframe=green!60!black, 
-  fonttitle=\bfseries
+  fonttitle=\bfseries,
+  breakable
 }{sol}
 
-\newenvironment{sol}{%
-  \begin{solution}{}{}%
-}{%
-  \end{solution}%
+\newenvironment{sol}{
+  \begin{solution}{}{}
+}{
+  \end{solution}
 }
 
 \theoremstyle{definition}
 \newtheorem{example}{Example}[section]
 
 \setstretch{1.5}
-% ------------------------------------------------------------------
+
 \begin{document}
 
 % ================== Cover Page =================
@@ -195,17 +198,54 @@
 % ------------------------------------------------------------------
 \subsection{Vectors and Position Vectors}
 
-Given points $P=(1,3)$, $Q=(5,4)$ and $P'=(1,1)$, $Q'=(5,2)$:
-
 \begin{definition}{Equivalent Vectors}{equiv_vectors}
 Two vectors are \textbf{equivalent} if one is a translation (pure shift without rotation) of the other.
 \end{definition}
 
 \begin{example}
+Given points $P=(1,3)$, $Q=(5,4)$ and $P'=(1,1)$, $Q'=(5,2)$.
 Let $R = (4,1)$ and $O = (0,0)$. Then:
 \[
 \vv{PQ} = \vv{P'Q'} = \vv{OR}
 \]
+
+This could be indicated by the diagram below:
+
+\begin{center}
+\begin{tikzpicture}[scale=1.1, >=Stealth]
+    % Grid and Axes
+    \draw[thin, gray!20] (-0.5,-0.5) grid (5.5,4.5);
+    \draw[->, thick] (-0.5,0) -- (5.8,0) node[right] {$x$};
+    \draw[->, thick] (0,-0.5) -- (0,4.8) node[above] {$y$};
+
+    % Axis Ticks
+    \foreach \x in {1,2,3,4,5}
+        \draw (\x,0.1) -- (\x,-0.1) node[below, font=\small] {$\x$};
+    \foreach \y in {1,2,3,4}
+        \draw (0.1,\y) -- (-0.1,\y) node[left, font=\small] {$\y$};
+
+    % Coordinates
+    \coordinate (O)  at (0,0);
+    \coordinate (R)  at (4,1);
+    \coordinate (P') at (1,1);
+    \coordinate (Q') at (5,2);
+    \coordinate (P)  at (1,3);
+    \coordinate (Q)  at (5,4);
+
+    % Vectors (Equal, displacement <4, 1>)
+    \draw[->, ultra thick, color=red]   (O)  -- (R)  node[midway, above] {$\vv{OR}$};
+    \draw[->, ultra thick, color=blue]  (P') -- (Q') node[midway, above] {$\vv{P'Q'}$};
+    \draw[->, ultra thick, color=purple](P)  -- (Q)  node[midway, above] {$\vv{PQ}$};
+
+    % Points & Labels
+    \fill[black] (O)  circle (2pt) node[below left]  {$O(0,0)$};
+    \fill[black] (R)  circle (2pt) node[below right] {$R(4,1)$};
+    \fill[black] (P') circle (2pt) node[above]  {$P'(1,1)$};
+    \fill[black] (Q') circle (2pt) node[above] {$Q'(5,2)$};
+    \fill[black] (P)  circle (2pt) node[above]  {$P(1,3)$};
+    \fill[black] (Q)  circle (2pt) node[above right] {$Q(5,4)$};
+\end{tikzpicture}
+\end{center}
 \end{example}
 
 \begin{definition}{Position Vector}{pos_vector}
@@ -215,7 +255,7 @@ A vector whose initial point is at the origin $O(0,0)$ is called a \textbf{posit
 \]
 \end{definition}
 
-\begin{definition}{Magnitude / Norm}{magnitude}
+\begin{definition}{Magnitude}{magnitude}
 The \textbf{length} or \textbf{magnitude} of a vector $\vv{v}$, denoted by $\norm{\vv{v}}$, is the length of the line segment between its endpoints.
 \end{definition}
 
@@ -706,8 +746,11 @@ Solving for $\lambda$:
 
 Thus, the parallel projection vector $\vv{u}_{\parallel}$ and the orthogonal component $\vv{u}_{\perp}$ are given by:
 \begin{align*}
-\vv{u}_{\parallel} &= \left(\frac{\vv{u} \cdot \vv{v}}{\norm{\vv{v}}}\right) \vv{e}_v = \frac{\vv{u} \cdot \vv{v}}{\norm{\vv{v}}^2} \vv{v} = \frac{\vv{u} \cdot \vv{v}}{\vv{v} \cdot \vv{v}} \vv{v} \\
-\vv{u}_{\perp} &= \vv{u} - \vv{u}_{\parallel} = \vv{u} - \frac{\vv{u} \cdot \vv{v}}{\vv{v} \cdot \vv{v}} \vv{v}
+\vv{u}_{\parallel} &= \left(\frac{\vv{u} \cdot \vv{v}}{\norm{\vv{v}}}\right) \vv{e}_v \\
+                   &= \frac{\vv{u} \cdot \vv{v}}{\norm{\vv{v}}^2} \vv{v} \\
+                   &= \frac{\vv{u} \cdot \vv{v}}{\vv{v} \cdot \vv{v}} \vv{v} \\
+\vv{u}_{\perp} &= \vv{u} - \vv{u}_{\parallel} \\
+               &= \vv{u} - \frac{\vv{u} \cdot \vv{v}}{\vv{v} \cdot \vv{v}} \vv{v}
 \end{align*}
 
 Furthermore, the magnitude of the parallel projection is:
@@ -782,7 +825,7 @@ Using the vector projection formula:
 \end{align*}
 \end{sol}
 
-\subsection{Cross Product}
+\subsection{Determinants and Cross Products}
 
 \begin{definition}{Vector Cross Product}{cross_product}
 Let $\vv{u}, \vv{v} \in \mathbb{R}^3$. The \textbf{cross product} $\vv{u} \times \vv{v}$ is a vector in $\mathbb{R}^3$ satisfying the following three geometric properties:
@@ -842,5 +885,290 @@ And by the Right-Hand Rule:
 \[
 \vv{i} \times \vv{j} = \vv{k}
 \]
+
+
+
+\begin{definition}{Determinants}{determinants}
+For a $2 \times 2$ matrix $A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$, the determinant is defined as:
+\[
+\det \begin{pmatrix} a & b \\ c & d \end{pmatrix} = ad - bc
+\]
+
+This is denoted as $\det(A)$ or $|A|$ for a $2 \times 2$ matrix $A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$.
+
+For a $2 \times 2$ matrix, the determinant represents the area of the parallelogram spanned by $\ang{a, c}$ and $\ang{b, d}$ (the column vectors) or $\ang{a, b}$ and $\ang{c, d}$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.2, >=Stealth]
+    % Grid and Axes
+    \draw[thin, gray!20] (-0.5,-0.5) grid (4.5,3.5);
+    \draw[->, thick] (-0.5,0) -- (4.5,0) node[right] {$x$};
+    \draw[->, thick] (0,-0.5) -- (0,3.5) node[above] {$y$};
+    
+    % Vectors
+    \coordinate (O) at (0,0);
+    \coordinate (V1) at (3,0.8);
+    \coordinate (V2) at (1.2,2.5);
+    \coordinate (V3) at ($(V1)+(V2)$);
+    
+    % Parallelogram
+    \fill[blue!15, opacity=0.7] (O) -- (V1) -- (V3) -- (V2) -- cycle;
+    \draw[dashed, blue!80!black, thick] (V1) -- (V3) -- (V2);
+    
+    \draw[->, very thick, blue!60!black] (O) -- (V1) node[midway, below right] {$\ang{a,b}$};
+    \draw[->, very thick, blue!60!black] (O) -- (V2) node[midway, above left] {$\ang{c,d}$};
+    
+    \node[blue!80!black] at (2.1,1.6) {$\text{Area} = |ad - bc|$};
+\end{tikzpicture}
+\end{center}
+
+For a $3 \times 3$ matrix $B = \begin{pmatrix} a & b & c \\ d & e & f \\ g & h & i \end{pmatrix}$, the determinant is defined as:
+\begin{align*}
+\det \begin{pmatrix} a & b & c \\ d & e & f \\ g & h & i \end{pmatrix} &= a\begin{vmatrix} e & f \\ h & i \end{vmatrix} - b\begin{vmatrix} d & f \\ g & i \end{vmatrix} + c\begin{vmatrix} d & e \\ g & h \end{vmatrix} \\
+                                                                       &= aei + bfg + cdh - ceg - bdi - afh
+\end{align*}
+
+$\det \begin{pmatrix} \vv{u} \\ \vv{v} \\ \vv{w} \end{pmatrix}$ represents the volume of the parallelepiped spanned by $\vv{u}$, $\vv{v}$, and $\vv{w}$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.1, >=Stealth]
+    \begin{axis}[
+        view={115}{25},
+        axis lines=center,
+        axis on top,
+        xlabel={$x$},
+        ylabel={$y$},
+        zlabel={$z$},
+        xmin=0, xmax=4,
+        ymin=0, ymax=4,
+        zmin=0, zmax=4,
+        ticks=none,
+        enlargelimits=false
+    ]
+        % Base Vertices
+        \coordinate (O) at (0,0,0);
+        \coordinate (U) at (2.5,0.5,0.2);
+        \coordinate (V) at (0.8,3.0,0.4);
+        \coordinate (UV) at ($(U)+(V)$);
+        
+        % Top Vertices
+        \coordinate (W) at (0.3,0.8,3.0);
+        \coordinate (UW) at ($(U)+(W)$);
+        \coordinate (VW) at ($(V)+(W)$);
+        \coordinate (UVW) at ($(U)+(V)+(W)$);
+        
+        % --- 1. Internal Volume Slices (Simulating 3D Interior Volume Hatching) ---
+        % Generates 4 parallel cross-sectional grids inside the parallelepiped along z-axis
+        \pgfplotsinvokeforeach{0.2, 0.4, 0.6, 0.8}{
+            \addplot3[
+                surf,
+                domain=0:1,
+                domain y=0:1,
+                samples=6,
+                fill=blue!30,
+                fill opacity=0.15,
+                draw=blue!80!black,
+                draw opacity=0.25,
+                ultra thin
+            ] (
+                {x*2.5 + y*0.8 + #1*0.3},
+                {x*0.5 + y*3.0 + #1*0.8},
+                {x*0.2 + y*0.4 + #1*3.0}
+            );
+        }
+
+        % --- 2. Outer Surface Shading and Hatching Patterns ---
+        % Base Face
+        \addplot3[
+            postaction={pattern=north east lines, pattern color=gray!50},
+            fill=gray!20, opacity=0.4
+        ] coordinates {
+            (0,0,0) (2.5,0.5,0.2) (3.3,3.5,0.6) (0.8,3.0,0.4) (0,0,0)
+        };
+        
+        % Front-Left Face
+        \addplot3[
+            postaction={pattern=north west lines, pattern color=blue!60!black},
+            fill=blue!20, opacity=0.5
+        ] coordinates {
+            (0,0,0) (2.5,0.5,0.2) (2.8,1.3,3.2) (0.3,0.8,3.0) (0,0,0)
+        };
+        
+        % Front-Right Face
+        \addplot3[
+            postaction={pattern=north east lines, pattern color=blue!80!black},
+            fill=blue!30, opacity=0.5
+        ] coordinates {
+            (2.5,0.5,0.2) (3.3,3.5,0.6) (3.6,4.3,3.6) (2.8,1.3,3.2) (2.5,0.5,0.2)
+        };
+        
+        % Top Face
+        \addplot3[
+            postaction={pattern=north west lines, pattern color=blue!40!black},
+            fill=blue!15, opacity=0.6
+        ] coordinates {
+            (0.3,0.8,3.0) (2.8,1.3,3.2) (3.6,4.3,3.6) (1.1,3.8,3.4) (0.3,0.8,3.0)
+        };
+
+        % --- 3. Edges and Vectors ---
+        % Hidden back edges
+        \draw[thick, dashed, black!50] (O) -- (U);
+        \draw[thick, dashed, black!50] (O) -- (V);
+        \draw[thick, dashed, black!50] (O) -- (W);
+        
+        % Visible outer edges
+        \draw[dashed, black!50] (U) -- (UV) -- (V);
+        \draw[thick] (W) -- (UW) -- (UVW) -- (VW) -- cycle;
+        \draw[thick] (U) -- (UW);
+        \draw[thick] (V) -- (VW);
+        \draw[thick] (UV) -- (UVW);
+        
+        % Primary basis vectors
+        \draw[->, very thick, red!80!black] (O) -- (U) node[above right] {$\vv{u}$};
+        \draw[->, very thick, green!50!black] (O) -- (V) node[above left] {$\vv{v}$};
+        \draw[->, very thick, blue!80!black] (O) -- (W) node[left] {$\vv{w}$};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+
+\end{definition}
+
+The cross product of two vectors $\vv{u} = \ang{u_1, u_2, u_3}$ and $\vv{v} = \ang{v_1, v_2, v_3}$ can be computed using the determinant of a $3 \times 3$ matrix:
+\[
+\vv{u} \times \vv{v} = \begin{vmatrix}
+\vv{i} & \vv{j} & \vv{k} \\
+u_1 & u_2 & u_3 \\
+v_1 & v_2 & v_3
+\end{vmatrix}
+= \vv{i} \begin{vmatrix} u_2 & u_3 \\ v_2 & v_3 \end{vmatrix}
+- \vv{j} \begin{vmatrix} u_1 & u_3 \\ v_1 & v_3 \end{vmatrix}
++ \vv{k} \begin{vmatrix} u_1 & u_2 \\ v_1 & v_2 \end{vmatrix}
+\]
+
+\begin{problem}{Cross Product}{cross_product}
+Let $\vv{v} = \ang{3, 2, -1}$, $\vv{w} = \ang{4, 1, -3}$. Find $\vv{v} \times \vv{w}$.
+\end{problem}
+
+\begin{sol}
+\begin{align*}
+\vv{v} \times \vv{w} &= \begin{vmatrix}
+\vv{i} & \vv{j} & \vv{k} \\
+3 & 2 & -1 \\
+4 & 1 & -3
+\end{vmatrix} \\
+&= \vv{i} \begin{vmatrix} 2 & -1 \\ 1 & -3 \end{vmatrix}
+- \vv{j} \begin{vmatrix} 3 & -1 \\ 4 & -3 \end{vmatrix}
++ \vv{k} \begin{vmatrix} 3 & 2 \\ 4 & 1 \end{vmatrix} \\
+&= \vv{i}(2(-3) - (-1)(1)) - \vv{j}(3(-3) - (-1)(4)) + \vv{k}(3(1) - 2(4)) \\
+&= \vv{i}(-6 + 1) - \vv{j}(-9 + 4) + \vv{k}(3 - 8) \\
+&= \vv{i}(-5) - \vv{j}(-5) + \vv{k}(-5) \\
+&= -5\vv{i} + 5\vv{j} - 5\vv{k}
+\end{align*}
+\end{sol}
+
+\subsubsection*{Properties of the Cross Product}
+\begin{itemize}
+    \item $\vv{v} \times \vv{w} \perp \vv{v}$ and $\vv{v} \times \vv{w} \perp \vv{w}$. This implies that $\vv{v} \cdot (\vv{v} \times \vv{w}) = 0$ and $\vv{w} \cdot (\vv{v} \times \vv{w}) = 0$.
+    \item $\{\vv{v}, \vv{w}, \vv{v} \times \vv{w}\}$ forms a right-handed system.
+    \item $\norm{\vv{v} \times \vv{w}}$ represents the area of the parallelogram spanned by $\vv{v}$ and $\vv{w}$.
+\end{itemize}
+
+\subsubsection*{Algebraic Rules of the Cross Product}
+\begin{itemize}
+    \item Anti-commutativity: $\vv{v} \times \vv{w} = -(\vv{w} \times \vv{v})$
+    \item Parallel vectors: $\vv{v} \times \vv{w} = \vv{0} \iff \vv{v} = \lambda \vv{w}$ or $\vv{w} = \vv{0}$.
+    \item Scalar multiplication: $\lambda (\vv{v} \times \vv{w}) = (\lambda \vv{v}) \times \vv{w} = \vv{v} \times (\lambda \vv{w})$
+    \item Distributivity: $(\vv{u} + \vv{v}) \times \vv{w} = \vv{u} \times \vv{w} + \vv{v} \times \vv{w}$
+    \item Standard basis relations:
+    \[
+    \vv{i} \times \vv{j} = \vv{k}, \quad \vv{j} \times \vv{k} = \vv{i}, \quad \vv{k} \times \vv{i} = \vv{j}
+    \]
+\end{itemize}
+
+Hence, we may expand the cross product of two vectors $\vv{v} = \ang{v_1, v_2, v_3}$ and $\vv{w} = \ang{w_1, w_2, w_3}$ component-wise:
+\begin{align*}
+\vv{v} \times \vv{w} &= (v_1 \vv{i} + v_2 \vv{j} + v_3 \vv{k}) \times (w_1 \vv{i} + w_2 \vv{j} + w_3 \vv{k}) \\
+                     &= v_1 w_1 (\vv{i} \times \vv{i}) + v_1 w_2 (\vv{i} \times \vv{j}) + v_1 w_3 (\vv{i} \times \vv{k}) \\
+                     &\quad + v_2 w_1 (\vv{j} \times \vv{i}) + v_2 w_2 (\vv{j} \times \vv{j}) + v_2 w_3 (\vv{j} \times \vv{k}) \\
+                     &\quad + v_3 w_1 (\vv{k} \times \vv{i}) + v_3 w_2 (\vv{k} \times \vv{j}) + v_3 w_3 (\vv{k} \times \vv{k}) \\
+                     &= v_1 w_2 \vv{k} - v_1 w_3 \vv{j} - v_2 w_1 \vv{k} + v_2 w_3 \vv{i} + v_3 w_1 \vv{j} - v_3 w_2 \vv{i} \\
+                     &= (v_2 w_3 - v_3 w_2) \vv{i} + (v_3 w_1 - v_1 w_3) \vv{j} + (v_1 w_2 - v_2 w_1) \vv{k}
+\end{align*}
+
+\subsection*{Scalar Triple Product}
+
+Given $\vv{u}, \vv{v}, \vv{w} \in \mathbb{R}^3$, the quantity $\vv{u} \cdot (\vv{v} \times \vv{w})$ is defined as the \textbf{scalar triple product}.
+
+The absolute value $|\vv{u} \cdot (\vv{v} \times \vv{w})|$ gives the geometric volume of the parallelepiped spanned by $\vv{u}$, $\vv{v}$, and $\vv{w}$:
+
+\begin{center}
+\begin{tikzpicture}[scale=1.1, >=Stealth]
+    \begin{axis}[
+        view={120}{20},
+        axis lines=center,
+        axis on top,
+        xlabel={$x$},
+        ylabel={$y$},
+        zlabel={$z$},
+        xmin=0, xmax=4,
+        ymin=0, ymax=4,
+        zmin=0, zmax=6,
+        ticks=none,
+        enlargelimits=false
+    ]
+        % Base Vertices
+        \coordinate (O) at (0,0,0);
+        \coordinate (V) at (2.5,0.5,0);
+        \coordinate (W) at (0.5,3.0,0);
+        \coordinate (VW) at ($(V)+(W)$);
+        
+        % Top Vertices
+        \coordinate (U) at (1.0,1.0,3.0);
+        \coordinate (UV) at ($(U)+(V)$);
+        \coordinate (UW) at ($(U)+(W)$);
+        \coordinate (UVW) at ($(U)+(V)+(W)$);
+        
+        % Normal vector direction (v x w)
+        \coordinate (VxW) at (0,0,3.5);
+
+        % Base Parallelogram
+        \addplot3[orange!20, opacity=0.6] coordinates {
+            (0,0,0) (2.5,0.5,0) (3.0,3.5,0) (0.5,3.0,0) (0,0,0)
+        };
+        
+        % Entire Parallelepiped Sides
+        \addplot3[orange!10, opacity=0.4] coordinates {
+            (1.0,1.0,3.0) (3.5,1.5,3.0) (4.0,4.5,3.0) (1.5,4.0,3.0) (1.0,1.0,3.0)
+        };
+        
+        % Drawn Edges
+        \draw[thick, dashed, black!40] (O) -- (V);
+        \draw[thick, dashed, black!40] (O) -- (W);
+        \draw[thick, dashed, black!40] (O) -- (U);
+        
+        \draw[dashed, black!50] (V) -- (VW) -- (W);
+        \draw[thick] (U) -- (UV) -- (UVW) -- (UW) -- cycle;
+        \draw[thick] (V) -- (UV);
+        \draw[thick] (W) -- (UW);
+        \draw[thick] (VW) -- (UVW);
+        
+        % Vectors
+        \draw[->, line width=3pt, red!80!black] (O) -- (V) node[below left] {$\vv{v}$};
+        \draw[->, line width=3pt, green!50!black] (O) -- (W) node[below right] {$\vv{w}$};
+        \draw[->, line width=3pt, blue!80!black] (O) -- (U) node[above right] {$\vv{u}$};
+        
+        % Cross product vector
+        \draw[->, line width=3pt, purple!80!black] (O) -- (VxW) node[above] {$\vv{v} \times \vv{w}$};
+        
+        % Height projection
+        \draw[dotted, thick, black] (U) -- (1.0,1.0,0) node[below=2pt] {$h = \norm{\vv{u}}\cos\theta$};
+        
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+
+The sign of $\vv{u} \cdot (\vv{v} \times \vv{w})$ indicates the orientation of the vector basis.
+
+$\vv{u} \cdot (\vv{v} \times \vv{w}) > 0$ if the ordered triple $(\vv{u}, \vv{v}, \vv{w})$ forms a \textbf{right-handed system} (i.e., $\vv{u}$ points to the same side of the plane spanned by $\vv{v}$ and $\vv{w}$ as $\vv{v} \times \vv{w}$).
 
 \end{document}

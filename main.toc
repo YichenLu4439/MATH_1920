@@ -17,3 +17,7 @@
 \contentsline {paragraph}{Right-Hand Rule}{8}{section*.7}%
 \contentsline {subsection}{\numberline {3.1}Dot Product}{9}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Determinants and Cross Products}{14}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Properties of the Cross Product}{17}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Algebraic Rules of the Cross Product}{17}{subsubsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.3}Scalar Triple Product}{18}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Discussion 2: Quadric Surfaces and Traces}{19}{section.4}%

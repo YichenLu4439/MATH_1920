@@ -32,6 +32,8 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
 \usetikzlibrary{arrows.meta, calc, angles, quotes, patterns, 3d, positioning, shapes.geometric}
+% \usetikzlibrary{external}
+% \tikzexternalize
 
 % --- Custom Multivariable Macros ---
 \newcommand{\pdv}[2]{\frac{\partial #1}{\partial #2}}
@@ -380,8 +382,7 @@ d(P,Q) = \norm{\vv{PQ}} = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}
 
 This distance formula is a direct application of the Pythagorean theorem, where the distance $d(P,Q)$ forms the hypotenuse of a right-angled triangle with legs $|x_2 - x_1|$ and $|y_2 - y_1|$, as shown in the figure below.
 
-\begin{figure}[htbp]
-\centering
+\begin{center}
 \begin{tikzpicture}[scale=1.2]
     % Grid and axes
     \draw[thin, gray!30] (0,0) grid (5,4);
@@ -407,7 +408,7 @@ This distance formula is a direct application of the Pythagorean theorem, where 
     \filldraw (P) circle (2pt) node[below] {$P(x_1,y_1)$};
     \filldraw (Q) circle (2pt) node[above right] {$Q(x_2,y_2)$};
 \end{tikzpicture}
-\end{figure}
+\end{center}
 
 The case in $\mathbb{R}^3$ follows similarly:
 
@@ -438,8 +439,7 @@ Now consider the equation $x^2 + y^2 = 1$ in three-dimensional space, $\mathbb{R
 \]
 Because $z$ is completely unrestricted, the cross-section at any constant height $z=c$ forms the unit circle $x^2 + y^2 = 1$. Consequently, this equation describes a \textit{right circular cylinder} extending infinitely along the $z$-axis, as shown.
 
-\begin{figure}[htbp]
-\centering
+\begin{center}
 \begin{tikzpicture}
 \begin{axis}[
     axis lines=center,
@@ -470,8 +470,7 @@ Because $z$ is completely unrestricted, the cross-section at any constant height
     
 \end{axis}
 \end{tikzpicture}
-\end{figure}
-
+\end{center}
 \subsection{Linear Equations across Dimensions}
 
 In $\mathbb{R}^2$, the general form of a linear equation is given by:
@@ -1066,14 +1065,14 @@ Let $\vv{v} = \ang{3, 2, -1}$, $\vv{w} = \ang{4, 1, -3}$. Find $\vv{v} \times \v
 \end{align*}
 \end{sol}
 
-\subsubsection*{Properties of the Cross Product}
+\subsubsection{Properties of the Cross Product}
 \begin{itemize}
     \item $\vv{v} \times \vv{w} \perp \vv{v}$ and $\vv{v} \times \vv{w} \perp \vv{w}$. This implies that $\vv{v} \cdot (\vv{v} \times \vv{w}) = 0$ and $\vv{w} \cdot (\vv{v} \times \vv{w}) = 0$.
     \item $\{\vv{v}, \vv{w}, \vv{v} \times \vv{w}\}$ forms a right-handed system.
     \item $\norm{\vv{v} \times \vv{w}}$ represents the area of the parallelogram spanned by $\vv{v}$ and $\vv{w}$.
 \end{itemize}
 
-\subsubsection*{Algebraic Rules of the Cross Product}
+\subsubsection{Algebraic Rules of the Cross Product}
 \begin{itemize}
     \item Anti-commutativity: $\vv{v} \times \vv{w} = -(\vv{w} \times \vv{v})$
     \item Parallel vectors: $\vv{v} \times \vv{w} = \vv{0} \iff \vv{v} = \lambda \vv{w}$ or $\vv{w} = \vv{0}$.
@@ -1095,7 +1094,7 @@ Hence, we may expand the cross product of two vectors $\vv{v} = \ang{v_1, v_2, v
                      &= (v_2 w_3 - v_3 w_2) \vv{i} + (v_3 w_1 - v_1 w_3) \vv{j} + (v_1 w_2 - v_2 w_1) \vv{k}
 \end{align*}
 
-\subsection*{Scalar Triple Product}
+\subsection{Scalar Triple Product}
 
 Given $\vv{u}, \vv{v}, \vv{w} \in \mathbb{R}^3$, the quantity $\vv{u} \cdot (\vv{v} \times \vv{w})$ is defined as the \textbf{scalar triple product}.
 
@@ -1170,5 +1169,333 @@ The absolute value $|\vv{u} \cdot (\vv{v} \times \vv{w})|$ gives the geometric v
 The sign of $\vv{u} \cdot (\vv{v} \times \vv{w})$ indicates the orientation of the vector basis.
 
 $\vv{u} \cdot (\vv{v} \times \vv{w}) > 0$ if the ordered triple $(\vv{u}, \vv{v}, \vv{w})$ forms a \textbf{right-handed system} (i.e., $\vv{u}$ points to the same side of the plane spanned by $\vv{v}$ and $\vv{w}$ as $\vv{v} \times \vv{w}$).
+
+\section{Discussion 2: Quadric Surfaces and Traces}
+
+\begin{definition}{Quadric Surface}{quadric_surface}
+A quadric surface is defined by a quadratic equation in three variables $x$, $y$, and $z$:
+\[
+Ax^2 + By^2 + Cz^2 + Dxy + Eyz + Fxz + ax + by + cz + d = 0
+\]
+, where $A, B, C, D, E, F, a, b, c, d$ are constants, and at least one of $A, B, C, D, E, F$ is non-zero.
+\end{definition}
+
+\begin{definition}{Trace}{trace}
+A trace is the intersection of a quadric surface with a plane, usually by taking slices parallel to the coordinate planes.
+
+Note that when our surface can be written by $z = f(x, y)$, the traces form level sets of $f$.
+\end{definition}
+
+\begin{example}
+Consider the quadratic equation $z = x^2 - y^2$.
+% A plot is needed here using tikz
+Now take the traces in $z = -1$, $z = 0$, and $z = 1$.
+% 3 plots are needed here using tikz and minipage. The three plots should be in a row.
+Make a sketch of the traces in $x = -1$, $x = 0$, and $x = 1$.
+% 3 plots are needed here using tikz and minipage. The three plots should be in a row.
+In general, the traces in $x = k$ when $k$ is a constant are hypobolas with equations $z = k^2 - y^2$.
+
+\end{example}
+
+Ellipsoids are another family of quadric surfaces. The general equation of an ellipsoid is given by:
+\[
+\left(\frac{x}{a}\right)^2 + \left(\frac{y}{b}\right)^2 + \left(\frac{z}{c}\right)^2 = 1
+\]
+
+Consider the quadratic equation $z = x^2 - y^2$.
+
+% % --- 3D Surface Plot with a Slicing Trace Plane ---
+% \begin{center}
+% \begin{tikzpicture}[scale=1.15, >=Stealth]
+%     \begin{axis}[
+%         view={60}{25},
+%         axis lines=center,
+%         axis on top,
+%         xlabel={$x$},
+%         ylabel={$y$},
+%         zlabel={$z$},
+%         xmin=-2.2, xmax=2.2,
+%         ymin=-2.2, ymax=2.2,
+%         zmin=-3.2, zmax=3.2,
+%         ticks=none,
+%         enlargelimits=false
+%     ]
+%         % 1. Hyperbolic Paraboloid Surface
+%         \addplot3[
+%             surf,
+%             domain=-1.6:1.6,
+%             domain y=-1.6:1.6,
+%             samples=25,
+%             colormap/cool,
+%             faceted color=black!15,
+%             opacity=0.65
+%         ] {x^2 - y^2};
+
+%         % 2. Cutting Plane at z = 1
+%         \addplot3[
+%             surf,
+%             domain=-2:2,
+%             domain y=-2:2,
+%             samples=2,
+%             fill=orange!30,
+%             fill opacity=0.45,
+%             draw=orange!80!black,
+%             thick
+%         ] (x, y, 1);
+
+%         % 3. Trace Intersection Curve: x^2 - y^2 = 1 at z = 1
+%         \addplot3[
+%             red!90!black,
+%             ultra thick,
+%             domain=-1.25:1.25,
+%             samples=40
+%         ] ({cosh(x)}, {sinh(x)}, 1);
+        
+%         \addplot3[
+%             red!90!black,
+%             ultra thick,
+%             domain=-1.25:1.25,
+%             samples=40
+%         ] ({-cosh(x)}, {sinh(x)}, 1);
+
+%         \node[orange!90!black, right] at (axis cs:1.8, -1.8, 1) {Cutting Plane $z = 1$};
+%         \node[red!90!black, right] at (axis cs:1.3, 0.4, 1.3) {Trace Curve};
+%     \end{axis}
+% \end{tikzpicture}
+% \end{center}
+
+% Now take the traces in $z = -1$, $z = 0$, and $z = 1$.
+
+% % --- Traces in z = k (Top Row Alignment Fix) ---
+% \vspace{0.8em}
+% \noindent
+% \begin{minipage}[t]{0.32\linewidth}
+%     \centering
+%     \textbf{Trace at $z = -1$}\\[0.4em]
+%     \begin{tikzpicture}[scale=0.65, >=Stealth]
+%         \begin{axis}[
+%             view={55}{25},
+%             axis lines=center,
+%             axis on top,
+%             xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+%             xmin=-1.8, xmax=1.8, ymin=-1.8, ymax=1.8, zmin=-2.2, zmax=1.8,
+%             ticks=none, enlargelimits=false
+%         ]
+%             \addplot3[surf, domain=-1.4:1.4, domain y=-1.4:1.4, samples=15, colormap/cool, opacity=0.35, faceted color=gray!30] {x^2 - y^2};
+%             \addplot3[surf, domain=-1.5:1.5, domain y=-1.5:1.5, samples=2, fill=orange!25, opacity=0.4, draw=orange!70!black] (x, y, -1);
+            
+%             % Open hyperbola branches (No straight connecting lines)
+%             \addplot3[red!90!black, ultra thick, domain=-1.1:1.1, samples=30] ({sinh(x)}, {cosh(x)}, -1);
+%             \addplot3[red!90!black, ultra thick, domain=-1.1:1.1, samples=30] ({sinh(x)}, {-cosh(x)}, -1);
+%         \end{axis}
+%     \end{tikzpicture}
+    
+%     \vspace{0.2em}
+%     {\small $y^2 - x^2 = 1$}
+%     \vspace{0.4em}
+    
+%     \begin{tikzpicture}[scale=0.65, >=Stealth]
+%         \begin{axis}[
+%             axis lines=middle,
+%             xlabel={$x$}, ylabel={$y$},
+%             xmin=-2.2, xmax=2.2, ymin=-2.2, ymax=2.2,
+%             ticks=none, axis equal image
+%         ]
+%             \addplot[blue!80!black, thick, domain=-1.6:1.6, samples=40] ({x}, {sqrt(1 + x^2)});
+%             \addplot[blue!80!black, thick, domain=-1.6:1.6, samples=40] ({x}, {-sqrt(1 + x^2)});
+%             \addplot[gray, dashed, domain=-1.8:1.8] {x};
+%             \addplot[gray, dashed, domain=-1.8:1.8] {-x};
+%         \end{axis}
+%     \end{tikzpicture}
+% \end{minipage}\hfill
+% \begin{minipage}[t]{0.32\linewidth}
+%     \centering
+%     \textbf{Trace at $z = 0$}\\[0.4em]
+%     \begin{tikzpicture}[scale=0.65, >=Stealth]
+%         \begin{axis}[
+%             view={55}{25},
+%             axis lines=center,
+%             axis on top,
+%             xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+%             xmin=-1.8, xmax=1.8, ymin=-1.8, ymax=1.8, zmin=-2.2, zmax=1.8,
+%             ticks=none, enlargelimits=false
+%         ]
+%             \addplot3[surf, domain=-1.4:1.4, domain y=-1.4:1.4, samples=15, colormap/cool, opacity=0.35, faceted color=gray!30] {x^2 - y^2};
+%             \addplot3[surf, domain=-1.5:1.5, domain y=-1.5:1.5, samples=2, fill=orange!25, opacity=0.4, draw=orange!70!black] (x, y, 0);
+            
+%             \addplot3[red!90!black, ultra thick, domain=-1.4:1.4, samples=2] (x, x, 0);
+%             \addplot3[red!90!black, ultra thick, domain=-1.4:1.4, samples=2] (x, -x, 0);
+%         \end{axis}
+%     \end{tikzpicture}
+    
+%     \vspace{0.2em}
+%     {\small $y = \pm x$}
+%     \vspace{0.4em}
+    
+%     \begin{tikzpicture}[scale=0.65, >=Stealth]
+%         \begin{axis}[
+%             axis lines=middle,
+%             xlabel={$x$}, ylabel={$y$},
+%             xmin=-2.2, xmax=2.2, ymin=-2.2, ymax=2.2,
+%             ticks=none, axis equal image
+%         ]
+%             \addplot[blue!80!black, thick, domain=-1.8:1.8] {x};
+%             \addplot[blue!80!black, thick, domain=-1.8:1.8] {-x};
+%         \end{axis}
+%     \end{tikzpicture}
+% \end{minipage}\hfill
+% \begin{minipage}[t]{0.32\linewidth}
+%     \centering
+%     \textbf{Trace at $z = 1$}\\[0.4em]
+%     \begin{tikzpicture}[scale=0.65, >=Stealth]
+%         \begin{axis}[
+%             view={55}{25},
+%             axis lines=center,
+%             axis on top,
+%             xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+%             xmin=-1.8, xmax=1.8, ymin=-1.8, ymax=1.8, zmin=-2.2, zmax=1.8,
+%             ticks=none, enlargelimits=false
+%         ]
+%             \addplot3[surf, domain=-1.4:1.4, domain y=-1.4:1.4, samples=15, colormap/cool, opacity=0.35, faceted color=gray!30] {x^2 - y^2};
+%             \addplot3[surf, domain=-1.5:1.5, domain y=-1.5:1.5, samples=2, fill=orange!25, opacity=0.4, draw=orange!70!black] (x, y, 1);
+            
+%             \addplot3[red!90!black, ultra thick, domain=-1.1:1.1, samples=30] ({cosh(x)}, {sinh(x)}, 1);
+%             \addplot3[red!90!black, ultra thick, domain=-1.1:1.1, samples=30] ({-cosh(x)}, {sinh(x)}, 1);
+%         \end{axis}
+%     \end{tikzpicture}
+    
+%     \vspace{0.2em}
+%     {\small $x^2 - y^2 = 1$}
+%     \vspace{0.4em}
+    
+%     \begin{tikzpicture}[scale=0.65, >=Stealth]
+%         \begin{axis}[
+%             axis lines=middle,
+%             xlabel={$x$}, ylabel={$y$},
+%             xmin=-2.2, xmax=2.2, ymin=-2.2, ymax=2.2,
+%             ticks=none, axis equal image
+%         ]
+%             \addplot[blue!80!black, thick, domain=-1.6:1.6, samples=40] ({sqrt(1 + x^2)}, {x});
+%             \addplot[blue!80!black, thick, domain=-1.6:1.6, samples=40] ({-sqrt(1 + x^2)}, {x});
+%             \addplot[gray, dashed, domain=-1.8:1.8] {x};
+%             \addplot[gray, dashed, domain=-1.8:1.8] {-x};
+%         \end{axis}
+%     \end{tikzpicture}
+% \end{minipage}
+
+% \vspace{1.5em}
+% Make a sketch of the traces in $x = -1$, $x = 0$, and $x = 1$. Slicing the surface with vertical planes $x = k$ parallel to the $yz$-plane yields parabolic trace curves.
+
+% % --- Traces in x = k (Bottom Row Alignment Fix) ---
+% \vspace{0.8em}
+% \noindent
+% \begin{minipage}[t]{0.32\linewidth}
+%     \centering
+%     \textbf{Trace at $x = -1$}\\[0.4em]
+%     \begin{tikzpicture}[scale=0.65, >=Stealth]
+%         \begin{axis}[
+%             view={55}{25},
+%             axis lines=center,
+%             axis on top,
+%             xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+%             xmin=-1.8, xmax=1.8, ymin=-1.8, ymax=1.8, zmin=-2.5, zmax=1.8,
+%             ticks=none, enlargelimits=false
+%         ]
+%             \addplot3[surf, domain=-1.4:1.4, domain y=-1.4:1.4, samples=15, colormap/cool, opacity=0.35, faceted color=gray!30] {x^2 - y^2};
+%             % Slicing Plane at x = -1
+%             \addplot3[surf, domain=-1.5:1.5, domain y=-2.5:1.5, samples=2, fill=purple!25, opacity=0.4, draw=purple!70!black] (-1, x, y);
+            
+%             % Open Parabola Curve
+%             \addplot3[red!90!black, ultra thick, domain=-1.4:1.4, samples=30] (-1, x, {1 - x^2});
+%         \end{axis}
+%     \end{tikzpicture}
+    
+%     \vspace{0.2em}
+%     {\small $z = 1 - y^2$}
+%     \vspace{0.4em}
+    
+%     \begin{tikzpicture}[scale=0.65, >=Stealth]
+%         \begin{axis}[
+%             axis lines=middle,
+%             xlabel={$y$}, ylabel={$z$},
+%             xmin=-2.2, xmax=2.2, ymin=-3.2, ymax=2.2,
+%             ticks=none
+%         ]
+%             \addplot[red!80!black, thick, domain=-1.7:1.7, samples=40] {1 - x^2};
+%         \end{axis}
+%     \end{tikzpicture}
+% \end{minipage}\hfill
+% \begin{minipage}[t]{0.32\linewidth}
+%     \centering
+%     \textbf{Trace at $x = 0$}\\[0.4em]
+%     \begin{tikzpicture}[scale=0.65, >=Stealth]
+%         \begin{axis}[
+%             view={55}{25},
+%             axis lines=center,
+%             axis on top,
+%             xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+%             xmin=-1.8, xmax=1.8, ymin=-1.8, ymax=1.8, zmin=-2.5, zmax=1.8,
+%             ticks=none, enlargelimits=false
+%         ]
+%             \addplot3[surf, domain=-1.4:1.4, domain y=-1.4:1.4, samples=15, colormap/cool, opacity=0.35, faceted color=gray!30] {x^2 - y^2};
+%             % Slicing Plane at x = 0
+%             \addplot3[surf, domain=-1.5:1.5, domain y=-2.5:1.5, samples=2, fill=purple!25, opacity=0.4, draw=purple!70!black] (0, x, y);
+            
+%             % Open Parabola Curve
+%             \addplot3[red!90!black, ultra thick, domain=-1.4:1.4, samples=30] (0, x, {-x^2});
+%         \end{axis}
+%     \end{tikzpicture}
+    
+%     \vspace{0.2em}
+%     {\small $z = -y^2$}
+%     \vspace{0.4em}
+    
+%     \begin{tikzpicture}[scale=0.65, >=Stealth]
+%         \begin{axis}[
+%             axis lines=middle,
+%             xlabel={$y$}, ylabel={$z$},
+%             xmin=-2.2, xmax=2.2, ymin=-3.2, ymax=2.2,
+%             ticks=none
+%         ]
+%             \addplot[red!80!black, thick, domain=-1.7:1.7, samples=40] {-x^2};
+%         \end{axis}
+%     \end{tikzpicture}
+% \end{minipage}\hfill
+% \begin{minipage}[t]{0.32\linewidth}
+%     \centering
+%     \textbf{Trace at $x = 1$}\\[0.4em]
+%     \begin{tikzpicture}[scale=0.65, >=Stealth]
+%         \begin{axis}[
+%             view={55}{25},
+%             axis lines=center,
+%             axis on top,
+%             xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+%             xmin=-1.8, xmax=1.8, ymin=-1.8, ymax=1.8, zmin=-2.5, zmax=1.8,
+%             ticks=none, enlargelimits=false
+%         ]
+%             \addplot3[surf, domain=-1.4:1.4, domain y=-1.4:1.4, samples=15, colormap/cool, opacity=0.35, faceted color=gray!30] {x^2 - y^2};
+%             % Slicing Plane at x = 1
+%             \addplot3[surf, domain=-1.5:1.5, domain y=-2.5:1.5, samples=2, fill=purple!25, opacity=0.4, draw=purple!70!black] (1, x, y);
+            
+%             % Open Parabola Curve
+%             \addplot3[red!90!black, ultra thick, domain=-1.4:1.4, samples=30] (1, x, {1 - x^2});
+%         \end{axis}
+%     \end{tikzpicture}
+    
+%     \vspace{0.2em}
+%     {\small $z = 1 - y^2$}
+%     \vspace{0.4em}
+    
+%     \begin{tikzpicture}[scale=0.65, >=Stealth]
+%         \begin{axis}[
+%             axis lines=middle,
+%             xlabel={$y$}, ylabel={$z$},
+%             xmin=-2.2, xmax=2.2, ymin=-3.2, ymax=2.2,
+%             ticks=none
+%         ]
+%             \addplot[red!80!black, thick, domain=-1.7:1.7, samples=40] {1 - x^2};
+%         \end{axis}
+%     \end{tikzpicture}
+% \end{minipage}
 
 \end{document}

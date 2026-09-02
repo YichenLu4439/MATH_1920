@@ -1,0 +1,255 @@
+\section{Vectors in Two and Three Dimensions}
+
+\paragraph{Question:} What information specifies a line?
+\begin{itemize}
+    \item 2 points
+    \item A point and a direction vector
+    \item Slope and $y$-intercept
+    \item Intersection of 2 non-parallel planes
+\end{itemize}
+
+\paragraph{Comparison:}
+\begin{itemize}
+    \item \textbf{Single-variable calculus:} $f(x) \rightarrow \text{rate of change of } x$
+    \item \textbf{Multivariable calculus:} $f(x,y) \rightarrow \text{functions of multiple variables}$
+\end{itemize}
+
+% ------------------------------------------------------------------
+
+\subsection{Coordinates}
+
+\begin{center}
+% --- 2D Section ---
+\begin{minipage}[t]{0.48\textwidth}
+    \textbf{2-dimension (2D):} $(2,3)$
+    \vspace{0.5em}
+
+    \centering
+    \begin{tikzpicture}[scale=0.85, >=Stealth]
+        % Grid and axes
+        \draw[thin, gray!20] (-0.5,-0.5) grid (3.5,4.5);
+        \draw[->, thick] (-0.5,0) -- (3.5,0) node[right] {$x$};
+        \draw[->, thick] (0,-0.5) -- (0,4.5) node[above] {$y$};
+        
+        % Dashed Projection Lines
+        \draw[dashed, red, thick] (2,0) -- (2,3) -- (0,3);
+        
+        % Point Plot
+        \filldraw[red] (2,3) circle (2.5pt) node[above right] {$(2,3)$};
+        
+        % Axis ticks
+        \foreach \x in {1,2,3}
+            \draw (\x,2pt) -- (\x,-2pt) node[below] {\footnotesize $\x$};
+        \foreach \y in {1,2,3,4}
+            \draw (2pt,\y) -- (-2pt,\y) node[left] {\footnotesize $\y$};
+    \end{tikzpicture}
+\end{minipage}
+\hfill
+% --- 3D Section ---
+\begin{minipage}[t]{0.48\textwidth}
+    \textbf{3-dimension (3D):} $(1, \pi, 3)$
+    \vspace{0.5em}
+
+    \centering
+    \begin{tikzpicture}[scale=0.85]
+    \begin{axis}[
+        view={60}{30},
+        axis lines=center,
+        xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+        xmin=0, xmax=2,
+        ymin=0, ymax=4,
+        zmin=0, zmax=4,
+        ticks=none,
+        enlargelimits=false
+    ]
+        % Coordinates: x=1, y=pi (~3.14), z=3
+        % Projection box (dashed lines)
+        \draw[dashed, blue!60, thick] (axis cs:1,0,0) -- (axis cs:1,3.14159,0) -- (axis cs:0,3.14159,0);
+        \draw[dashed, blue!60, thick] (axis cs:1,3.14159,0) -- (axis cs:1,3.14159,3);
+        \draw[dashed, blue!60, thick] (axis cs:0,0,3) -- (axis cs:1,0,3) -- (axis cs:1,3.14159,3);
+        \draw[dashed, blue!60, thick] (axis cs:0,0,3) -- (axis cs:0,3.14159,3) -- (axis cs:1,3.14159,3);
+
+        % Point Plot
+        \addplot3[only marks, mark=*, mark size=2.5pt, color=blue] 
+            coordinates {(1, 3.14159, 3)};
+        
+        % Node Label
+        \node[above right, color=blue] at (axis cs:1, 3.14159, 3) {$(1, \pi, 3)$};
+    \end{axis}
+    \end{tikzpicture}
+\end{minipage}
+\end{center}
+
+% ------------------------------------------------------------------
+\subsection{Vectors and Position Vectors}
+
+\begin{definition}{Equivalent Vectors}{equiv_vectors}
+Two vectors are \textbf{equivalent} if one is a translation (pure shift without rotation) of the other.
+\end{definition}
+
+\begin{example}
+Given points $P=(1,3)$, $Q=(5,4)$ and $P'=(1,1)$, $Q'=(5,2)$.
+Let $R = (4,1)$ and $O = (0,0)$. Then:
+\[
+\vv{PQ} = \vv{P'Q'} = \vv{OR}
+\]
+
+This could be indicated by the diagram below:
+
+\begin{center}
+\begin{tikzpicture}[scale=1.1, >=Stealth]
+    % Grid and Axes
+    \draw[thin, gray!20] (-0.5,-0.5) grid (5.5,4.5);
+    \draw[->, thick] (-0.5,0) -- (5.8,0) node[right] {$x$};
+    \draw[->, thick] (0,-0.5) -- (0,4.8) node[above] {$y$};
+
+    % Axis Ticks
+    \foreach \x in {1,2,3,4,5}
+        \draw (\x,0.1) -- (\x,-0.1) node[below, font=\small] {$\x$};
+    \foreach \y in {1,2,3,4}
+        \draw (0.1,\y) -- (-0.1,\y) node[left, font=\small] {$\y$};
+
+    % Coordinates
+    \coordinate (O)  at (0,0);
+    \coordinate (R)  at (4,1);
+    \coordinate (P') at (1,1);
+    \coordinate (Q') at (5,2);
+    \coordinate (P)  at (1,3);
+    \coordinate (Q)  at (5,4);
+
+    % Vectors (Equal, displacement <4, 1>)
+    \draw[->, ultra thick, color=red]   (O)  -- (R)  node[midway, above] {$\vv{OR}$};
+    \draw[->, ultra thick, color=blue]  (P') -- (Q') node[midway, above] {$\vv{P'Q'}$};
+    \draw[->, ultra thick, color=purple](P)  -- (Q)  node[midway, above] {$\vv{PQ}$};
+
+    % Points & Labels
+    \fill[black] (O)  circle (2pt) node[below left]  {$O(0,0)$};
+    \fill[black] (R)  circle (2pt) node[below right] {$R(4,1)$};
+    \fill[black] (P') circle (2pt) node[above]  {$P'(1,1)$};
+    \fill[black] (Q') circle (2pt) node[above] {$Q'(5,2)$};
+    \fill[black] (P)  circle (2pt) node[above]  {$P(1,3)$};
+    \fill[black] (Q)  circle (2pt) node[above right] {$Q(5,4)$};
+\end{tikzpicture}
+\end{center}
+\end{example}
+
+\begin{definition}{Position Vector}{pos_vector}
+A vector whose initial point is at the origin $O(0,0)$ is called a \textbf{position vector}. It is written using angle brackets:
+\[
+\vv{OR} = \ang{4, 1}
+\]
+\end{definition}
+
+\begin{definition}{Magnitude}{magnitude}
+The \textbf{length} or \textbf{magnitude} of a vector $\vv{v}$, denoted by $\norm{\vv{v}}$, is the length of the line segment between its endpoints.
+\end{definition}
+
+If $\vv{v} = \ang{v_1, v_2}$, then its magnitude is given by:
+\[
+\norm{\vv{v}} = \sqrt{v_1^2 + v_2^2}
+\]
+
+For example, using $\vv{PQ} = \ang{4,1}$:
+\[
+\norm{\vv{PQ}} = \sqrt{4^2 + 1^2} = \sqrt{17}
+\]
+
+% ------------------------------------------------------------------
+\subsection{Unit Vectors}
+
+A vector $\vv{v}$ is called a \textbf{unit vector} if its magnitude is 1, i.e., $\norm{\vv{v}} = 1$.
+
+\begin{problem}{Describing Unit Vectors}{unit_vectors}
+Describe all unit vectors in $\mathbb{R}^2$.
+\end{problem}
+
+\begin{sol}
+A vector $\vv{v} = \ang{x, y}$ is a unit vector if and only if $x^2 + y^2 = 1$. Equivalently, using polar parameterization:
+\[
+\vv{v}(t) = \ang{\cos t, \sin t} \quad \text{for } 0 \le t < 2\pi
+\]
+% --- Unit Circle TikZ Plot ---
+\begin{center}
+\begin{tikzpicture}[scale=1.5, >=Stealth]
+    % Grid and axes
+    \draw[thin, gray!30] (-1.4,-1.4) grid (1.4,1.4);
+    \draw[->, thick] (-1.5,0) -- (1.5,0) node[right] {$x$};
+    \draw[->, thick] (0,-1.5) -- (0,1.5) node[above] {$y$};
+    
+    % Unit circle
+    \draw[blue, thick] (0,0) circle (1cm);
+    
+    % Standard basis vectors
+    \draw[->, very thick, red] (0,0) -- (1,0) node[midway, below] {$\hat{i}$};
+    \draw[->, very thick, green!60!black] (0,0) -- (0,1) node[midway, left] {$\hat{j}$};
+    
+    % Arbitrary unit vector
+    \draw[->, very thick, orange] (0,0) -- (45:1cm) node[above right] {$\vv{v} = \ang{\cos t, \sin t}$};
+    \draw (0.3,0) arc (0:45:0.3cm) node[midway, right] {$t$};
+\end{tikzpicture}
+\end{center}
+\end{sol}
+
+\paragraph{Standard Basis Vectors:}
+\begin{itemize}
+    \item \textbf{2D Basis Vectors:} $\hat{i} = \ang{1,0}$, \quad $\hat{j} = \ang{0,1}$
+    \item \textbf{3D Basis Vectors:} $\hat{i} = \ang{1,0,0}$, \quad $\hat{j} = \ang{0,1,0}$, \quad $\hat{k} = \ang{0,0,1}$
+\end{itemize}
+
+% ------------------------------------------------------------------
+\subsection{Vector Operations}
+
+\paragraph{Addition and Subtraction:}
+\begin{align*}
+    \ang{v_1, v_2} + \ang{w_1, w_2} &= \ang{v_1 + w_1, v_2 + w_2} \\
+    \ang{v_1, v_2} - \ang{w_1, w_2} &= \ang{v_1 - w_1, v_2 - w_2} \quad \text{(Equivalent to } \vv{v} + (-1)\vv{w}\text{)}
+\end{align*}
+
+\paragraph{Scalar Multiplication:}
+For any scalar $\lambda \in \mathbb{R}$ and vector $\vv{v} = \ang{v_1, v_2}$:
+\[
+\lambda \vv{v} = \ang{\lambda v_1, \lambda v_2}
+\]
+
+% --- Parallelogram Rule TikZ Plot ---
+\begin{center}
+\begin{tikzpicture}[scale=1.2, >=Stealth]
+    \draw[->, thick] (-0.5,0) -- (5,0) node[right] {$x$};
+    \draw[->, thick] (0,-0.5) -- (0,4) node[above] {$y$};
+    
+    % Vectors
+    \coordinate (O) at (0,0);
+    \coordinate (V) at (3,1);
+    \coordinate (W) at (1,2.5);
+    \coordinate (VW) at (4,3.5);
+    
+    \draw[->, very thick, blue] (O) -- (V) node[midway, below right] {$\vv{v}$};
+    \draw[->, very thick, green!60!black] (O) -- (W) node[midway, above left] {$\vv{w}$};
+    
+    % Dashed parallelogram lines
+    \draw[dashed, thick, gray] (V) -- (VW) node[midway, right] {$\vv{w}'$};
+    \draw[dashed, thick, gray] (W) -- (VW) node[midway, above] {$\vv{v}'$};
+    
+    % Resultant vector
+    \draw[->, very thick, red] (O) -- (VW) node[above right] {$\vv{v} + \vv{w} = \vv{w} + \vv{v}$};
+\end{tikzpicture}
+\end{center}
+
+\begin{tcolorbox}[colback=red!5!white, colframe=red!75!black, title=Important Note]
+Vectors are \textbf{not} designed to be divided! (Vector division is undefined).
+\end{tcolorbox}
+
+
+
+% ------------------------------------------------------------------
+\subsection{Parallel Vectors}
+
+\begin{definition}{Parallel Vectors}{parallel_vectors}
+Two non-zero vectors $\vv{v}$ and $\vv{w}$ ($\vv{v}, \vv{w} \neq \ang{0,0}$) are \textit{parallel} (denoted as $\vv{v} \parallel \vv{w}$) if there exists a non-zero scalar $\lambda \in \mathbb{R}$ such that:
+\[
+\vv{w} = \lambda \vv{v}
+\]
+\end{definition}
+
+\paragraph{Equivalent Geometric Definition:}
+$\vv{v} \parallel \vv{w}$ if and only if both vectors define or lie on the \textit{same line passing through the origin.}

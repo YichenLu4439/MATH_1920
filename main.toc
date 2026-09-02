@@ -13,11 +13,11 @@
 \contentsline {section}{\numberline {2}Discussion Week 1: Distance Formulae and Geometric Shapes}{5}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Equations of Geometric Shapes}{6}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Linear Equations across Dimensions}{6}{subsection.2.2}%
-\contentsline {section}{\numberline {3}Vector and Directions}{7}{section.3}%
+\contentsline {section}{\numberline {3}Vectors and Directions}{8}{section.3}%
 \contentsline {paragraph}{Right-Hand Rule}{8}{section*.7}%
-\contentsline {subsection}{\numberline {3.1}Dot Product}{9}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.1}Dot Product}{10}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Determinants and Cross Products}{14}{subsection.3.2}%
 \contentsline {subsubsection}{\numberline {3.2.1}Properties of the Cross Product}{17}{subsubsection.3.2.1}%
 \contentsline {subsubsection}{\numberline {3.2.2}Algebraic Rules of the Cross Product}{17}{subsubsection.3.2.2}%
 \contentsline {subsection}{\numberline {3.3}Scalar Triple Product}{18}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Discussion 2: Quadric Surfaces and Traces}{19}{section.4}%
+\contentsline {section}{\numberline {4}Discussion Week 2: Quadric Surfaces and Traces}{19}{section.4}%

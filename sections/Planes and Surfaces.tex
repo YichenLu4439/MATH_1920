@@ -170,3 +170,89 @@ x + 2y + 3z = 4
 \end{tikzpicture}
 \end{minipage}
 \end{sol}
+
+What data determines a sphere?
+\begin{itemize}
+    \item point in $\mathbb{R}^3$ and a number in $\mathbb{R}^{>0}$ (the radius)
+    \item 2 points (the endpoints of a diameter)
+    \item 4 points (noncoplanar)
+    \item a plane tangent to the sphere and 3 points on the sphere
+\end{itemize}
+
+\begin{definition}{Traces}{traces}
+A trace is an intersection of an object with plane $x = k$, $y = k$, or $z = k$.
+\end{definition}
+
+\begin{example}
+Trace of a sphere is a circle.
+\[
+(x - a)^2 + (y - b)^2 + (z - c)^2 = R^2
+\]
+Taking a trace of the sphere with the plane $z = k$, there are 3 cases:
+\begin{itemize}
+    \item $|k - c| = R$: the trace is a single point at $(a, b, k)$.
+    \item $|k - c| < R$: the trace is a circle of radius $\sqrt{R^2 - (k - c)^2}$ centered at $(a, b, k)$.
+    \item $|k - c| > R$: the trace is empty (no intersection).
+\end{itemize}
+%% a plot that shows how exactly the trace was obtained using TikZ is needed
+\end{example}
+
+$\mathcal{P} = \{(x, y, z) | -2x + 6y - 5z = 4\}$, trace with the plane $x = -1$ is
+\begin{align*}
+-2(-1) + 6y - 5z &= 4 \\
+2 + 6y - 5z &= 4 \\
+6y - 5z &= 2 \\
+z &= \dfrac{6y}{5} - \dfrac{2}{5}
+\end{align*}
+
+A quadric surface is given by
+\[
+Ax^2 + By^2 + Cz^2 + Dxy + Eyz + Fzx + ax + by + cz + d = 0
+\]
+
+In practice, we often consider the quadric surface as a simpler form by assuming $D = E = F = 0.$
+This is what we often refer to as the ``standard position'' of a quadric surface.
+
+\begin{example}
+$x^2 + z^2 = 1$ is a cylinder centered on the $y$-axis with radius $1$.
+
+The $z = 0$ trace: $x = \pm 1$
+
+The $x = 0$ trace: $z = \pm 1$
+% draw the four lines on the axes
+This implies the shape of the surface.
+\end{example}
+
+\begin{example}
+$x^2 + 4y^2 - z^2 = -1$.
+
+The $x = 0$ trace: $4y^2 - z^2 = -1$, $z = \pm \sqrt{4y^2 + 1} \approx \pm 2y$ for large enough $|y|$.
+%plot
+
+The $y = 0$ trace: $x^2 - z^2 = -1$, $z = \pm \sqrt{x^2 + 1} \approx \pm x$ for large enough $|x|$.
+%plot
+
+The $z = k$ trace: $x^2 + 4y^2 - k^2 = -1$. 
+\begin{itemize}
+    \item $|k| = 1$: the trace is a single point at the origin.
+    \item $|k| < 1$: the trace is empty (no intersection).
+    \item $|k| > 1$: the trace is an ellipse of the form $x^2 + 4y^2 = k^2 - 1$.
+\end{itemize}
+%plot 4 z=k traces that is symmetric about the origin where |k| > 1
+% now plot the former plotted traces on the axes
+
+but now, how do we know that the ellipse would exactly fall on the surface?
+%...
+\end{example}
+
+$x^2 + y^2 + z^2 = 4$ intersection with line through $(1, 0, 1), (-1, 0, 1)$
+
+line: $\ell (t): (t, 0, 1)$
+substitute $\ell(t)$ into the sphere equation:
+\[
+    (t)^2 + (0)^2 + (1)^2 = 4 \\
+    t^2 + 1 = 4 \\
+    t^2 = 3 \\
+    t = \pm \sqrt{3} 
+\]
+So the intersection points are $\ell(\sqrt{3}) = (\sqrt{3}, 0, 1)$ and $\ell(-\sqrt{3}) = (-\sqrt{3}, 0, 1)$.

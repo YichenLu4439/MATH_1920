@@ -1,8 +1,40 @@
-\contentsline {section}{\numberline {1}Coordinate Systems and Vector-Valued Functions}{1}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Coordinate Systems in 3D Space}{1}{subsection.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.1}Polar Coordinates (2D)}{1}{subsubsection.1.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.2}Cylindrical Coordinates}{2}{subsubsection.1.1.2}%
-\contentsline {subsubsection}{\numberline {1.1.3}Spherical Coordinates}{2}{subsubsection.1.1.3}%
-\contentsline {subsection}{\numberline {1.2}Coordinate System Transformations}{3}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Vector-Valued Functions}{4}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Gallery of Parametric Space Curves}{7}{subsection.1.4}%
+\contentsline {section}{\numberline {1}Vectors in Two and Three Dimensions}{1}{section.1}%
+\contentsline {paragraph}{Question:}{1}{section*.1}%
+\contentsline {paragraph}{Comparison:}{1}{section*.2}%
+\contentsline {subsection}{\numberline {1.1}Coordinates}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Vectors and Position Vectors}{1}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Unit Vectors}{3}{subsection.1.3}%
+\contentsline {paragraph}{Standard Basis Vectors:}{3}{section*.3}%
+\contentsline {subsection}{\numberline {1.4}Vector Operations}{3}{subsection.1.4}%
+\contentsline {paragraph}{Addition and Subtraction:}{3}{section*.4}%
+\contentsline {paragraph}{Scalar Multiplication:}{4}{section*.5}%
+\contentsline {subsection}{\numberline {1.5}Parallel Vectors}{4}{subsection.1.5}%
+\contentsline {paragraph}{Equivalent Geometric Definition:}{4}{section*.6}%
+\contentsline {section}{\numberline {2}Discussion Week 1: Distance Formulae and Geometric Shapes}{5}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Equations of Geometric Shapes}{6}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Linear Equations across Dimensions}{6}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Vectors and Directions}{8}{section.3}%
+\contentsline {paragraph}{Right-Hand Rule}{8}{section*.7}%
+\contentsline {subsection}{\numberline {3.1}Dot Product}{10}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Determinants and Cross Products}{14}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Properties of the Cross Product}{17}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Algebraic Rules of the Cross Product}{17}{subsubsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.3}Scalar Triple Product}{18}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Discussion Week 2: Quadric Surfaces and Traces}{19}{section.4}%
+\contentsline {section}{\numberline {5}Planes and Surfaces}{21}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Determining a Plane}{21}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Mathematical Formulations of a Plane}{21}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Properties of Normal Vectors}{22}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Spheres and Planes}{24}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Determining a Sphere}{24}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Plane-Sphere Intersections}{25}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Traces of Surfaces}{25}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Quadric Surfaces}{26}{subsection.6.4}%
+\contentsline {section}{\numberline {7}Vector-Valued Functions}{28}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Coordinate Systems in 3D Space}{28}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {7.1.1}Polar Coordinates (2D)}{28}{subsubsection.7.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.2}Cylindrical Coordinates}{29}{subsubsection.7.1.2}%
+\contentsline {subsubsection}{\numberline {7.1.3}Spherical Coordinates}{29}{subsubsection.7.1.3}%
+\contentsline {subsection}{\numberline {7.2}Coordinate System Transformations}{30}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Vector-Valued Functions}{31}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Gallery of Parametric Space Curves}{34}{subsection.7.4}%

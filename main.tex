@@ -32,6 +32,7 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
 \usetikzlibrary{arrows.meta, calc, angles, quotes, patterns, 3d, positioning, shapes.geometric}
+\usetikzlibrary{intersections, decorations.pathreplacing, backgrounds, fit}
 
 % --- Custom Multivariable Macros ---
 \newcommand{\pdv}[2]{\frac{\partial #1}{\partial #2}}
@@ -40,7 +41,10 @@
 \newcommand{\curl}{\nabla \times}
 \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
 \newcommand{\ang}[1]{\left\langle #1 \right\rangle} % Angle brackets for vectors
-
+\newcommand{\ddt}[1][]{%
+ \frac{\mathrm{d}#1}{\mathrm{d}t}%
+}
+\newcommand{\dd}[1]{\mathrm{d}#1}
 % --- Custom Theorem Environments ---
 \tcbuselibrary{theorems}
 
@@ -114,12 +118,13 @@
 
 \pagenumbering{arabic} 
 % ===============================================
-% \include{sections/Vectors in Two and Three Dimensions}
-% \include{sections/Discussion Week 1}
-% \include{sections/Vectors and Directions}
-% \include{sections/Discussion Week 2}
-% \include{sections/Planes and Surfaces}
-% \include{sections/Vector_Valued Functions}
-\include{sections/tbd}
+\include{sections/Vectors in Two and Three Dimensions}
+\include{sections/Discussion Week 1}
+\include{sections/Vectors and Directions}
+\include{sections/Discussion Week 2}
+\include{sections/Planes and Surfaces}
+\include{sections/Vector_Valued Functions}
+\include{sections/Scalar_Valued Functions of Several Variables}
+\include{sections/Limits and Continuity of Functions of Several Variables}
 
 \end{document}

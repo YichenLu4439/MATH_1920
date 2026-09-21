@@ -252,3 +252,231 @@ $\vv{r}(s) = \ang{\cos s, \sin s, \sin(4s)}$
 $\vv{r}(t) = \ang{\cos t, \sin t, 4\sin t}$
 \end{minipage}
 \end{center}
+
+\subsection{Parameterization of Curves and Surfaces}
+
+\begin{problem}{Parameterization of a Curve on a Surface}{parameterization_of_surfaces}
+Find a parameterization for the curve given by the intersection of the surfaces $y = \sqrt{x^2 + z^2}$ and $x = z^2$.
+\end{problem}
+
+\begin{sol}
+Notice that for any choice of $z \in \mathbb{R}$, the value of $x$ is uniquely determined by $x = z^2$. We can set $z = t$ as our parameter.
+Then,
+\begin{align*}
+    x &= t^2 \\
+    z &= t \\
+    y &= \sqrt{(t^2)^2 + t^2} = \sqrt{t^4 + t^2} = |t|\sqrt{t^2 + 1}
+\end{align*}
+Thus, a vector parameterization of the curve is:
+\[
+\vv{r}(t) = \ang{t^2, |t|\sqrt{t^2 + 1}, t}, \quad t \in \mathbb{R}
+\]
+\end{sol}
+
+\subsection{Calculus of Vector-Valued Functions}
+
+Calculus operations on vector-valued functions are defined component-wise.
+
+For a vector-valued function $\vv{r}(t) = \ang{x(t), y(t), z(t)}$, limits, derivatives, and integrals are computed as follows:
+
+\[
+\lim_{t \to t_0} \vv{r}(t) = \ang{\lim_{t \to t_0} x(t), \lim_{t \to t_0} y(t), \lim_{t \to t_0} z(t)}
+\]
+
+\[
+\vv{r}'(t) = \ang{x'(t), y'(t), z'(t)}
+\]
+
+\[
+\int_a^b \vv{r}(t) \dd{t} = \ang{\int_a^b x(t) \dd{t}, \int_a^b y(t) \dd{t}, \int_a^b z(t) \dd{t}}
+\]
+
+\begin{example}[Tangent Vectors and Parameterizing Tangent Lines]
+Given the circular helix $\vv{r}(t) = \ang{\cos t, \sin t, t}$.
+
+Differentiating component-wise gives:
+\begin{align*}
+\vv{r}'(t) &= \ang{-\sin t, \cos t, 1} \\
+\vv{r}'(0) &= \ang{0, 1, 1}
+\end{align*}
+
+The derivative $\vv{r}'(0)$ yields a vector representing the tangent direction of the curve at $t = 0$.
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    view={60}{30},
+    axis lines=center,
+    xlabel=$x$, ylabel=$y$, zlabel=$z$,
+    xmin=-1.5, xmax=1.5,
+    ymin=-1.5, ymax=1.5,
+    zmin=0, zmax=7,
+    ticks=none,
+    enlargelimits=false
+]
+    % Helix Curve
+    \addplot3[domain=0:2*pi, samples=100, samples y=0, blue, thick, -{Stealth}] 
+        ({cos(deg(x))}, {sin(deg(x))}, {x});
+    
+    % Point at t = 0
+    \node[circle, fill=black, inner sep=1.5pt] at (axis cs:1,0,0) {};
+    \node[above left] at (axis cs:1,0,0) {$\vv{r}(0)$};
+    
+    % Tangent Vector at t = 0
+    \draw[-{Stealth}, red, ultra thick] (axis cs:1,0,0) -- (axis cs:1,1,1) node[right] {$\vv{r}'(0)$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+To parameterize the tangent line $\ell(t)$ to the helix at $t = 0$:
+\[
+\vv{r}(0) = \ang{1, 0, 0}
+\]
+Thus,
+\begin{align*}
+\ell(t) &= \vv{r}(0) + t\vv{r}'(0) \\
+&= \ang{1, 0, 0} + t\ang{0, 1, 1} = \ang{1, t, t}
+\end{align*}
+\end{example}
+
+\begin{problem}{Derivative and Singular Points of a Cycloid}{derivative_of_vector_valued_functions}
+Find the derivative of the vector-valued function $\vv{r}(t) = \ang{t - \sin t, 1 - \cos t}$ and evaluate it at $t = \frac{\pi}{2}, \pi, 2\pi$.
+\end{problem}
+
+\begin{sol}
+Differentiating each component with respect to $t$:
+\begin{align*}
+\vv{r}'(t) &= \ang{\frac{\dd{}}{\dd{t}}(t - \sin t), \frac{\dd{}}{\dd{t}}(1 - \cos t)} \\
+&= \ang{1 - \cos t, \sin t}
+\end{align*}
+
+Evaluating at specific parameter values:
+\begin{align*}
+\vv{r}'\left(\frac{\pi}{2}\right) &= \ang{1 - \cos \frac{\pi}{2}, \sin \frac{\pi}{2}} = \ang{1, 1} \\
+\vv{r}'(\pi) &= \ang{1 - \cos \pi, \sin \pi} = \ang{2, 0} \\
+\vv{r}'(2\pi) &= \ang{1 - \cos 2\pi, \sin 2\pi} = \ang{0, 0}
+\end{align*}
+\end{sol}
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=middle,
+    xlabel=$x$, ylabel=$y$,
+    xmin=-0.5, xmax=13,
+    ymin=-0.5, ymax=2.5,
+    plot box ratio=0.5,
+    samples=200,
+    domain=0:4*pi
+]
+    \addplot[thick, blue] ({x - sin(deg(x))}, {1 - cos(deg(x))});
+    \node[circle, fill=red, inner sep=1.5pt, label=above:{$t=2\pi$ (Cusp)}] at (axis cs:{2*pi}, 0) {};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+Notice from the graph of the cycloid that at $t = 2\pi$, the curve forms a sharp sharp corner (cusp). At this point, $\vv{r}'(2\pi) = \ang{0, 0}$. Although the vector function $\vv{r}(t)$ is differentiable everywhere, the tangent line direction is undefined at the cusp because the derivative vector vanishes.
+
+\subsection{Properties of Vector Derivatives \& Integration}
+
+\begin{problem}{Orthogonality Property for Constant-Length Vector Functions}{implication_of_norm_r_t}
+If $\norm{\vv{r}(t)} = c$ for some constant $c$, what does this imply about the relationship between $\vv{r}(t)$ and its derivative $\vv{r}'(t)$?
+\end{problem}
+
+\begin{sol}
+Since $\norm{\vv{r}(t)} = c$, taking the square of both sides yields:
+\[
+\norm{\vv{r}(t)}^2 = c^2 \implies \vv{r}(t) \cdot \vv{r}(t) = c^2
+\]
+Differentiating both sides with respect to $t$ using the product rule for dot products:
+\begin{align*}
+\frac{\dd{}}{\dd{t}}\left(\vv{r}(t) \cdot \vv{r}(t)\right) &= \frac{\dd{}}{\dd{t}}(c^2) \\
+\vv{r}'(t) \cdot \vv{r}(t) + \vv{r}(t) \cdot \vv{r}'(t) &= 0 \\
+2\vv{r}(t) \cdot \vv{r}'(t) &= 0 \implies \vv{r}(t) \cdot \vv{r}'(t) = 0
+\end{align*}
+Therefore, $\vv{r}(t) \perp \vv{r}'(t)$ for all $t$. (The position vector is always orthogonal to its velocity vector).
+\end{sol}
+
+\subsubsection*{Product Rule Verification for Dot Products}
+Given two vector-valued functions $\vv{r_1}(t), \vv{r_2}(t) \in \mathbb{R}^2$:
+\begin{align*}
+\frac{\dd{}}{\dd{t}}\left[\vv{r_1}(t) \cdot \vv{r_2}(t)\right] &= \frac{\dd{}}{\dd{t}}\left[x_1(t)x_2(t) + y_1(t)y_2(t)\right] \\
+&= x_1'(t)x_2(t) + x_1(t)x_2'(t) + y_1'(t)y_2(t) + y_1(t)y_2'(t) \\
+&= \vv{r_1}'(t) \cdot \vv{r_2}(t) + \vv{r_1}(t) \cdot \vv{r_2}'(t)
+\end{align*}
+
+\begin{problem}{Initial Value Problem for Motion}{integration_of_vector_valued_functions}
+A particle moves with velocity $\vv{v}(t) = \ang{3t^2 - 2, \cos (\pi t), \sqrt{t}}$. Find its position vector $\vv{r}(t)$, given the initial condition $\vv{r}(0) = \ang{2, 1, 1}$.
+\end{problem}
+
+\begin{sol}
+Integrating $\vv{v}(t)$ component-wise:
+\begin{align*}
+\vv{r}(t) &= \int \vv{v}(t) \, \dd{t} \\
+&= \ang{\int (3t^2 - 2) \, \dd{t}, \int \cos (\pi t) \, \dd{t}, \int t^{1/2} \, \dd{t}} \\
+&= \ang{t^3 - 2t + C_1, \frac{1}{\pi} \sin (\pi t) + C_2, \frac{2}{3} t^{3/2} + C_3}
+\end{align*}
+
+Applying the initial condition $\vv{r}(0) = \ang{2, 1, 1}$:
+\[
+\vv{r}(0) = \ang{C_1, C_2, C_3} = \ang{2, 1, 1} \implies C_1 = 2, \, C_2 = 1, \, C_3 = 1
+\]
+Therefore,
+\[
+\vv{r}(t) = \ang{t^3 - 2t + 2, \frac{1}{\pi} \sin (\pi t) + 1, \frac{2}{3} t^{3/2} + 1}
+\]
+\end{sol}
+
+\textit{Note on Circular Motion:} If given acceleration $\vv{r}''(t) = \ang{-\cos t, -\sin t, 0}$, to uniquely guarantee that $\vv{r}(t)$ describes a circle centered at the origin, appropriate initial conditions for both position $\vv{r}(0)$ and velocity $\vv{r}'(0)$ must be specified.
+
+\subsection{Arc Length of Curves}
+
+The arc length $s$ of a smooth curve $\vv{r}(t) = \ang{x(t), y(t)}$ on $t \in [a, b]$ is derived as the limit of polygonal approximations:
+\[
+s = \lim_{\Delta t \to 0} \sum \sqrt{\left(\frac{\Delta x}{\Delta t}\right)^2 + \left(\frac{\Delta y}{\Delta t}\right)^2} \Delta t 
+= \int_a^b \sqrt{(x'(t))^2 + (y'(t))^2} \, \dd{t} 
+= \int_a^b \norm{\vv{r}'(t)} \dd{t}
+\]
+
+\begin{example}[Arc Length of a Helix]
+Find the arc length of $\vv{r}(t) = \ang{\cos t, \sin t, t}$ for $t \in [0, 2\pi]$.
+
+First, evaluate the speed $\norm{\vv{r}'(t)}$:
+\[
+\vv{r}'(t) = \ang{-\sin t, \cos t, 1} \implies \norm{\vv{r}'(t)} = \sqrt{(-\sin t)^2 + \cos^2 t + 1^2} = \sqrt{2}
+\]
+Thus, the arc length is:
+\[
+s = \int_0^{2\pi} \sqrt{2} \, \dd{t} = 2\pi\sqrt{2}
+\]
+\end{example}
+
+\begin{example}[Arc Length of an Ellipse and Elliptic Integrals]
+Consider the ellipse $x^2 + \frac{y^2}{4} = 1$.
+
+\textbf{Method 1 (Cartesian Parameterization - Upper Half):}
+Setting $x = t$ and $y = 2\sqrt{1 - t^2}$ for $t \in [-1, 1]$ yields:
+\[
+\vv{r}(t) = \ang{t, 2\sqrt{1 - t^2}} \implies \vv{r}'(t) = \ang{1, -\frac{2t}{\sqrt{1 - t^2}}}
+\]
+\[
+\norm{\vv{r}'(t)} = \sqrt{1 + \frac{4t^2}{1 - t^2}} = \sqrt{\frac{1 + 3t^2}{1 - t^2}}
+\]
+The arc length of the upper half is given by $\int_{-1}^1 \sqrt{\frac{1 + 3t^2}{1 - t^2}} \, \dd{t}$.
+
+\textbf{Method 2 (Trigonometric Parameterization - Full Ellipse):}
+Setting $x = \cos t$ and $y = 2\sin t$ for $t \in [0, 2\pi]$:
+\[
+\vv{r}'(t) = \ang{-\sin t, 2\cos t} \implies \norm{\vv{r}'(t)} = \sqrt{\sin^2 t + 4\cos^2 t} = \sqrt{4 - 3\sin^2 t}
+\]
+The total perimeter of the ellipse is:
+\[
+s = \int_0^{2\pi} \sqrt{4 - 3\sin^2 t} \, \dd{t}
+\]
+\end{example}
+
+\begin{definition}{Elliptic Integral}{elliptic_integral}
+An elliptic integral is a type of integral that cannot be expressed in terms of elementary functions.
+\end{definition}
+
+\textit{Elliptic Integrals:} It turns out these integrals cannot be evaluated in terms of elementary functions. They belong to a class of functions known as \textbf{elliptic integrals}, which require numerical methods to evaluate.

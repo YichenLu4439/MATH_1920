@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.22)  14 SEP 2026 09:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.22)  21 SEP 2026 10:57
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -700,36 +700,48 @@ File: tikzlibrarypositioning.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 File: tikzlibraryshapes.geometric.code.tex 2025-08-29 v3.1.11a (3.1.11a)
  (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.geometric.code.tex
 File: pgflibraryshapes.geometric.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-))
-\c@tcb@cnt@definition=\count361
-\c@tcb@cnt@problem=\count362
-\c@tcb@cnt@solution=\count363
-\c@example=\count364
+)) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryintersections.code.tex (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/libraries/pgflibraryintersections.code.tex
+\pgf@intersect@solutions=\count361
+)) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybackgrounds.code.tex
+File: tikzlibrarybackgrounds.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@layerbox@background=\box83
+\pgf@layerboxsaved@background=\box84
+) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfit.code.tex
+File: tikzlibraryfit.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+\c@tcb@cnt@definition=\count362
+\c@tcb@cnt@problem=\count363
+\c@tcb@cnt@solution=\count364
+\c@example=\count365
  (/usr/local/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count365
-) (./main.aux (./sections/tbd.aux))
+\l__color_backend_stack_int=\count366
+) (./main.aux (./sections/Vectors in Two and Three Dimensions.aux) (./sections/Discussion Week 1.aux) (./sections/Vectors and Directions.aux
+
+LaTeX Warning: Label `prob:vector_projection' multiply defined.
+
+) (./sections/Discussion Week 2.aux) (./sections/Planes and Surfaces.aux) (./sections/Vector_Valued Functions.aux) (./sections/Scalar_Valued Functions of Several Variables.aux) (./sections/Limits and Continuity of Functions of Several Variables.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-Package hyperref Info: Link coloring ON on input line 81.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+Package hyperref Info: Link coloring ON on input line 85.
  (./main.out) (./main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
@@ -772,16 +784,16 @@ Package hyperref Info: Link coloring ON on input line 81.
 Couldn't patch \deferred@thm@head!
 (/usr/local/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count366
+\scratchcounter=\count367
 \scratchdimen=\dimen314
-\scratchbox=\box83
-\nofMPsegments=\count367
-\nofMParguments=\count368
+\scratchbox=\box85
+\nofMPsegments=\count368
+\nofMParguments=\count369
 \everyMPshowfont=\toks49
-\MPscratchCnt=\count369
+\MPscratchCnt=\count370
 \MPscratchDim=\dimen315
-\MPnumerator=\count370
-\makeMPintoPDFobject=\count371
+\MPnumerator=\count371
+\makeMPintoPDFobject=\count372
 \everyMPtoPDFconversion=\toks50
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -789,7 +801,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/texlive/2026/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-\c@lstlisting=\count372
+\c@lstlisting=\count373
  (/usr/local/texlive/2026/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2024/02/08 v1.3d Input encoding file
 \inpenc@prehook=\toks51
@@ -797,58 +809,154 @@ Package: inputenc 2024/02/08 v1.3d Input encoding file
 )
 Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 97.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 101.
 (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 97.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 101.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+esint on input line 97.
+LaTeX Font Info:    Trying to load font information for U+esint on input line 101.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/esint/uesint.fd
 File: uesint.fd 
 )
-LaTeX Font Info:    Trying to load font information for U+esvect on input line 97.
+LaTeX Font Info:    Trying to load font information for U+esvect on input line 101.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/esvect/uesvect.fd
 File: uesvect.fd 
 ) [1
 
-{/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./main.toc)
+{/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./main.toc [1])
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
- [1]
-\openout2 = `sections/tbd.aux'.
+ [2]
+\openout2 = `"sections/Vectors in Two and Three Dimensions.aux"'.
 
- (./sections/tbd.tex
+ (./sections/Vectors in Two and Three Dimensions.tex
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.44 \end{align*}
-                  [1
+l.95 \]
+        [1
 
-] [2]) [3] (./main.aux (./sections/tbd.aux))
+{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [2] [3]) [4]
+\openout2 = `"sections/Discussion Week 1.aux"'.
+
+ (./sections/Discussion Week 1.tex [5
+
+
+
+] [6]) [7]
+\openout2 = `"sections/Vectors and Directions.aux"'.
+
+ (./sections/Vectors and Directions.tex [8
+
+
+
+] [9] [10] [11] [12]
+Underfull \hbox (badness 10000) in paragraph at lines 294--295
+
+ []
+
+[13] [14]
+
+Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.62973pt,-0.77678pt) and the unit x vector (-0.82637pt,-0.56325pt) are almost parallel (abs(cos(angle)) = 0.9579pt)! on input line 544.
+
+ [warning /pgfplots/warning/ticklabel anchor undetermined]
+
+Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.62973pt,-0.77678pt) and the unit x vector (-0.82637pt,-0.56325pt) are almost parallel (abs(cos(angle)) = 0.9579pt)! on input line 544.
+
+ [warning /pgfplots/warning/ticklabel anchor undetermined]
+[15] [16] [17]
+
+Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.62973pt,-0.77678pt) and the unit x vector (-0.90231pt,-0.43117pt) are almost parallel (abs(cos(angle)) = 0.90312pt)! on input line 680.
+
+ [warning /pgfplots/warning/ticklabel anchor undetermined]
+
+Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.62973pt,-0.77678pt) and the unit x vector (-0.90231pt,-0.43117pt) are almost parallel (abs(cos(angle)) = 0.90312pt)! on input line 680.
+
+ [warning /pgfplots/warning/ticklabel anchor undetermined]
+) [18]
+\openout2 = `"sections/Discussion Week 2.aux"'.
+
+ (./sections/Discussion Week 2.tex [19
+
+
+
+]) [20]
+\openout2 = `"sections/Planes and Surfaces.aux"'.
+
+ (./sections/Planes and Surfaces.tex [21
+
+
+
+] [22]
+Overfull \hbox (6.25854pt too wide) detected at line 133
+[] \OT1/cmr/m/n/12 = [] \OMS/cmsy/m/n/12 ^^B [] \OT1/cmr/m/n/12 = [] = []
+ []
+
+[23] [24] [25] [26]) [27]
+\openout2 = `"sections/Vector_Valued Functions.aux"'.
+
+ (./sections/Vector_Valued Functions.tex [28
+
+
+
+] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38] [39]) [40]
+\openout2 = `"sections/Scalar_Valued Functions of Several Variables.aux"'.
+
+ (./sections/Scalar_Valued Functions of Several Variables.tex [41
+
+
+
+]
+Overfull \hbox (12.06836pt too wide) in paragraph at lines 66--67
+ [][] 
+ []
+
+
+Overfull \hbox (12.06836pt too wide) in paragraph at lines 85--86
+ [][] 
+ []
+
+
+Overfull \hbox (12.06836pt too wide) in paragraph at lines 104--105
+ [][] 
+ []
+
+) [42] [43]
+\openout2 = `"sections/Limits and Continuity of Functions of Several Variables.aux"'.
+
+ (./sections/Limits and Continuity of Functions of Several Variables.tex [44
+
+
+
+] [45] [46]) [47] (./main.aux (./sections/Vectors in Two and Three Dimensions.aux) (./sections/Discussion Week 1.aux) (./sections/Vectors and Directions.aux) (./sections/Discussion Week 2.aux) (./sections/Planes and Surfaces.aux) (./sections/Vector_Valued Functions.aux) (./sections/Scalar_Valued Functions of Several Variables.aux) (./sections/Limits and Continuity of Functions of Several Variables.aux))
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 3611BE4B1D9DE70069FE359EB0EE9835;430.
+(rerunfilecheck)             Checksum: 3D94132750560BBC31E47A253E7D71F0;8776.
  ) 
 Here is how much of TeX's memory you used:
- 39761 strings out of 467525
- 945757 string characters out of 5418982
- 1499811 words of memory out of 5000000
- 68006 multiletter control sequences out of 15000+600000
- 645240 words of font info for 114 fonts, out of 8000000 for 9000
+ 42052 strings out of 467525
+ 1002250 string characters out of 5418982
+ 4638576 words of memory out of 5000000
+ 70062 multiletter control sequences out of 15000+600000
+ 647637 words of font info for 124 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 116i,22n,121p,757b,1176s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/esint-type1/esint10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/esvect/vect10.pfb>
-Output written on main.pdf (5 pages, 149647 bytes).
+ 116i,27n,121p,757b,2713s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/esint-type1/esint10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/esvect/vect10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/esvect/vect6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/esvect/vect8.pfb>
+Output written on main.pdf (50 pages, 530072 bytes).
 PDF statistics:
- 158 PDF objects out of 1000 (max. 8388607)
- 98 compressed objects within 1 object stream
- 14 named destinations out of 1000 (max. 500000)
- 173 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 704 PDF objects out of 1000 (max. 8388607)
+ 578 compressed objects within 6 object streams
+ 179 named destinations out of 1000 (max. 500000)
+ 501 words of extra memory for PDF output out of 10000 (max. 10000000)
 

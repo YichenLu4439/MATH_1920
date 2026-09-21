@@ -52,7 +52,7 @@ The standard domain boundaries are:
 \begin{center}
 \begin{tikzpicture}
 \begin{axis}[
-    view={60}{30},
+    view={120}{30},
     axis lines=center,
     xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
     xmin=-0.5, xmax=2.5, ymin=-0.5, ymax=2.5, zmin=-0.5, zmax=2.5
@@ -111,7 +111,7 @@ Consider the vector function $\vv{r}(t) = \ang{\cos t, \sin t, 1}$ for $0 \le t 
 \begin{center}
 \begin{tikzpicture}
 \begin{axis}[
-    view={60}{30},
+    view={120}{30},
     axis lines=center,
     xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
     xmin=-1.5, xmax=1.5, ymin=-1.5, ymax=1.5, zmin=0, zmax=1.5
@@ -202,10 +202,10 @@ Below are standard parametric 3D space curves used in multivariable trajectory a
 \centering
 \begin{tikzpicture}
 \begin{axis}[
-    view={60}{30},
+    view={120}{30},
     axis lines=center,
     xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
-    xmin=-1.2, xmax=1.2, ymin=-1.2, ymax=1.2, zmin=0, zmax=13,
+    xmin=-1.2, xmax=1.2, ymin=-1.2, ymax=1.2, zmin=-4, zmax=13,
     ticks=none
 ]
     \addplot3[domain=0:4*pi, samples=100, samples y=0, thick, red]
@@ -220,7 +220,7 @@ $\vv{r}(t) = \ang{\cos t, \sin t, t}$
 \centering
 \begin{tikzpicture}
 \begin{axis}[
-    view={60}{30},
+    view={120}{30},
     axis lines=center,
     xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
     xmin=-1.2, xmax=1.2, ymin=-1.2, ymax=1.2, zmin=-1.2, zmax=1.2,
@@ -365,7 +365,7 @@ Evaluating at specific parameter values:
     xlabel=$x$, ylabel=$y$,
     xmin=-0.5, xmax=13,
     ymin=-0.5, ymax=2.5,
-    plot box ratio=0.5,
+    plot box ratio=0.4,
     samples=200,
     domain=0:4*pi
 ]
@@ -462,8 +462,10 @@ Setting $x = t$ and $y = 2\sqrt{1 - t^2}$ for $t \in [-1, 1]$ yields:
 \[
 \norm{\vv{r}'(t)} = \sqrt{1 + \frac{4t^2}{1 - t^2}} = \sqrt{\frac{1 + 3t^2}{1 - t^2}}
 \]
-The arc length of the upper half is given by $\int_{-1}^1 \sqrt{\frac{1 + 3t^2}{1 - t^2}} \, \dd{t}$.
-
+The arc length of the upper half is given by 
+\[
+\int_{-1}^1 \sqrt{\frac{1 + 3t^2}{1 - t^2}} \, \dd{t}.
+\]
 \textbf{Method 2 (Trigonometric Parameterization - Full Ellipse):}
 Setting $x = \cos t$ and $y = 2\sin t$ for $t \in [0, 2\pi]$:
 \[

@@ -21,21 +21,27 @@ The graph of a function $f(x, y)$ is defined as the surface $\{(x, y, z) \in \ma
 \begin{example}[Analyzing Traces of $f(x,y) = y\sin x$]
 To visualize $f(x, y) = y \sin x$, we examine slices along constant coordinates (traces):
 
-\begin{* }
-    \item \textbf{$y$-traces ($y = c$):} 
-    For $y = 0 \implies z = 0$; 
-    for $y = 1 \implies z = \sin x$; 
-    for $y = -1 \implies z = -\sin x$. (Sinusoidal curves scaled by $y$).
-    \item \textbf{$x$-traces ($x = c$):} 
-    For $x = 0 \implies z = 0$; 
-    for $x = \frac{\pi}{2} \implies z = y$; 
-    for $x = \pi \implies z = 0$. (Lines whose slopes depend on $\sin x$).
-\end{* }
+\begin{itemize}
+    \item \textbf{$y$-traces ($y = c$):} \\
+    For $y = 0 \implies z = 0$; \\
+    for $y = 1 \implies z = \sin x$; \\
+    for $y = -1 \implies z = -\sin x$. (Sinusoidal curves scaled by $y$). 
+    \item \textbf{$x$-traces ($x = c$):} \\
+    For $x = 0 \implies z = 0$; \\
+    for $x = \frac{\pi}{2} \implies z = y$; \\
+    for $x = \pi \implies z = 0$. (Lines whose slopes depend on $\sin x$). 
+\end{itemize}
 \end{example}
+
 \subsection{Level Sets and Contour Maps}
 
-For a function $f: D \to \mathbb{R}$ ($D \subseteq \mathbb{R}^2$), the \textbf{level set} (or level curve) at height $c$ is defined as $\{(x, y) \in \mathbb{R}^2 : f(x, y) = c\}$. A collection of such level curves forms a \textbf{contour map}.
-
+\begin{definition}{Level Set}{level_set}
+For a function $f: D \to \mathbb{R}$ ($D \subseteq \mathbb{R}^2$), the \textbf{level set} (or level curve) at height $c$ is defined as
+\[
+\{(x, y) \in \mathbb{R}^2 : f(x, y) = c\}.
+\]
+A collection of such level curves forms a \textbf{contour map}.
+\end{definition}
 \begin{example}[Comparing Level Curves]
 Consider three functions and their level sets $f(x,y) = c$:
 \begin{enumerate}

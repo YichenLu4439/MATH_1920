@@ -44,7 +44,7 @@
 \contentsline {subsection}{\numberline {7.8}Arc Length of Curves}{39}{subsection.7.8}%
 \contentsline {section}{\numberline {8}Scalar-Valued Functions of Several Variables}{41}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Visualizing Multivariable Functions: Traces and Level Sets}{41}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Level Sets and Contour Maps}{41}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.2}Level Sets and Contour Maps}{42}{subsection.8.2}%
 \contentsline {subsection}{\numberline {8.3}Visualizing Higher Dimensions via Slices}{42}{subsection.8.3}%
 \contentsline {section}{\numberline {9}Limits and Continuity of Functions of Several Variables}{44}{section.9}%
 \contentsline {paragraph}{Systematic Path Approaches}{46}{section*.13}%

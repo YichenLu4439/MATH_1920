@@ -355,6 +355,8 @@ INPUT /usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libr
 INPUT /usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybackgrounds.code.tex
 INPUT /usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfit.code.tex
 INPUT /usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfit.code.tex
+INPUT /usr/local/texlive/2026/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.groupplots.code.tex
+INPUT /usr/local/texlive/2026/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.groupplots.code.tex
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT ./main.aux
@@ -551,6 +553,7 @@ OUTPUT sections/Limits and Continuity of Functions of Several Variables.aux
 INPUT ./sections/Limits and Continuity of Functions of Several Variables.tex
 INPUT ./sections/Limits and Continuity of Functions of Several Variables.tex
 INPUT sections/Limits and Continuity of Functions of Several Variables.tex
+INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
 INPUT main.aux
 INPUT ./sections/Vectors in Two and Three Dimensions.aux
 INPUT ./sections/Vectors in Two and Three Dimensions.aux

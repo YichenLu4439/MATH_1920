@@ -65,72 +65,101 @@ Similarly, we can visualize the $\epsilon$-$\delta$ definition of a limit for a 
 \centering
 \begin{tikzpicture}
 \begin{axis}[
-    view={125}{25},
+    view={120}{20},
     axis lines=center,
     xlabel=$x$, ylabel=$y$, zlabel=$z$,
-    xlabel style={anchor=north west},
-    ylabel style={anchor=north east},
+    xlabel style={anchor=north east},
+    ylabel style={anchor=north west},
     zlabel style={anchor=south east},
-    xmin=0, xmax=4.2, ymin=0, ymax=4.2, zmin=0, zmax=4.5,
+    xmin=0, xmax=4.5, ymin=0, ymax=4.5, zmin=0, zmax=5.0,
     ticks=none,
-    width=0.9\textwidth,
-    height=0.68\textwidth,
-    title={$\epsilon$-$\delta$ Definition of Limit with Surface Projection}
+    clip=false,
+    width=0.68\textwidth,
+    height=0.68\textwidth
 ]
-    % z = f(x,y)
+    % 1. Parameter Definitions
+    \def\a{2}
+    \def\b{2}
+    \def\deltaR{0.8}   % Slightly larger radius to fill space naturally
+
+    % Compute exact coordinates and z-values
+    \pgfmathsetmacro{\xTop}{\a + \deltaR*cos(225)}
+    \pgfmathsetmacro{\yTop}{\b + \deltaR*sin(225)}
+    \pgfmathsetmacro{\zTop}{4.2 - 0.2*(\xTop-0.8)^2 - 0.2*(\yTop-0.8)^2}
+
+    \def\xCenter{\a}
+    \def\yCenter{\b}
+    \pgfmathsetmacro{\zL}{4.2 - 0.2*(\xCenter-0.8)^2 - 0.2*(\yCenter-0.8)^2}
+
+    \pgfmathsetmacro{\xBot}{\a + \deltaR*cos(45)}
+    \pgfmathsetmacro{\yBot}{\b + \deltaR*sin(45)}
+    \pgfmathsetmacro{\zBot}{4.2 - 0.2*(\xBot-0.8)^2 - 0.2*(\yBot-0.8)^2}
+
+    % 2. Disk D_delta in the xy-plane (Light orange fill)
+    \addplot3[fill=orange!40, draw=orange!90!black, thick, domain=0:360, samples=60] 
+        ({\a + \deltaR*cos(x)}, {\b + \deltaR*sin(x)}, 0);
+
+    % 3. Ground xy-plane reference lines for (a,b)
+    \draw[dashed, black!50] (axis cs:\a, 0, 0) -- (axis cs:\a, \b, 0) -- (axis cs:0, \b, 0);
+    \node[below, font=\small] at (axis cs:\a, 0, 0) {$a$};
+    \node[below right, font=\small] at (axis cs:0, \b, 0) {$b$};
+
+    % (a,b) Center point and annotation
+    \filldraw[black] (axis cs:\a, \b, 0) circle (1.5pt);
+    \node[left, font=\small] at (axis cs:\a, \b, 0) {$(a,b)$};
+    \node[below right, font=\small] at (axis cs:{\a + \deltaR}, \b, 0) {$D_\delta$};
+
+    % 4. Surface S
     \addplot3[
-        surf, domain=0.8:3.8, domain y=0.8:3.8, samples=22, samples y=22,
-        colormap/cool, opacity=0.35, faceted color=blue!30
-    ] {3.8 - 0.22*(x-1.2)^2 - 0.22*(y-1.2)^2};
-
-    \def\a{2.2}
-    \def\b{2.2}
-    \def\L{3.36} % f(2.2, 2.2) = 3.36
-    \def\deltaR{0.6}
-    \def\eps{0.4}
-
-    % delta disk in xy-plane
-    \addplot3[teal, thick, domain=0:360, samples=60] 
-        ({\a + \deltaR*cos(x)}, {\b + \deltaR*sin(x)}, {0});
-    \addplot3[teal!20, opacity=0.4, domain=0:360, samples=30] 
-        ({\a + \deltaR*cos(x)}, {\b + \deltaR*sin(x)}, {0});
-
-    % projection of delta disk onto surface
-    \addplot3[
-        surf, domain=0:\deltaR, domain y=0:360, samples=12, samples y=30,
-        colormap/viridis, opacity=0.6, faceted color=teal!70
-    ] ({\a + x*cos(y)}, {\b + x*sin(y)}, {3.8 - 0.22*(\a + x*cos(y) - 1.2)^2 - 0.22*(\b + x*sin(y) - 1.2)^2});
-
-    \pgfplotsinvokeforeach{0, 90, 180, 270}{
-        \draw[teal!70, dashed] (axis cs:{\a + \deltaR*cos(#1)}, {\b + \deltaR*sin(#1)}, 0) 
-            -- (axis cs:{\a + \deltaR*cos(#1)}, {\b + \deltaR*sin(#1)}, {3.8 - 0.22*(\a + \deltaR*cos(#1) - 1.2)^2 - 0.22*(\b + \deltaR*sin(#1) - 1.2)^2});
-    }
-
-   
-    \filldraw[teal!80!black] (axis cs:\a, \b, 0) circle (1.8pt);
-    \node[teal!90!black, font=\small, below=4pt] at (axis cs:\a, \b, 0) {$(a,b)$};
-    \node[teal!80!black, font=\small, left=8pt] at (axis cs:\a+\deltaR, \b, 0) {$\delta$-disk};
-
-    \draw[dashed, black!70, thick] (axis cs:\a, \b, 0) -- (axis cs:\a, \b, \L);
-
-    \filldraw[black] (axis cs:\a, \b, \L) circle (2pt);
-    \node[above right, font=\small] at (axis cs:\a, \b, \L) {$(a, b, f(a,b))$};
-
-    \draw[red, ultra thick] (axis cs:0, 0, \L - \eps) -- (axis cs:0, 0, \L + \eps);
+        surf, domain=0.5:3.8, domain y=0.5:3.8, samples=25, samples y=25,
+        colormap/cool, opacity=0.75, shader=flat,
+        faceted color=cyan!30
+    ] {4.2 - 0.2*(x-0.8)^2 - 0.2*(y-0.8)^2};
     
-    \draw[black!60, dashed] (axis cs:0, 0, \L) node[left, font=\small] {$f(a,b)$} -- (axis cs:\a, \b, \L);
-    
-    \draw[red!70, dashed] (axis cs:0, 0, \L + \eps) node[left, font=\small] {$f(a,b) + \epsilon$} -- (axis cs:\a - 0.35, \b - 0.35, \L + \eps);
-    
-    \draw[red!70, dashed] (axis cs:0, 0, \L - \eps) node[left, font=\small] {$f(a,b) - \epsilon$} -- (axis cs:\a + 0.35, \b + 0.35, \L - \eps);
+    % Surface label
+    \node[cyan!30!black, font=\large\itshape] at (axis cs:3.1, 3.4, 2.1) {$S$};
+
+    % 5. Cylindrical vertical shadow / projected region on surface
+    \addplot3[fill=purple!20, opacity=0.4, domain=0:360, samples=60] 
+        ({\a + \deltaR*cos(x)}, {\b + \deltaR*sin(x)}, 
+         {4.2 - 0.2*((\a + \deltaR*cos(x))-0.8)^2 - 0.2*((\b + \deltaR*sin(x))-0.8)^2});
+
+    % Projected curve outline on Surface S
+    \addplot3[black, thick, domain=0:360, samples=60] 
+        ({\a + \deltaR*cos(x)}, {\b + \deltaR*sin(x)}, 
+         {4.2 - 0.2*((\a + \deltaR*cos(x))-0.8)^2 - 0.2*((\b + \deltaR*sin(x))-0.8)^2});
+
+    % 6. Vertical Dashed Lines (from xy-plane to exact points on curve)
+    \draw[dashed, black!70] (axis cs:\xBot, \yBot, 0) -- (axis cs:\xBot, \yBot, \zBot);
+    \draw[dashed, black!70] (axis cs:\xCenter, \yCenter, 0) -- (axis cs:\xCenter, \yCenter, \zL);
+    \draw[dashed, black!70] (axis cs:\xTop, \yTop, 0) -- (axis cs:\xTop, \yTop, \zTop);
+
+    % 7. Key Dots on the Surface Curve for Visual Anchor Points
+    \filldraw[black] (axis cs:\xTop, \yTop, \zTop) circle (1.2pt);
+    \filldraw[black] (axis cs:\xCenter, \yCenter, \zL) circle (1.2pt);
+    \filldraw[black] (axis cs:\xBot, \yBot, \zBot) circle (1.2pt);
+
+    % 8. Z-axis Ticks and Horizontal Reference Lines
+
+    % L + epsilon line
+    \node[left=3pt, font=\small] at (axis cs:0, 0, \zTop) {$L + \varepsilon$};
+    \draw[black, thin] (axis cs:0, 0, \zTop) -- (axis cs:\xTop, \yTop, \zTop);
+
+    % L line
+    \node[left=3pt, font=\small] at (axis cs:0, 0, \zL) {$L$};
+    \draw[black, thin] (axis cs:0, 0, \zL) -- (axis cs:\xCenter, \yCenter, \zL);
+
+    % L - epsilon line
+    \node[left=3pt, font=\small] at (axis cs:0, 0, \zBot) {$L - \varepsilon$};
+    \draw[black, thin] (axis cs:0, 0, \zBot) -- (axis cs:\xBot, \yBot, \zBot);
 
 \end{axis}
 \end{tikzpicture}
-\caption{Visualization of the $\delta$-disk in the $xy$-plane and its projection onto the surface $z = f(x,y)$, mapped horizontally to $f(a,b) \pm \epsilon$ on the $z$-axis.}
 \end{figure}
 
+
 \begin{problem}{Limit of a Function of Two Variables}{limit_of_a_function_of_two_variables}
-Find, if it exists, $\lim_{(x, y) \to (0, 0)}{\dfrac{xy}{x^2 + y^2}}$.
+Find, if it exists, $\displaystyle\lim_{(x, y) \to (0, 0)}{\dfrac{xy}{x^2 + y^2}}$.
 \end{problem}
 
 \begin{sol}

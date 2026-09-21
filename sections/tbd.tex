@@ -1,0 +1,98 @@
+\section{Parameterization of Surfaces}
+
+\begin{problem}{Parameterization of Surfaces}{parameterization_of_surfaces}
+Given $y = \sqrt{x^2 + z^2}, x = z^2$, find a parameterization of the surface.
+\end{problem}
+
+\begin{sol}
+Since for any $z$, $\exists$ a unique position on the curve, we could set $z = t$.
+Hence,
+\begin{align*}
+    x &= t^2 \\
+    z &= t \\
+    y &= \sqrt{t^4 + t^2} = t\sqrt{t^2 + 1} \\
+    \therefore \vv{r}(t) &= \ang{t^2, |t|\sqrt{t^2 + 1}, t}
+\end{align*}
+
+\end{sol}
+
+\subsection{Calculus on Vector-Valued Functions}
+
+The calculus on vector-valued functions is component-wise. 
+
+Generally, for a vector-valued function $\vv{r}(t) = \ang{x(t), y(t)}$, we have
+\[
+\lim_{t \to t_0} \vv{r}(t) = \ang{\lim_{t \to t_0} x(t), \lim_{t \to t_0} y(t)}
+\]
+
+Similarly, the derivative is defined as
+\[
+\vv{r}'(t) = \ang{x'(t), y'(t)}
+\]
+
+The integral is defined as
+\[
+\int_a^b \vv{r}(t) dt = \ang{\int_a^b x(t) dt, \int_a^b y(t) dt}
+\]
+
+\begin{example}[Calculus on Vector-Valued Functions]
+Given $\vv{r}(t) = \ang{\cos t, \sin t, t}$.
+
+\begin{align*}
+\vv{r}'(t) &= \ang{-\sin t, \cos t, 1} \\
+\vv{r}'(0) &= \ang{0, 1, 1} \\
+\end{align*}
+
+Notice that the result of the derivative is a vector, which is the tangent vector of the curve at $t = 0$.
+
+% plot this roughly, with a red tangent vector at t = 0, and a blue curve with arrows indicating the directions for the helix
+
+Now, we want to parameterize the tangent line at $t = 0$. We have
+\[
+\vv{r}(0) = \ang{1, 0, 0}
+\]
+
+Hence,
+\begin{align*}
+\ell(t) &= \vv{r}(0) + t\vv{r}'(0) \\
+&= \ang{1, 0, 0} + t\ang{0, 1, 1} \\
+&= \ang{1, t, t}
+\end{align*}
+\end{example}
+
+\begin{problem}{Derivative of Vector-Valued Functions}{derivative_of_vector_valued_functions}
+Find the derivative of the vector-valued function $\vv{r}(t) = \ang{t - \sin t, 1 - \cos t}$.
+\end{problem}
+
+\begin{sol}
+The derivative of a vector-valued function is found by differentiating each component.
+\begin{align*}
+\vv{r}'(t) &= \ang{\frac{d}{dt}(t - \sin t), \frac{d}{dt}(1 - \cos t)} \\
+&= \ang{1 - \cos t, \sin t}.
+\end{align*}
+
+We can then compute values of the derivative at specific points.
+\begin{align*}
+\vv{r}'(\dfrac{\pi}{2}) &= \ang{1 - \cos \dfrac{\pi}{2}, \sin \dfrac{\pi}{2}} = \ang{1 - 0, 1} = \ang{1, 1} \\
+\vv{r}'(\pi) &= \ang{1 - \cos \pi, \sin \pi} = \ang{1 - (-1), 0} = \ang{2, 0} \\
+\vv{r}'(2\pi) &= \ang{1 - \cos 2\pi, \sin 2\pi} = \ang{1 - 1, 0} = \ang{0, 0}
+\end{align*}
+\end{sol}
+
+% plot the curve here with 0 <= t <= 4pi
+Notice that from the graph, it seems that the curve is ``non-differentiable'' at $t = 2\pi$. However, the derivative exists at that point, and the tangent vector is $\ang{0, 0}$, which is a zero vector. This means that the tangent line is not well-defined at that point, but the curve is still differentiable.
+
+\begin{problem}{Implication of $\norm{\vv{r}{t}}$}{implication_of_norm_r_t}
+If $\norm{\vv{r}(t)} = c$ for some constant $c$, what does this imply about the curve $\vv{r}(t)$?
+\end{problem}
+
+\begin{sol}
+\begin{align*}
+\norm{\vv{r}(t)} = c &\implies \norm{\vv{r}(t)}^2 = c^2 \\
+&\implies \vv{r}(t) \cdot \vv{r}(t) = c^2 \\
+&\implies \frac{d}{dt}(\vv{r}(t) \cdot \vv{r}(t)) = 0 \\
+&\implies 2\vv{r}(t) \cdot \vv{r}'(t) = 0 \\
+&\implies \vv{r}(t) \cdot \vv{r}'(t) = 0 \\
+&\implies \vv{r}(t) \perp \vv{r}'(t)
+\end{align*}
+\end{sol}

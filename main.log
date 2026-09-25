@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.22)  21 SEP 2026 16:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.22)  25 SEP 2026 17:37
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -162,8 +162,13 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
 )
 \Hy@SectionHShift=\skip82
-)
-Package hyperref Info: Option `colorlinks' set `true' on input line 10.
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/bookmark/bookmark.sty
+Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
+File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO)
+\BKM@id=\count297
+))
+Package hyperref Info: Option `colorlinks' set `true' on input line 11.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2025/07/09 v2.17z AMS math features
 \@mathmargin=\skip83
@@ -181,14 +186,14 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count297
+\inf@bad=\count298
 LaTeX Info: Redefining \frac on input line 233.
-\uproot@=\count298
-\leftroot@=\count299
+\uproot@=\count299
+\leftroot@=\count300
 LaTeX Info: Redefining \overline on input line 398.
 LaTeX Info: Redefining \colon on input line 409.
-\classnum@=\count300
-\DOTSCASE@=\count301
+\classnum@=\count301
+\DOTSCASE@=\count302
 LaTeX Info: Redefining \ldots on input line 495.
 LaTeX Info: Redefining \dots on input line 498.
 LaTeX Info: Redefining \cdots on input line 619.
@@ -201,20 +206,20 @@ LaTeX Info: Redefining \Bigg on input line 724.
 \big@size=\dimen155
 LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
-\macc@depth=\count302
+\macc@depth=\count303
 LaTeX Info: Redefining \bmod on input line 904.
 LaTeX Info: Redefining \pmod on input line 909.
 LaTeX Info: Redefining \smash on input line 939.
 LaTeX Info: Redefining \relbar on input line 969.
 LaTeX Info: Redefining \Relbar on input line 970.
-\c@MaxMatrixCols=\count303
+\c@MaxMatrixCols=\count304
 \dotsspace@=\muskip18
-\c@parentequation=\count304
-\dspbrk@lvl=\count305
+\c@parentequation=\count305
+\dspbrk@lvl=\count306
 \tag@help=\toks19
-\row@=\count306
-\column@=\count307
-\maxfields@=\count308
+\row@=\count307
+\column@=\count308
+\maxfields@=\count309
 \andhelp@=\toks20
 \eqnshift@=\dimen156
 \alignsep@=\dimen157
@@ -252,20 +257,20 @@ Package: amsthm 2020/05/29 v2.20.6
 Package: mathtools 2024/10/04 v1.31 mathematical typesetting tools
  (/usr/local/texlive/2026/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2025/03/01 v4.3b Infix arithmetic (KKT,FJ)
-\calc@Acount=\count309
-\calc@Bcount=\count310
+\calc@Acount=\count310
+\calc@Bcount=\count311
 \calc@Adimen=\dimen162
 \calc@Bdimen=\dimen163
 \calc@Askip=\skip89
 \calc@Bskip=\skip90
 LaTeX Info: Redefining \setlength on input line 86.
 LaTeX Info: Redefining \addtolength on input line 87.
-\calc@Ccount=\count311
+\calc@Ccount=\count312
 \calc@Cskip=\skip91
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/mathtools/mhsetup.sty
 Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 )
-\g_MT_multlinerow_int=\count312
+\g_MT_multlinerow_int=\count313
 \l_MT_multwidth_dim=\dimen164
 \origjot=\skip92
 \l_MT_shortvdotswithinadjustabove_dim=\dimen165
@@ -293,9 +298,9 @@ Package: geometry 2026/03/07 v6.0 Page Geometry
  (/usr/local/texlive/2026/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count313
-\Gm@cntv=\count314
-\c@Gm@tempcnt=\count315
+\Gm@cnth=\count314
+\Gm@cntv=\count315
+\c@Gm@tempcnt=\count316
 \Gm@bindingoffset=\dimen172
 \Gm@wd@mp=\dimen173
 \Gm@odd@mp=\dimen174
@@ -313,7 +318,16 @@ Package: esvect
 LaTeX Font Info:    Redeclaring math symbol \fldr on input line 38.
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
-) (/usr/local/texlive/2026/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/physics/physics.sty
+Package: physics 
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/l3packages/xparse/xparse.sty (/usr/local/texlive/2026/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2026-01-19 L3 programming layer (loader) 
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count317
+))
+Package: xparse 2025-10-09 L3 Experimental document command parser
+)) (/usr/local/texlive/2026/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
 Package: tcolorbox 2025/11/28 version 6.9.0 text color boxes
  (/usr/local/texlive/2026/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/usr/local/texlive/2026/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/usr/local/texlive/2026/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
 \pgfutil@everybye=\toks30
@@ -360,14 +374,14 @@ Package: pgfsys 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@yd=\dimen193
 \w@pgf@writea=\write3
 \r@pgf@reada=\read2
-\c@pgf@counta=\count316
-\c@pgf@countb=\count317
-\c@pgf@countc=\count318
-\c@pgf@countd=\count319
+\c@pgf@counta=\count318
+\c@pgf@countb=\count319
+\c@pgf@countc=\count320
+\c@pgf@countd=\count321
 \t@pgf@toka=\toks34
 \t@pgf@tokb=\toks35
 \t@pgf@tokc=\toks36
-\pgf@sys@id@count=\count320
+\pgf@sys@id@count=\count322
  (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2025-08-29 v3.1.11a (3.1.11a)
 )
@@ -378,8 +392,8 @@ File: pgfsys-pdftex.def 2025-08-29 v3.1.11a (3.1.11a)
 File: pgfsys-common-pdf.def 2025-08-29 v3.1.11a (3.1.11a)
 ))) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfsyssoftpath@smallbuffer@items=\count321
-\pgfsyssoftpath@bigbuffer@items=\count322
+\pgfsyssoftpath@smallbuffer@items=\count323
+\pgfsyssoftpath@bigbuffer@items=\count324
 ) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )) (/usr/local/texlive/2026/texmf-dist/tex/latex/xcolor/xcolor.sty
@@ -402,13 +416,13 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
 Package: pgfcore 2025-08-29 v3.1.11a (3.1.11a)
  (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen194
-\pgfmath@count=\count323
+\pgfmath@count=\count325
 \pgfmath@box=\box57
 \pgfmath@toks=\toks37
 \pgfmath@stack@operand=\toks38
 \pgfmath@stack@operation=\toks39
 ) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count324
+\c@pgfmathroundto@lastzeros=\count326
 )) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@picminx=\dimen195
@@ -438,7 +452,7 @@ File: pgfcorescopes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgfpic=\box58
 \pgf@hbox=\box59
 \pgf@layerbox@main=\box60
-\pgf@picture@serial@count=\count325
+\pgf@picture@serial@count=\count327
 ) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgflinewidth=\dimen269
@@ -459,8 +473,8 @@ File: pgfcorearrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@max=\dimen274
-\pgf@sys@shading@range@num=\count326
-\pgf@shadingcount=\count327
+\pgf@sys@shading@range@num=\count328
+\pgf@shadingcount=\count329
 ) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
@@ -495,7 +509,7 @@ Package: pgffor 2025-08-29 v3.1.11a (3.1.11a)
 Package: tikz 2025-08-29 v3.1.11a (3.1.11a)
  (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@plot@mark@count=\count328
+\pgf@plot@mark@count=\count330
 \pgfplotmarksize=\dimen279
 )
 \tikz@lastx=\dimen280
@@ -510,17 +524,17 @@ File: pgflibraryplothandlers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \tikz@figbox@bg=\box64
 \tikz@tempbox=\box65
 \tikz@tempbox@bg=\box66
-\tikztreelevel=\count329
-\tikznumberofchildren=\count330
-\tikznumberofcurrentchild=\count331
-\tikz@fig@count=\count332
+\tikztreelevel=\count331
+\tikznumberofchildren=\count332
+\tikznumberofcurrentchild=\count333
+\tikz@fig@count=\count334
  (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfmatrixcurrentrow=\count333
-\pgfmatrixcurrentcolumn=\count334
-\pgf@matrix@numberofcolumns=\count335
+\pgfmatrixcurrentrow=\count335
+\pgfmatrixcurrentcolumn=\count336
+\pgf@matrix@numberofcolumns=\count337
 )
-\tikz@expandcount=\count336
+\tikz@expandcount=\count338
  (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ))) (/usr/local/texlive/2026/texmf-dist/tex/latex/tools/verbatim.sty
@@ -537,9 +551,9 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 \tcb@upperbox=\box68
 \tcb@lowerbox=\box69
 \tcb@phantombox=\box70
-\c@tcbbreakpart=\count337
-\c@tcblayer=\count338
-\c@tcolorbox@number=\count339
+\c@tcbbreakpart=\count339
+\c@tcblayer=\count340
+\c@tcolorbox@number=\count341
 \l__tcobox_tmpa_box=\box71
 \l__tcobox_tmpa_dim=\dimen288
 \tcb@temp=\box72
@@ -548,10 +562,10 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 \tcb@temp=\box75
  (/usr/local/texlive/2026/texmf-dist/tex/latex/tcolorbox/tcbraster.code.tex
 Library (tcolorbox): 'tcbraster.code.tex' version '6.9.0'
-\c@tcbrastercolumn=\count340
-\c@tcbrasterrow=\count341
-\c@tcbrasternum=\count342
-\c@tcbraster=\count343
+\c@tcbrastercolumn=\count342
+\c@tcbrasterrow=\count343
+\c@tcbrasternum=\count344
+\c@tcbraster=\count345
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
 Library (tcolorbox): 'tcbskins.code.tex' version '6.9.0'
 (/usr/local/texlive/2026/texmf-dist/tex/latex/tikzfill/tikzfill.image.sty
@@ -581,30 +595,30 @@ Library (tcolorbox): 'tcbfitting.code.tex' version '6.9.0'
 \tcbfitdim=\dimen289
 \tcb@lowerfitdim=\dimen290
 \tcb@upperfitdim=\dimen291
-\tcb@cur@hbadness=\count344
+\tcb@cur@hbadness=\count346
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/tcolorbox/tcblistingsutf8.code.tex
 Library (tcolorbox): 'tcblistingsutf8.code.tex' version '6.9.0'
 (/usr/local/texlive/2026/texmf-dist/tex/latex/tcolorbox/tcblistings.code.tex
 Library (tcolorbox): 'tcblistings.code.tex' version '6.9.0'
 (/usr/local/texlive/2026/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count345
+\lst@mode=\count347
 \lst@gtempboxa=\box80
 \lst@token=\toks44
-\lst@length=\count346
+\lst@length=\count348
 \lst@currlwidth=\dimen292
-\lst@column=\count347
-\lst@pos=\count348
+\lst@column=\count349
+\lst@pos=\count350
 \lst@lostspace=\dimen293
 \lst@width=\dimen294
-\lst@newlines=\count349
-\lst@lineno=\count350
+\lst@newlines=\count351
+\lst@lineno=\count352
 \lst@maxwidth=\dimen295
  (/usr/local/texlive/2026/texmf-dist/tex/latex/listings/lstpatch.sty
 File: lstpatch.sty 2025/11/14 1.11b (Carsten Heinz)
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
-\c@lstnumber=\count351
-\lst@skipnumbers=\count352
+\c@lstnumber=\count353
+\lst@skipnumbers=\count354
 \lst@framebox=\box81
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2025/11/14 1.11b listings configuration
@@ -622,7 +636,7 @@ Library (tcolorbox): 'tcblistingscore.code.tex' version '6.9.0'
 (/usr/local/texlive/2026/texmf-dist/tex/latex/tcolorbox/tcbprocessing.code.tex
 Library (tcolorbox): 'tcbprocessing.code.tex' version '6.9.0'
 )
-\c@tcblisting=\count353
+\c@tcblisting=\count355
 )) (/usr/local/texlive/2026/texmf-dist/tex/latex/listingsutf8/listingsutf8.sty
 Package: listingsutf8 2019-12-10 v1.5 Allow UTF-8 in listings input (HO)
 )) (/usr/local/texlive/2026/texmf-dist/tex/latex/tcolorbox/tcbexternal.code.tex
@@ -644,28 +658,28 @@ Package: pgfplots 2025/08/14 v1.18.2 Data Visualization (1.18.2)
 \t@pgfplots@tokb=\toks46
 \t@pgfplots@tokc=\toks47
 \pgfplots@tmpa=\dimen296
-\c@pgfplots@coordindex=\count354
-\c@pgfplots@scanlineindex=\count355
+\c@pgfplots@coordindex=\count356
+\c@pgfplots@scanlineindex=\count357
  (/usr/local/texlive/2026/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex)) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfutil-common-lists.tex)) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex (/usr/local/texlive/2026/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructure.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructureext.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray.code.tex
-\c@pgfplotsarray@tmp=\count356
+\c@pgfplotsarray@tmp=\count358
 ) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatrix.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshared.code.tex
-\c@pgfplotstable@counta=\count357
+\c@pgfplotstable@counta=\count359
 \t@pgfplotstable@a=\toks48
 ) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex (/usr/local/texlive/2026/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex)) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex
-\c@pgfplotslibrarysurf@no=\count358
+\c@pgfplotslibrarysurf@no=\count360
  (/usr/local/texlive/2026/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-pdftex.def))) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex (/usr/local/texlive/2026/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex)) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex (/usr/local/texlive/2026/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex (/usr/local/texlive/2026/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex))) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
 \pgfdecoratedcompleteddistance=\dimen297
 \pgfdecoratedremainingdistance=\dimen298
 \pgfdecoratedinputsegmentcompleteddistance=\dimen299
 \pgfdecoratedinputsegmentremainingdistance=\dimen300
 \pgf@decorate@distancetomove=\dimen301
-\pgf@decorate@repeatstate=\count359
+\pgf@decorate@repeatstate=\count361
 \pgfdecorationsegmentamplitude=\dimen302
 \pgfdecorationsegmentlength=\dimen303
 )
 \tikz@lib@dec@box=\box82
 ) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex)) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex)) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.contourlua.code.tex)
-\pgfplots@numplots=\count360
+\pgfplots@numplots=\count362
 \pgfplots@xmin@reg=\dimen304
 \pgfplots@xmax@reg=\dimen305
 \pgfplots@ymin@reg=\dimen306
@@ -701,7 +715,7 @@ File: tikzlibraryshapes.geometric.code.tex 2025-08-29 v3.1.11a (3.1.11a)
  (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.geometric.code.tex
 File: pgflibraryshapes.geometric.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryintersections.code.tex (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/libraries/pgflibraryintersections.code.tex
-\pgf@intersect@solutions=\count361
+\pgf@intersect@solutions=\count363
 )) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybackgrounds.code.tex
 File: tikzlibrarybackgrounds.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@layerbox@background=\box83
@@ -709,47 +723,41 @@ File: tikzlibrarybackgrounds.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfit.code.tex
 File: tikzlibraryfit.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.groupplots.code.tex
-\pgfplots@group@current@plot=\count362
-\pgfplots@group@current@row=\count363
-\pgfplots@group@current@column=\count364
+\pgfplots@group@current@plot=\count364
+\pgfplots@group@current@row=\count365
+\pgfplots@group@current@column=\count366
 )
-\c@tcb@cnt@definition=\count365
-\c@tcb@cnt@problem=\count366
-\c@tcb@cnt@solution=\count367
-\c@example=\count368
- (/usr/local/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count369
-) (./main.aux (./sections/Vectors in Two and Three Dimensions.aux) (./sections/Discussion Week 1.aux) (./sections/Vectors and Directions.aux
+\c@tcb@cnt@definition=\count367
+\c@tcb@cnt@theorem=\count368
+\c@tcb@cnt@problem=\count369
+\c@tcb@cnt@solution=\count370
+\c@example=\count371
+ (./main.aux (./sections/Vectors in Two and Three Dimensions.aux) (./sections/Discussion Week 1.aux) (./sections/Vectors and Directions.aux
 
 LaTeX Warning: Label `prob:vector_projection' multiply defined.
 
-) (./sections/Discussion Week 2.aux) (./sections/Planes and Surfaces.aux) (./sections/Vector_Valued Functions.aux) (./sections/Scalar_Valued Functions of Several Variables.aux) (./sections/Limits and Continuity of Functions of Several Variables.aux))
+) (./sections/Discussion Week 2.aux) (./sections/Planes and Surfaces.aux) (./sections/Vector_Valued Functions.aux) (./sections/Scalar_Valued Functions of Several Variables.aux) (./sections/Limits and Continuity of Functions of Several Variables.aux) (./sections/Partial Derivatives.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-Package hyperref Info: Link coloring ON on input line 86.
- (./main.out) (./main.out)
-\@outlinefile=\write4
-\openout4 = `main.out'.
-
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+Package hyperref Info: Link coloring ON on input line 113.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -788,16 +796,16 @@ Package hyperref Info: Link coloring ON on input line 86.
 Couldn't patch \deferred@thm@head!
 (/usr/local/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count370
+\scratchcounter=\count372
 \scratchdimen=\dimen314
 \scratchbox=\box85
-\nofMPsegments=\count371
-\nofMParguments=\count372
+\nofMPsegments=\count373
+\nofMParguments=\count374
 \everyMPshowfont=\toks49
-\MPscratchCnt=\count373
+\MPscratchCnt=\count375
 \MPscratchDim=\dimen315
-\MPnumerator=\count374
-\makeMPintoPDFobject=\count375
+\MPnumerator=\count376
+\makeMPintoPDFobject=\count377
 \everyMPtoPDFconversion=\toks50
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -805,7 +813,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/texlive/2026/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-\c@lstlisting=\count376
+\c@lstlisting=\count378
  (/usr/local/texlive/2026/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2024/02/08 v1.3d Input encoding file
 \inpenc@prehook=\toks51
@@ -813,26 +821,26 @@ Package: inputenc 2024/02/08 v1.3d Input encoding file
 )
 Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 102.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 129.
 (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 102.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 129.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+esint on input line 102.
+LaTeX Font Info:    Trying to load font information for U+esint on input line 129.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/esint/uesint.fd
 File: uesint.fd 
 )
-LaTeX Font Info:    Trying to load font information for U+esvect on input line 102.
+LaTeX Font Info:    Trying to load font information for U+esvect on input line 129.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/esvect/uesvect.fd
 File: uesvect.fd 
 ) [1
 
 {/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./main.toc [1])
-\tf@toc=\write5
-\openout5 = `main.toc'.
+\tf@toc=\write4
+\openout4 = `main.toc'.
 
  [2]
 \openout2 = `"sections/Vectors in Two and Three Dimensions.aux"'.
@@ -844,26 +852,26 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has b
 l.95 \]
         [1
 
-{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [2] [3]) [4]
+{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [2] [3] [4]) [5]
 \openout2 = `"sections/Discussion Week 1.aux"'.
 
- (./sections/Discussion Week 1.tex [5
+ (./sections/Discussion Week 1.tex [6
 
 
 
-] [6]) [7]
+] [7]) [8]
 \openout2 = `"sections/Vectors and Directions.aux"'.
 
- (./sections/Vectors and Directions.tex [8
+ (./sections/Vectors and Directions.tex [9
 
 
 
-] [9] [10] [11] [12]
+] [10] [11] [12] [13]
 Underfull \hbox (badness 10000) in paragraph at lines 294--295
 
  []
 
-[13] [14]
+[14] [15]
 
 Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.62973pt,-0.77678pt) and the unit x vector (-0.82637pt,-0.56325pt) are almost parallel (abs(cos(angle)) = 0.9579pt)! on input line 544.
 
@@ -872,7 +880,7 @@ Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal 
 Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.62973pt,-0.77678pt) and the unit x vector (-0.82637pt,-0.56325pt) are almost parallel (abs(cos(angle)) = 0.9579pt)! on input line 544.
 
  [warning /pgfplots/warning/ticklabel anchor undetermined]
-[15] [16] [17]
+[16] [17] [18] [19]
 
 Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.62973pt,-0.77678pt) and the unit x vector (-0.90231pt,-0.43117pt) are almost parallel (abs(cos(angle)) = 0.90312pt)! on input line 680.
 
@@ -881,29 +889,29 @@ Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal 
 Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.62973pt,-0.77678pt) and the unit x vector (-0.90231pt,-0.43117pt) are almost parallel (abs(cos(angle)) = 0.90312pt)! on input line 680.
 
  [warning /pgfplots/warning/ticklabel anchor undetermined]
-) [18]
+) [20]
 \openout2 = `"sections/Discussion Week 2.aux"'.
 
- (./sections/Discussion Week 2.tex [19
+ (./sections/Discussion Week 2.tex [21
 
 
 
-]) [20]
+]) [22]
 \openout2 = `"sections/Planes and Surfaces.aux"'.
 
- (./sections/Planes and Surfaces.tex [21
+ (./sections/Planes and Surfaces.tex [23
 
 
 
-] [22]
+] [24]
 Overfull \hbox (6.25854pt too wide) detected at line 133
 [] \OT1/cmr/m/n/12 = [] \OMS/cmsy/m/n/12 ^^B [] \OT1/cmr/m/n/12 = [] = []
  []
 
-[23] [24] [25] [26]) [27]
+[25] [26] [27] [28]) [29]
 \openout2 = `"sections/Vector_Valued Functions.aux"'.
 
- (./sections/Vector_Valued Functions.tex [28
+ (./sections/Vector_Valued Functions.tex [30
 
 
 
@@ -924,7 +932,7 @@ Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal 
 Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.62973pt,-0.77678pt) and the unit x vector (-0.84445pt,-0.53574pt) are almost parallel (abs(cos(angle)) = 0.9479pt)! on input line 64.
 
  [warning /pgfplots/warning/ticklabel anchor undetermined]
-[29] [30]
+[31] [32]
 
 Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(0.62973pt,0.77678pt) and the unit x vector (-0.84445pt,-0.53574pt) are almost parallel (abs(cos(angle)) = 0.9479pt)! on input line 122.
 
@@ -949,7 +957,7 @@ Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal 
 Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.62973pt,-0.77678pt) and the unit x vector (-0.84445pt,-0.53574pt) are almost parallel (abs(cos(angle)) = 0.9479pt)! on input line 122.
 
  [warning /pgfplots/warning/ticklabel anchor undetermined]
-[31] [32] [33]
+[33] [34] [35]
 
 Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.62973pt,-0.77678pt) and the unit x vector (-0.84444pt,-0.53574pt) are almost parallel (abs(cos(angle)) = 0.94789pt)! on input line 213.
 
@@ -966,10 +974,10 @@ Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal 
 Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.62973pt,-0.77678pt) and the unit x vector (-0.84444pt,-0.53574pt) are almost parallel (abs(cos(angle)) = 0.94789pt)! on input line 231.
 
  [warning /pgfplots/warning/ticklabel anchor undetermined]
-[34] [35] [36] [37] [38] [39]) [40]
+[36] [37] [38] [39] [40] [41]) [42]
 \openout2 = `"sections/Scalar_Valued Functions of Several Variables.aux"'.
 
- (./sections/Scalar_Valued Functions of Several Variables.tex [41
+ (./sections/Scalar_Valued Functions of Several Variables.tex [43
 
 
 
@@ -988,14 +996,120 @@ Overfull \hbox (12.06836pt too wide) in paragraph at lines 110--111
  [][] 
  []
 
-[42]) [43]
+[44]) [45]
 \openout2 = `"sections/Limits and Continuity of Functions of Several Variables.aux"'.
 
- (./sections/Limits and Continuity of Functions of Several Variables.tex [44
+ (./sections/Limits and Continuity of Functions of Several Variables.tex [46
 
 
 
-] [45] [46]) [47] (./main.aux (./sections/Vectors in Two and Three Dimensions.aux) (./sections/Discussion Week 1.aux) (./sections/Vectors and Directions.aux) (./sections/Discussion Week 2.aux) (./sections/Planes and Surfaces.aux) (./sections/Vector_Valued Functions.aux) (./sections/Scalar_Valued Functions of Several Variables.aux) (./sections/Limits and Continuity of Functions of Several Variables.aux))
+] [47] [48]) [49]
+\openout2 = `"sections/Partial Derivatives.aux"'.
+
+ (./sections/Partial Derivatives.tex [50
+
+
+
+]
+
+Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.62973pt,-0.77678pt) and the unit x vector (-0.91609pt,-0.4012pt) are almost parallel (abs(cos(angle)) = 0.88852pt)! on input line 78.
+
+ [warning /pgfplots/warning/ticklabel anchor undetermined]
+
+Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.62973pt,-0.77678pt) and the unit x vector (-0.91609pt,-0.4012pt) are almost parallel (abs(cos(angle)) = 0.88852pt)! on input line 78.
+
+ [warning /pgfplots/warning/ticklabel anchor undetermined]
+
+Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.62973pt,-0.77678pt) and the unit x vector (-0.91609pt,-0.4012pt) are almost parallel (abs(cos(angle)) = 0.88852pt)! on input line 136.
+
+ [warning /pgfplots/warning/ticklabel anchor undetermined]
+
+Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.62973pt,-0.77678pt) and the unit x vector (-0.91609pt,-0.4012pt) are almost parallel (abs(cos(angle)) = 0.88852pt)! on input line 136.
+
+ [warning /pgfplots/warning/ticklabel anchor undetermined]
+
+Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.62973pt,-0.77678pt) and the unit x vector (-0.91609pt,-0.4012pt) are almost parallel (abs(cos(angle)) = 0.88852pt)! on input line 240.
+
+ [warning /pgfplots/warning/ticklabel anchor undetermined]
+
+Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.62973pt,-0.77678pt) and the unit x vector (-0.91609pt,-0.4012pt) are almost parallel (abs(cos(angle)) = 0.88852pt)! on input line 240.
+
+ [warning /pgfplots/warning/ticklabel anchor undetermined]
+[51]
+\openout3 = `main_contourtmp0.dat'.
+
+\openout3 = `main_contourtmp0.script'.
+
+runsystem(gnuplot "main_contourtmp0.script")...executed.
+
+PGFPlots: reading {main_contourtmp0.table}
+
+
+Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.48177pt,0.87627pt) and the unit y vector (0.0pt,0.99998pt) are almost parallel (abs(cos(angle)) = 0.87625pt)! on input line 364.
+
+ [warning /pgfplots/warning/ticklabel anchor undetermined]
+
+Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.48177pt,0.87627pt) and the unit y vector (0.0pt,0.99998pt) are almost parallel (abs(cos(angle)) = 0.87625pt)! on input line 364.
+
+ [warning /pgfplots/warning/ticklabel anchor undetermined]
+
+Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.48177pt,0.87627pt) and the unit y vector (0.0pt,0.99998pt) are almost parallel (abs(cos(angle)) = 0.87625pt)! on input line 364.
+
+ [warning /pgfplots/warning/ticklabel anchor undetermined]
+
+Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.48177pt,0.87627pt) and the unit y vector (0.0pt,0.99998pt) are almost parallel (abs(cos(angle)) = 0.87625pt)! on input line 364.
+
+ [warning /pgfplots/warning/ticklabel anchor undetermined]
+
+Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.48177pt,0.87627pt) and the unit y vector (0.0pt,0.99998pt) are almost parallel (abs(cos(angle)) = 0.87625pt)! on input line 364.
+
+ [warning /pgfplots/warning/ticklabel anchor undetermined]
+
+Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.48177pt,0.87627pt) and the unit y vector (0.0pt,0.99998pt) are almost parallel (abs(cos(angle)) = 0.87625pt)! on input line 364.
+
+ [warning /pgfplots/warning/ticklabel anchor undetermined]
+
+Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.48177pt,0.87627pt) and the unit y vector (0.0pt,0.99998pt) are almost parallel (abs(cos(angle)) = 0.87625pt)! on input line 364.
+
+ [warning /pgfplots/warning/ticklabel anchor undetermined]
+
+Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.48177pt,0.87627pt) and the unit y vector (0.0pt,0.99998pt) are almost parallel (abs(cos(angle)) = 0.87625pt)! on input line 364.
+
+ [warning /pgfplots/warning/ticklabel anchor undetermined]
+
+Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.48177pt,0.87627pt) and the unit y vector (0.0pt,0.99998pt) are almost parallel (abs(cos(angle)) = 0.87625pt)! on input line 364.
+
+ [warning /pgfplots/warning/ticklabel anchor undetermined]
+
+Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.48177pt,0.87627pt) and the unit y vector (0.0pt,0.99998pt) are almost parallel (abs(cos(angle)) = 0.87625pt)! on input line 364.
+
+ [warning /pgfplots/warning/ticklabel anchor undetermined]
+
+Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.48177pt,0.87627pt) and the unit y vector (0.0pt,0.99998pt) are almost parallel (abs(cos(angle)) = 0.87625pt)! on input line 364.
+
+ [warning /pgfplots/warning/ticklabel anchor undetermined]
+
+Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.48177pt,0.87627pt) and the unit y vector (0.0pt,0.99998pt) are almost parallel (abs(cos(angle)) = 0.87625pt)! on input line 364.
+
+ [warning /pgfplots/warning/ticklabel anchor undetermined]
+
+Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(0.48177pt,-0.87627pt) and the unit y vector (0.0pt,0.99998pt) are almost parallel (abs(cos(angle)) = 0.87625pt)! on input line 364.
+
+ [warning /pgfplots/warning/ticklabel anchor undetermined]
+
+Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(0.48177pt,-0.87627pt) and the unit y vector (0.0pt,0.99998pt) are almost parallel (abs(cos(angle)) = 0.87625pt)! on input line 364.
+
+ [warning /pgfplots/warning/ticklabel anchor undetermined]
+[52] [53] [54]
+
+Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.62973pt,-0.77678pt) and the unit x vector (-0.93207pt,-0.36234pt) are almost parallel (abs(cos(angle)) = 0.8684pt)! on input line 516.
+
+ [warning /pgfplots/warning/ticklabel anchor undetermined]
+
+Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.62973pt,-0.77678pt) and the unit x vector (-0.93207pt,-0.36234pt) are almost parallel (abs(cos(angle)) = 0.8684pt)! on input line 516.
+
+ [warning /pgfplots/warning/ticklabel anchor undetermined]
+[55] [56] [57] [58]) [59] (./main.aux (./sections/Vectors in Two and Three Dimensions.aux) (./sections/Discussion Week 1.aux) (./sections/Vectors and Directions.aux) (./sections/Discussion Week 2.aux) (./sections/Planes and Surfaces.aux) (./sections/Vector_Valued Functions.aux) (./sections/Scalar_Valued Functions of Several Variables.aux) (./sections/Limits and Continuity of Functions of Several Variables.aux) (./sections/Partial Derivatives.aux))
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -1004,22 +1118,20 @@ L3 programming layer <2026-01-19>
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 3D94132750560BBC31E47A253E7D71F0;8776.
  ) 
 Here is how much of TeX's memory you used:
- 42208 strings out of 467525
- 1008539 string characters out of 5418982
- 4640449 words of memory out of 5000000
- 70215 multiletter control sequences out of 15000+600000
+ 45259 strings out of 467525
+ 1067159 string characters out of 5418982
+ 4654294 words of memory out of 5000000
+ 73206 multiletter control sequences out of 15000+600000
  647984 words of font info for 125 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 116i,27n,121p,757b,2715s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 116i,27n,121p,776b,6607s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/esint-type1/esint10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/esvect/vect10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/esvect/vect6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/esvect/vect8.pfb>
-Output written on main.pdf (50 pages, 525455 bytes).
+Output written on main.pdf (62 pages, 633990 bytes).
 PDF statistics:
- 704 PDF objects out of 1000 (max. 8388607)
- 578 compressed objects within 6 object streams
- 179 named destinations out of 1000 (max. 500000)
- 501 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 813 PDF objects out of 1000 (max. 8388607)
+ 674 compressed objects within 7 object streams
+ 218 named destinations out of 1000 (max. 500000)
+ 541 words of extra memory for PDF output out of 10000 (max. 10000000)
 

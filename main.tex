@@ -3,6 +3,7 @@
 % --- Cover Page & Table of Contents ---
 \usepackage{tocloft}
 \usepackage{hyperref}
+\usepackage{bookmark} % Keep PDF outlines synchronized without an extra LaTeX run
 \hypersetup{
     colorlinks=true,
     linkcolor=blue!80!black,
@@ -22,6 +23,7 @@
 \usepackage{parskip}     % Clean paragraph spacing without using '\\'
 \usepackage[b]{esvect}
 \usepackage{setspace}
+\usepackage{physics}    % For \pdv
 
 % --- Formatting & Colored Boxes ---
 \usepackage[most]{tcolorbox}
@@ -36,16 +38,23 @@
 \usepgfplotslibrary{groupplots}
 
 % --- Custom Multivariable Macros ---
-\newcommand{\pdv}[2]{\frac{\partial #1}{\partial #2}}
-\newcommand{\grad}{\nabla}
-\newcommand{\divg}{\nabla \cdot}
-\newcommand{\curl}{\nabla \times}
-\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+% \usepackage{ifthen}
+% \newcommand{\pdv}[3][]{%
+%     \ifthenelse{\equal{#1}{}}%
+%         {\frac{\partial #2}{\partial #3}}%
+%         {\frac{\partial^{#1} #2}{\partial #3^{#1}}}%
+% }
+% \newcommand{\grad}{\nabla}
+% \newcommand{\divg}{\nabla \cdot}
+% \newcommand{\curl}{\nabla \times}
+% \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+
+
 \newcommand{\ang}[1]{\left\langle #1 \right\rangle} % Angle brackets for vectors
 \newcommand{\ddt}[1][]{%
  \frac{\mathrm{d}#1}{\mathrm{d}t}%
 }
-\newcommand{\dd}[1]{\mathrm{d}#1}
+\renewcommand{\dd}[1]{\mathrm{d}#1}
 % --- Custom Theorem Environments ---
 \tcbuselibrary{theorems}
 
@@ -55,6 +64,13 @@
   fonttitle=\bfseries,
   breakable
 }{def}
+
+\newtcbtheorem[number within=section]{theorem}{Theorem}{
+  colback=red!5!white, 
+  colframe=red!60!black, 
+  fonttitle=\bfseries,
+  breakable
+}{thm}
 
 \newtcbtheorem[number within=section]{problem}{Problem}{
   colback=orange!5!white, 
@@ -76,7 +92,18 @@
   \end{solution}
 }
 
-\theoremstyle{definition}
+\usepackage{amsthm}
+
+\newtheoremstyle{styleWithNewline}
+  {\topsep}
+  {\topsep}
+  {\normalfont}
+  {0pt}
+  {\bfseries}
+  {.}
+  {\newline}
+  {}
+\theoremstyle{styleWithNewline}
 \newtheorem{example}{Example}[section]
 
 \setstretch{1.5}
@@ -127,5 +154,6 @@
 \include{sections/Vector_Valued Functions}
 \include{sections/Scalar_Valued Functions of Several Variables}
 \include{sections/Limits and Continuity of Functions of Several Variables}
+\include{sections/Partial Derivatives}
 
 \end{document}

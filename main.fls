@@ -66,6 +66,11 @@ INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 INPUT /usr/local/texlive/2026/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 INPUT /usr/local/texlive/2026/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/bookmark/bookmark.sty
+INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/bookmark/bookmark.sty
+INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
+INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
+INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsmath.sty
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsmath.sty
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsopn.sty
@@ -102,6 +107,14 @@ INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/esvect/esvect.sty
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/esvect/esvect.sty
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/setspace/setspace.sty
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/setspace/setspace.sty
+INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/physics/physics.sty
+INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/physics/physics.sty
+INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/l3kernel/expl3.sty
+INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/l3kernel/expl3.sty
+INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
@@ -357,8 +370,6 @@ INPUT /usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libr
 INPUT /usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfit.code.tex
 INPUT /usr/local/texlive/2026/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.groupplots.code.tex
 INPUT /usr/local/texlive/2026/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.groupplots.code.tex
-INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT ./main.aux
 INPUT ./main.aux
 INPUT main.aux
@@ -386,14 +397,10 @@ INPUT sections/Scalar_Valued Functions of Several Variables.aux
 INPUT ./sections/Limits and Continuity of Functions of Several Variables.aux
 INPUT ./sections/Limits and Continuity of Functions of Several Variables.aux
 INPUT sections/Limits and Continuity of Functions of Several Variables.aux
+INPUT ./sections/Partial Derivatives.aux
+INPUT ./sections/Partial Derivatives.aux
+INPUT sections/Partial Derivatives.aux
 OUTPUT main.aux
-INPUT ./main.out
-INPUT ./main.out
-INPUT main.out
-INPUT main.out
-INPUT ./main.out
-INPUT ./main.out
-OUTPUT main.out
 INPUT /usr/local/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -554,6 +561,15 @@ INPUT ./sections/Limits and Continuity of Functions of Several Variables.tex
 INPUT ./sections/Limits and Continuity of Functions of Several Variables.tex
 INPUT sections/Limits and Continuity of Functions of Several Variables.tex
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
+INPUT ./sections/Partial Derivatives.tex
+INPUT ./sections/Partial Derivatives.tex
+OUTPUT sections/Partial Derivatives.aux
+INPUT ./sections/Partial Derivatives.tex
+INPUT ./sections/Partial Derivatives.tex
+INPUT sections/Partial Derivatives.tex
+OUTPUT main_contourtmp0.dat
+OUTPUT main_contourtmp0.script
+INPUT main_contourtmp0.table
 INPUT main.aux
 INPUT ./sections/Vectors in Two and Three Dimensions.aux
 INPUT ./sections/Vectors in Two and Three Dimensions.aux
@@ -579,8 +595,9 @@ INPUT sections/Scalar_Valued Functions of Several Variables.aux
 INPUT ./sections/Limits and Continuity of Functions of Several Variables.aux
 INPUT ./sections/Limits and Continuity of Functions of Several Variables.aux
 INPUT sections/Limits and Continuity of Functions of Several Variables.aux
-INPUT ./main.out
-INPUT ./main.out
+INPUT ./sections/Partial Derivatives.aux
+INPUT ./sections/Partial Derivatives.aux
+INPUT sections/Partial Derivatives.aux
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb

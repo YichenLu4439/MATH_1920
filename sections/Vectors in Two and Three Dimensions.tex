@@ -157,7 +157,14 @@ For example, using $\vv{PQ} = \ang{4,1}$:
 % ------------------------------------------------------------------
 \subsection{Unit Vectors}
 
+\begin{definition}{Unit Vector}{unit_vector}
 A vector $\vv{v}$ is called a \textbf{unit vector} if its magnitude is 1, i.e., $\norm{\vv{v}} = 1$.
+
+In general, a unit vector of any function is given by:
+\[
+\hat{v} = \frac{\vv{v}}{\norm{\vv{v}}}
+\]
+\end{definition}
 
 \begin{problem}{Describing Unit Vectors}{unit_vectors}
 Describe all unit vectors in $\mathbb{R}^2$.
@@ -251,5 +258,7 @@ Two non-zero vectors $\vv{v}$ and $\vv{w}$ ($\vv{v}, \vv{w} \neq \ang{0,0}$) are
 \]
 \end{definition}
 
-\paragraph{Equivalent Geometric Definition:}
+Equivalently, we have a geometric definition.
+\begin{definition}{Parallel Vectors (Geometric)}{parallel_vectors_geom}
 $\vv{v} \parallel \vv{w}$ if and only if both vectors define or lie on the \textit{same line passing through the origin.}
+\end{definition}

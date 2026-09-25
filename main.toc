@@ -5,46 +5,50 @@
 \contentsline {subsection}{\numberline {1.2}Vectors and Position Vectors}{1}{subsection.1.2}%
 \contentsline {subsection}{\numberline {1.3}Unit Vectors}{3}{subsection.1.3}%
 \contentsline {paragraph}{Standard Basis Vectors:}{3}{section*.3}%
-\contentsline {subsection}{\numberline {1.4}Vector Operations}{3}{subsection.1.4}%
-\contentsline {paragraph}{Addition and Subtraction:}{3}{section*.4}%
+\contentsline {subsection}{\numberline {1.4}Vector Operations}{4}{subsection.1.4}%
+\contentsline {paragraph}{Addition and Subtraction:}{4}{section*.4}%
 \contentsline {paragraph}{Scalar Multiplication:}{4}{section*.5}%
 \contentsline {subsection}{\numberline {1.5}Parallel Vectors}{4}{subsection.1.5}%
-\contentsline {paragraph}{Equivalent Geometric Definition:}{4}{section*.6}%
-\contentsline {section}{\numberline {2}Discussion Week 1: Distance Formulae and Geometric Shapes}{5}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Equations of Geometric Shapes}{6}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Linear Equations across Dimensions}{6}{subsection.2.2}%
-\contentsline {section}{\numberline {3}Vectors and Directions}{8}{section.3}%
-\contentsline {paragraph}{Right-Hand Rule}{8}{section*.7}%
-\contentsline {subsection}{\numberline {3.1}Dot Product}{10}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Determinants and Cross Products}{14}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Properties of the Cross Product}{17}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Algebraic Rules of the Cross Product}{17}{subsubsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.3}Scalar Triple Product}{18}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Discussion Week 2: Quadric Surfaces and Traces}{19}{section.4}%
-\contentsline {section}{\numberline {5}Planes and Surfaces}{21}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Determining a Plane}{21}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Mathematical Formulations of a Plane}{21}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Properties of Normal Vectors}{22}{subsection.5.3}%
-\contentsline {section}{\numberline {6}Spheres and Planes}{24}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Determining a Sphere}{24}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Plane-Sphere Intersections}{25}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Traces of Surfaces}{25}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Quadric Surfaces}{26}{subsection.6.4}%
-\contentsline {section}{\numberline {7}Vector-Valued Functions}{28}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Coordinate Systems in 3D Space}{28}{subsection.7.1}%
-\contentsline {subsubsection}{\numberline {7.1.1}Polar Coordinates (2D)}{28}{subsubsection.7.1.1}%
-\contentsline {subsubsection}{\numberline {7.1.2}Cylindrical Coordinates}{29}{subsubsection.7.1.2}%
-\contentsline {subsubsection}{\numberline {7.1.3}Spherical Coordinates}{29}{subsubsection.7.1.3}%
-\contentsline {subsection}{\numberline {7.2}Coordinate System Transformations}{30}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Vector-Valued Functions}{31}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Gallery of Parametric Space Curves}{34}{subsection.7.4}%
-\contentsline {subsection}{\numberline {7.5}Parameterization of Curves and Surfaces}{34}{subsection.7.5}%
-\contentsline {subsection}{\numberline {7.6}Calculus of Vector-Valued Functions}{35}{subsection.7.6}%
-\contentsline {subsection}{\numberline {7.7}Properties of Vector Derivatives \& Integration}{37}{subsection.7.7}%
-\contentsline {subsection}{\numberline {7.8}Arc Length of Curves}{39}{subsection.7.8}%
-\contentsline {section}{\numberline {8}Scalar-Valued Functions of Several Variables}{41}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Visualizing Multivariable Functions: Traces and Level Sets}{41}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Level Sets and Contour Maps}{42}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Visualizing Higher Dimensions via Slices}{42}{subsection.8.3}%
-\contentsline {section}{\numberline {9}Limits and Continuity of Functions of Several Variables}{44}{section.9}%
-\contentsline {paragraph}{Systematic Path Approaches}{46}{section*.13}%
+\contentsline {section}{\numberline {2}Discussion Week 1: Distance Formulae and Geometric Shapes}{6}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Equations of Geometric Shapes}{7}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Linear Equations across Dimensions}{7}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Vectors and Directions}{9}{section.3}%
+\contentsline {paragraph}{Right-Hand Rule}{9}{section*.6}%
+\contentsline {subsection}{\numberline {3.1}Dot Product}{11}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Determinants and Cross Products}{16}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Properties of the Cross Product}{19}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Algebraic Rules of the Cross Product}{19}{subsubsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.3}Scalar Triple Product}{20}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Discussion Week 2: Quadric Surfaces and Traces}{21}{section.4}%
+\contentsline {section}{\numberline {5}Planes and Surfaces}{23}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Determining a Plane}{23}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Mathematical Formulations of a Plane}{23}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Properties of Normal Vectors}{24}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Spheres and Planes}{26}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Determining a Sphere}{26}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Plane-Sphere Intersections}{27}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Traces of Surfaces}{27}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Quadric Surfaces}{28}{subsection.6.4}%
+\contentsline {section}{\numberline {7}Vector-Valued Functions}{30}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Coordinate Systems in 3D Space}{30}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {7.1.1}Polar Coordinates (2D)}{30}{subsubsection.7.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.2}Cylindrical Coordinates}{31}{subsubsection.7.1.2}%
+\contentsline {subsubsection}{\numberline {7.1.3}Spherical Coordinates}{31}{subsubsection.7.1.3}%
+\contentsline {subsection}{\numberline {7.2}Coordinate System Transformations}{32}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Vector-Valued Functions}{33}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Gallery of Parametric Space Curves}{36}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Parameterization of Curves and Surfaces}{36}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.6}Calculus of Vector-Valued Functions}{37}{subsection.7.6}%
+\contentsline {subsection}{\numberline {7.7}Properties of Vector Derivatives \& Integration}{39}{subsection.7.7}%
+\contentsline {subsection}{\numberline {7.8}Arc Length of Curves}{41}{subsection.7.8}%
+\contentsline {section}{\numberline {8}Scalar-Valued Functions of Several Variables}{43}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Visualizing Multivariable Functions: Traces and Level Sets}{43}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Level Sets and Contour Maps}{44}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Visualizing Higher Dimensions via Slices}{44}{subsection.8.3}%
+\contentsline {section}{\numberline {9}Limits and Continuity of Functions of Several Variables}{46}{section.9}%
+\contentsline {paragraph}{Systematic Path Approaches}{48}{section*.12}%
+\contentsline {section}{\numberline {10}Partial Derivatives}{50}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Definition and Properties of Partial Derivatives}{50}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Linear Approximation}{53}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Differentiability}{55}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}Higher-Order Partial Derivatives}{57}{subsection.10.4}%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.22)  25 SEP 2026 17:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.22)  28 SEP 2026 17:01
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -169,7 +169,12 @@ File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO)
 \BKM@id=\count297
 ))
 Package hyperref Info: Option `colorlinks' set `true' on input line 11.
- (/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsmath.sty
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks18
+\verbatim@line=\toks19
+\verbatim@in@stream=\read2
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2025/07/09 v2.17z AMS math features
 \@mathmargin=\skip83
 
@@ -178,7 +183,7 @@ For additional information on amsmath, use the `?' option.
 Package: amstext 2024/11/17 v2.01 AMS text
  (/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks18
+\@emptytoks=\toks20
 \ex@=\dimen153
 )) (/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
@@ -216,21 +221,21 @@ LaTeX Info: Redefining \Relbar on input line 970.
 \dotsspace@=\muskip18
 \c@parentequation=\count305
 \dspbrk@lvl=\count306
-\tag@help=\toks19
+\tag@help=\toks21
 \row@=\count307
 \column@=\count308
 \maxfields@=\count309
-\andhelp@=\toks20
+\andhelp@=\toks22
 \eqnshift@=\dimen156
 \alignsep@=\dimen157
 \tagshift@=\dimen158
 \tagwidth@=\dimen159
 \totwidth@=\dimen160
 \lineht@=\dimen161
-\@envbody=\toks21
+\@envbody=\toks23
 \multlinegap=\skip84
 \multlinetaggap=\skip85
-\mathdisplay@stack=\toks22
+\mathdisplay@stack=\toks24
 LaTeX Info: Redefining \[ on input line 2950.
 LaTeX Info: Redefining \] on input line 2951.
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/amssymb.sty
@@ -244,15 +249,15 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 )) (/usr/local/texlive/2026/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
-\thm@style=\toks23
-\thm@bodyfont=\toks24
-\thm@headfont=\toks25
-\thm@notefont=\toks26
-\thm@headpunct=\toks27
+\thm@style=\toks25
+\thm@bodyfont=\toks26
+\thm@headfont=\toks27
+\thm@notefont=\toks28
+\thm@headpunct=\toks29
 \thm@preskip=\skip86
 \thm@postskip=\skip87
 \thm@headsep=\skip88
-\dth@everypar=\toks28
+\dth@everypar=\toks30
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/mathtools/mathtools.sty
 Package: mathtools 2024/10/04 v1.31 mathematical typesetting tools
  (/usr/local/texlive/2026/texmf-dist/tex/latex/tools/calc.sty
@@ -309,7 +314,7 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layoutheight=\dimen177
 \Gm@layouthoffset=\dimen178
 \Gm@layoutvoffset=\dimen179
-\Gm@dimlist=\toks29
+\Gm@dimlist=\toks31
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/parskip/parskip.sty
 Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/esvect/esvect.sty
@@ -330,7 +335,7 @@ Package: xparse 2025-10-09 L3 Experimental document command parser
 )) (/usr/local/texlive/2026/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
 Package: tcolorbox 2025/11/28 version 6.9.0 text color boxes
  (/usr/local/texlive/2026/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/usr/local/texlive/2026/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/usr/local/texlive/2026/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks30
+\pgfutil@everybye=\toks32
 \pgfutil@tempdima=\dimen180
 \pgfutil@tempdimb=\dimen181
 ) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
@@ -357,10 +362,10 @@ File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
 Package: pgfsys 2025-08-29 v3.1.11a (3.1.11a)
  (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks31
-\pgfkeys@temptoks=\toks32
+\pgfkeys@pathtoks=\toks33
+\pgfkeys@temptoks=\toks34
  (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
-\pgfkeys@tmptoks=\toks33
+\pgfkeys@tmptoks=\toks35
 ))
 \pgf@x=\dimen184
 \pgf@y=\dimen185
@@ -373,14 +378,14 @@ Package: pgfsys 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@xd=\dimen192
 \pgf@yd=\dimen193
 \w@pgf@writea=\write3
-\r@pgf@reada=\read2
+\r@pgf@reada=\read3
 \c@pgf@counta=\count318
 \c@pgf@countb=\count319
 \c@pgf@countc=\count320
 \c@pgf@countd=\count321
-\t@pgf@toka=\toks34
-\t@pgf@tokb=\toks35
-\t@pgf@tokc=\toks36
+\t@pgf@toka=\toks36
+\t@pgf@tokb=\toks37
+\t@pgf@tokc=\toks38
 \pgf@sys@id@count=\count322
  (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2025-08-29 v3.1.11a (3.1.11a)
@@ -418,9 +423,9 @@ Package: pgfcore 2025-08-29 v3.1.11a (3.1.11a)
 \pgfmath@dimen=\dimen194
 \pgfmath@count=\count325
 \pgfmath@box=\box57
-\pgfmath@toks=\toks37
-\pgfmath@stack@operand=\toks38
-\pgfmath@stack@operation=\toks39
+\pgfmath@toks=\toks39
+\pgfmath@stack@operand=\toks40
+\pgfmath@stack@operation=\toks41
 ) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
 \c@pgfmathroundto@lastzeros=\count326
 )) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
@@ -503,8 +508,8 @@ Package: pgfcomp-version-1-18 2025-08-29 v3.1.11a (3.1.11a)
 Package: pgffor 2025-08-29 v3.1.11a (3.1.11a)
 \pgffor@iter=\dimen277
 \pgffor@skip=\dimen278
-\pgffor@stack=\toks40
-\pgffor@toks=\toks41
+\pgffor@stack=\toks42
+\pgffor@toks=\toks43
 )) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2025-08-29 v3.1.11a (3.1.11a)
  (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
@@ -537,12 +542,7 @@ File: pgfmodulematrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \tikz@expandcount=\count338
  (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-))) (/usr/local/texlive/2026/texmf-dist/tex/latex/tools/verbatim.sty
-Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks42
-\verbatim@line=\toks43
-\verbatim@in@stream=\read3
-) (/usr/local/texlive/2026/texmf-dist/tex/latex/environ/environ.sty
+))) (/usr/local/texlive/2026/texmf-dist/tex/latex/environ/environ.sty
 Package: environ 2014/05/04 v0.3 A new way to define environments
  (/usr/local/texlive/2026/texmf-dist/tex/latex/trimspaces/trimspaces.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
@@ -690,7 +690,10 @@ Package: pgfplots 2025/08/14 v1.18.2 Data Visualization (1.18.2)
 File: tikzlibraryplotmarks.code.tex 2025-08-29 v3.1.11a (3.1.11a)
  (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
 File: pgflibraryplotmarks.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-))) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
+))) (/usr/local/texlive/2026/texmf-dist/tex/latex/pgf/frontendlayer/libraries/tikzlibraryexternal.code.tex (/usr/local/texlive/2026/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
+with kernel methods
+) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzexternalshared.code.tex)) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
 File: pgflibraryarrows.meta.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgfarrowinset=\dimen310
 \pgfarrowlength=\dimen311
@@ -739,25 +742,25 @@ LaTeX Warning: Label `prob:vector_projection' multiply defined.
 ) (./sections/Discussion Week 2.aux) (./sections/Planes and Surfaces.aux) (./sections/Vector_Valued Functions.aux) (./sections/Scalar_Valued Functions of Several Variables.aux) (./sections/Limits and Continuity of Functions of Several Variables.aux) (./sections/Partial Derivatives.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-Package hyperref Info: Link coloring ON on input line 113.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+Package hyperref Info: Link coloring ON on input line 105.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -821,19 +824,19 @@ Package: inputenc 2024/02/08 v1.3d Input encoding file
 )
 Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 129.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 121.
 (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 129.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 121.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+esint on input line 129.
+LaTeX Font Info:    Trying to load font information for U+esint on input line 121.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/esint/uesint.fd
 File: uesint.fd 
 )
-LaTeX Font Info:    Trying to load font information for U+esvect on input line 129.
+LaTeX Font Info:    Trying to load font information for U+esvect on input line 121.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/esvect/uesvect.fd
 File: uesvect.fd 
 ) [1
@@ -1100,16 +1103,29 @@ Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal 
 Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(0.48177pt,-0.87627pt) and the unit y vector (0.0pt,0.99998pt) are almost parallel (abs(cos(angle)) = 0.87625pt)! on input line 364.
 
  [warning /pgfplots/warning/ticklabel anchor undetermined]
-[52] [53] [54]
+[52] [53] [54] [55] [56] [57] [58] [59]
+Overfull \hbox (1.6049pt too wide) in paragraph at lines 770--771
+ [][] 
+ []
 
-Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.62973pt,-0.77678pt) and the unit x vector (-0.93207pt,-0.36234pt) are almost parallel (abs(cos(angle)) = 0.8684pt)! on input line 516.
+\openout3 = `main_contourtmp1.dat'.
 
- [warning /pgfplots/warning/ticklabel anchor undetermined]
+\openout3 = `main_contourtmp1.script'.
 
-Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.62973pt,-0.77678pt) and the unit x vector (-0.93207pt,-0.36234pt) are almost parallel (abs(cos(angle)) = 0.8684pt)! on input line 516.
+runsystem(gnuplot "main_contourtmp1.script")...executed.
 
- [warning /pgfplots/warning/ticklabel anchor undetermined]
-[55] [56] [57] [58]) [59] (./main.aux (./sections/Vectors in Two and Three Dimensions.aux) (./sections/Discussion Week 1.aux) (./sections/Vectors and Directions.aux) (./sections/Discussion Week 2.aux) (./sections/Planes and Surfaces.aux) (./sections/Vector_Valued Functions.aux) (./sections/Scalar_Valued Functions of Several Variables.aux) (./sections/Limits and Continuity of Functions of Several Variables.aux) (./sections/Partial Derivatives.aux))
+PGFPlots: reading {main_contourtmp1.table}
+
+Underfull \hbox (badness 1132) in paragraph at lines 744--800
+[]\OT1/cmr/m/n/12 Here, we vi-su-al-ize the gra-di-ent vec-tor as a vec-tor that points in the di-rec-
+ []
+
+
+Underfull \hbox (badness 1888) in paragraph at lines 744--800
+\OT1/cmr/m/n/12 tion of the steep-est as-cent of the sur-face, as shown be-low in the graphs.
+ []
+
+[60] [61] [62]) [63] (./main.aux (./sections/Vectors in Two and Three Dimensions.aux) (./sections/Discussion Week 1.aux) (./sections/Vectors and Directions.aux) (./sections/Discussion Week 2.aux) (./sections/Planes and Surfaces.aux) (./sections/Vector_Valued Functions.aux) (./sections/Scalar_Valued Functions of Several Variables.aux) (./sections/Limits and Continuity of Functions of Several Variables.aux) (./sections/Partial Derivatives.aux))
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -1120,18 +1136,18 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 45259 strings out of 467525
- 1067159 string characters out of 5418982
- 4654294 words of memory out of 5000000
- 73206 multiletter control sequences out of 15000+600000
+ 45720 strings out of 467525
+ 1081345 string characters out of 5418982
+ 4666014 words of memory out of 5000000
+ 73642 multiletter control sequences out of 15000+600000
  647984 words of font info for 125 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  116i,27n,121p,776b,6607s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/esint-type1/esint10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/esvect/vect10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/esvect/vect6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/esvect/vect8.pfb>
-Output written on main.pdf (62 pages, 633990 bytes).
+Output written on main.pdf (66 pages, 754527 bytes).
 PDF statistics:
- 813 PDF objects out of 1000 (max. 8388607)
- 674 compressed objects within 7 object streams
- 218 named destinations out of 1000 (max. 500000)
- 541 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 853 PDF objects out of 1000 (max. 8388607)
+ 709 compressed objects within 8 object streams
+ 231 named destinations out of 1000 (max. 500000)
+ 565 words of extra memory for PDF output out of 10000 (max. 10000000)
 

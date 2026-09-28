@@ -71,6 +71,8 @@ INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/bookmark/bookmark.sty
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
+INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/tools/verbatim.sty
+INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/tools/verbatim.sty
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsmath.sty
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsmath.sty
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsopn.sty
@@ -233,8 +235,6 @@ INPUT /usr/local/texlive/2026/texmf-dist/tex/generic/pgf/libraries/pgflibraryplo
 INPUT /usr/local/texlive/2026/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 INPUT /usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 INPUT /usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
-INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/tools/verbatim.sty
-INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/tools/verbatim.sty
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/environ/environ.sty
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/environ/environ.sty
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/trimspaces/trimspaces.sty
@@ -339,6 +339,13 @@ INPUT /usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libr
 INPUT /usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryplotmarks.code.tex
 INPUT /usr/local/texlive/2026/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
 INPUT /usr/local/texlive/2026/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
+INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/pgf/frontendlayer/libraries/tikzlibraryexternal.code.tex
+INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/pgf/frontendlayer/libraries/tikzlibraryexternal.code.tex
+INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/atveryend/atveryend.sty
+INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/atveryend/atveryend.sty
+INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/base/atveryend-ltx.sty
+INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/base/atveryend-ltx.sty
+INPUT /usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzexternalshared.code.tex
 INPUT /usr/local/texlive/2026/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
 INPUT /usr/local/texlive/2026/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
 INPUT /usr/local/texlive/2026/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
@@ -570,6 +577,9 @@ INPUT sections/Partial Derivatives.tex
 OUTPUT main_contourtmp0.dat
 OUTPUT main_contourtmp0.script
 INPUT main_contourtmp0.table
+OUTPUT main_contourtmp1.dat
+OUTPUT main_contourtmp1.script
+INPUT main_contourtmp1.table
 INPUT main.aux
 INPUT ./sections/Vectors in Two and Three Dimensions.aux
 INPUT ./sections/Vectors in Two and Three Dimensions.aux

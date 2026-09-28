@@ -9,7 +9,7 @@
     linkcolor=blue!80!black,
     urlcolor=blue
 }
-
+\usepackage{verbatim}
 % --- Information of Document ---
 \title{\textbf{MATH 1920}\\[0.5em] \Large Lecture Notes}
 \author{\textbf{Yichen Lu}}
@@ -17,6 +17,7 @@
 
 % --- Core Math & Physics Packages ---
 \usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{amsthm}
 \usepackage{bm}          % Bold vectors (\vec{v})
 \usepackage{esint}       % Multiple/surface integrals (\iint, \oiint)
 \usepackage[margin=1in]{geometry}
@@ -32,29 +33,22 @@
 % --- Graphics & TikZ / 3D Plotting ---
 \usepackage{tikz}
 \usepackage{pgfplots}
+
+\usetikzlibrary{external}
+% \tikzexternalize[optimize=false, prefix=tikz-cache/]
+
 \pgfplotsset{compat=1.18}
 \usetikzlibrary{arrows.meta, calc, angles, quotes, patterns, 3d, positioning, shapes.geometric}
 \usetikzlibrary{intersections, decorations.pathreplacing, backgrounds, fit}
 \usepgfplotslibrary{groupplots}
 
 % --- Custom Multivariable Macros ---
-% \usepackage{ifthen}
-% \newcommand{\pdv}[3][]{%
-%     \ifthenelse{\equal{#1}{}}%
-%         {\frac{\partial #2}{\partial #3}}%
-%         {\frac{\partial^{#1} #2}{\partial #3^{#1}}}%
-% }
-% \newcommand{\grad}{\nabla}
-% \newcommand{\divg}{\nabla \cdot}
-% \newcommand{\curl}{\nabla \times}
-% \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
-
-
 \newcommand{\ang}[1]{\left\langle #1 \right\rangle} % Angle brackets for vectors
 \newcommand{\ddt}[1][]{%
  \frac{\mathrm{d}#1}{\mathrm{d}t}%
 }
 \renewcommand{\dd}[1]{\mathrm{d}#1}
+\newcommand{\direcd}[2]{D_{\vv{#1}}{#2}} % Directional derivative
 % --- Custom Theorem Environments ---
 \tcbuselibrary{theorems}
 
@@ -91,8 +85,6 @@
 }{
   \end{solution}
 }
-
-\usepackage{amsthm}
 
 \newtheoremstyle{styleWithNewline}
   {\topsep}

@@ -479,7 +479,7 @@ A formal definition of differentiability is as follows:
 
 \begin{tikzpicture}
 \begin{axis}[
-    view={120}{30},
+    view={60}{30},
     axis lines=center,
     xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
     xmin=-1.6, xmax=1.6,
@@ -628,3 +628,265 @@ Rearranging the order of differentiation to $g_{xwzz}$, we have
 \end{align*}
 \end{example}
 
+
+\subsection{Directional Derivatives}
+
+\begin{definition}{Directional Derivative}{directional_derivative}
+Let $\vv{u}$ be a \textbf{unit vector}, and let $f(x, y)$ be a function of two variables. 
+The \textbf{directional derivative} of $f$ at the point $(a, b)$ in the direction of $\vv{u}$ is defined as
+\[
+    \direcd{u}{f}(\vv{r_0}) = \lim_{t \to 0} \frac{f(\vv{r_0} + t\vv{u}) - f(\vv{r_0})}{t}
+\]
+
+Here, we visualize the directional derivative as the slope of the tangent line to the curve on the surface defined by $f$ in the direction of $\vv{u}$ at the point $(a, b)$.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    view={60}{30},
+    axis lines=center,
+    xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+    xmin=-0.5, xmax=3,
+    ymin=-0.5, ymax=3.5,
+    zmin=-0.5, zmax=4,
+    ticks=none,
+    clip=false,
+    width=0.8\textwidth,
+    height=10cm,
+    z buffer=sort
+]
+    % Surface f(x,y) = 3 - 0.4*x^2 - 0.3*y^2
+    \addplot3[
+        surf,
+        colormap/cool,
+        opacity=0.3,
+        domain=0:2.2,
+        domain y=0:2.2,
+        samples=20,
+        shader=faceted,
+        faceted color=cyan!30!black
+    ] {3 - 0.4*x^2 - 0.3*y^2};
+
+    % Coordinates for base point (x0, y0) and surface point f(x0, y0)
+    % (x0, y0) = (1, 1), z0 = 2.3
+    % Direction angle theta = 30 deg, u = <cos 30, sin 30>
+    % Directional Derivative slope at (1,1) along u is ~ -0.993
+
+    % 1. Direction vector u in xy-plane
+    \draw[-{Stealth[length=2.5mm]}, line width=1.3pt, red!80!black] 
+        (axis cs:1, 1, 0) -- (axis cs:1.866, 1.5, 0) 
+        node[midway, below right] {$\vv{u}$};
+
+    % 2. Curve on surface cut along direction u
+    \addplot3[
+        domain=-0.6:0.8,
+        samples=30,
+        line width=1.5pt,
+        blue!80!black
+    ] (
+        {1 + x*cos(30)},
+        {1 + x*sin(30)},
+        {3 - 0.4*(1 + x*cos(30))^2 - 0.3*(1 + x*sin(30))^2}
+    );
+
+    % 3. Tangent Line on Surface (representing directional derivative)
+    \draw[line width=1.3pt, orange!90!black] 
+        (axis cs:{1 + 0.7*cos(30)}, {1 + 0.7*sin(30)}, {2.3 + 0.7*(-0.993)}) -- 
+        (axis cs:{1 - 0.7*cos(30)}, {1 - 0.7*sin(30)}, {2.3 - 0.7*(-0.993)})
+        node[above] {Slope = $\direcd{u}{f}$};
+
+    % 4. Projection of Tangent Line onto xy-plane
+    \draw[line width=1.2pt, orange!80!black, dashed] 
+        (axis cs:{1 - 0.7*cos(30)}, {1 - 0.7*sin(30)}, 0) -- 
+        (axis cs:{1 + 0.7*cos(30)}, {1 + 0.7*sin(30)}, 0)
+        node[below right] {};
+
+    % Vertical projection lines (connecting surface tangent endpoints to xy-plane)
+    \draw[dotted, thick, gray] 
+        (axis cs:{1 - 0.7*cos(30)}, {1 - 0.7*sin(30)}, {2.3 - 0.7*(-0.993)}) -- 
+        (axis cs:{1 - 0.7*cos(30)}, {1 - 0.7*sin(30)}, 0);
+    \draw[dotted, thick, gray] 
+        (axis cs:{1 + 0.7*cos(30)}, {1 + 0.7*sin(30)}, {2.3 + 0.7*(-0.993)}) -- 
+        (axis cs:{1 + 0.7*cos(30)}, {1 + 0.7*sin(30)}, 0);
+
+    % Base point and Surface point
+    \node[circle, fill=black, inner sep=1.3pt, label={below:$(x_0,y_0)$}] at (axis cs:1, 1, 0) {};
+    \node[circle, fill=blue!80!black, inner sep=1.3pt, label={above right:$f(x_0,y_0)$}] at (axis cs:1, 1, 2.3) {};
+    \draw[dashed, thick, black!60] (axis cs:1, 1, 0) -- (axis cs:1, 1, 2.3);
+
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\end{definition}
+
+
+\begin{example}[Directional Derivative of a Function of Two Variables]
+Let $f(x, y) = ax + by,\, \vv{u} = \ang{\cos\theta, \sin\theta}$.
+We now want to find $\direcd{u}{f}$.
+\begin{align*}
+    \direcd{u}{f} &= \lim_{t \to 0} \frac{f(\vv{r_0} + t\vv{u}) - f(\vv{r_0})}{t} \\[0.5em]
+    &= \lim_{t \to 0} \frac{f(x_0 + t\cos\theta, y_0 + t\sin\theta) - f(x_0, y_0)}{t} \\[0.5em]
+    &= \lim_{t \to 0} \frac{a(x_0 + t\cos\theta) + b(y_0 + t\sin\theta) - (ax_0 + by_0)}{t} \\[0.5em]
+    &= \lim_{t \to 0} \frac{at\cos\theta + bt\sin\theta}{t} \\[0.5em]
+    &= a\cos\theta + b\sin\theta \\
+    &= \vv{u} \cdot \ang{a, b}
+\end{align*}
+\end{example}
+
+\subsection{Gradient}
+
+\begin{definition}{Gradient}{gradient}
+The \textbf{gradient} of a function $f(x, y)$ is the vector $\ang{a, b}$ such that
+\[
+    \ang{a, b} = \ang{\pdv{f}{x}, \pdv{f}{y}}
+\]
+We call this vector the \textbf{gradient vector} of $f$ and denote it by $\nabla f$.
+
+Here, we visualize the gradient vector as a vector that points in the direction of the steepest ascent of the surface, as shown below in the graphs.
+\noindent
+% ============================================================
+% Three-panel visualization of the surface and its gradients
+% ============================================================
+\begin{minipage}[t]{0.48\textwidth}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[title={\small Original Surface}, width=\textwidth, height=0.95\textwidth, view={210}{30}, xlabel={$x$}, ylabel={$y$}, zlabel={$z$}, colormap/viridis, thin]
+      % ------------------------------------------------------
+      % Original 3D surface
+      % ------------------------------------------------------
+      \addplot3[surf, domain=-3.14:3.14, domain y=-3.14:3.14, samples=35] {sin(deg(x))*cos(deg(y)) + 0.3*cos(2*deg(x))};
+      % ------------------------------------------------------
+      % Point A = (0,0)
+      % f(0,0) = 0.3
+      % ------------------------------------------------------
+      \addplot3[only marks, mark=*, mark size=2pt, red] coordinates {(0,0,0.3)};
+      \node[red, font=\scriptsize, above right] at (axis cs:0,0,0.3) {};
+      % ------------------------------------------------------
+      % Point B = (pi/2, pi/2)
+      % f(pi/2,pi/2) = -0.3
+      % ------------------------------------------------------
+      \addplot3[only marks, mark=*, mark size=2pt, blue] coordinates {(1.5708,1.5708,-0.3)};
+      \node[blue, font=\scriptsize, above right] at (axis cs:1.5708,1.5708,-0.3) {};
+    \end{axis}
+  \end{tikzpicture}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[title={\small 2D Contour Map}, width=\textwidth, height=0.95\textwidth, xlabel={$x$}, ylabel={$y$}, view={270}{90}, colormap/viridis, domain=-3.14:3.14, domain y=-3.14:3.14]
+      % ------------------------------------------------------
+      % 2D contour map
+      % ------------------------------------------------------
+      \addplot3[contour gnuplot={number=12, labels=false}, thick, samples=40] {sin(deg(x))*cos(deg(y)) + 0.3*cos(2*deg(x))};
+      % ------------------------------------------------------
+      % Point A = (0,0)
+      % Gradient: grad f(A) = <1,0>
+      % ------------------------------------------------------
+      \filldraw[red] (axis cs:0,0) circle (1.8pt);
+      \node[red, font=\scriptsize, above right] at (axis cs:0,0) {};
+      % Gradient vector at A
+      \draw[->, >=stealth, red, thick] (axis cs:0,0) -- (axis cs:0.8,0) node[above, font=\tiny, color=red] {$\nabla f$};
+      % ------------------------------------------------------
+      % Point B = (pi/2,pi/2)
+      % Gradient: grad f(B) = <0,-1>
+      % ------------------------------------------------------
+      \filldraw[blue] (axis cs:1.5708,1.5708) circle (1.8pt);
+      \node[blue, font=\scriptsize, above right] at (axis cs:1.5708,1.5708) {};
+      % Gradient vector at B
+      \draw[->, >=stealth, blue, thick] (axis cs:1.5708,1.5708) -- (axis cs:1.5708,0.77) node[right, font=\tiny, color=blue] {$\nabla f$};
+    \end{axis}
+  \end{tikzpicture}
+\end{minipage}
+
+\end{definition}
+
+\begin{theorem}{Gradient Theorem}{gradient_theorem}
+If $f$ is differentiable at $(a, b)$, then
+\[
+    \direcd{u}{f} = \nabla f \cdot \vv{u}
+\]
+\end{theorem}
+
+\begin{example}[Gradient of a Function of Two Variables]
+Let $f(x, y) = \sin(xy^2)$. We have
+\[
+    \nabla f = \ang{f_x, f_y} = \ang{y^2\cos(xy^2), 2xy\cos(xy^2)}
+\]
+Given this, we can find the gradient of $f$ at $(0, 1)$.
+\[
+    \nabla f_{(0, 1)} = \ang{1, 0}
+\]
+
+\end{example}
+
+\subsection{Differentiability and Continuity}
+Note that it is dangerous to assume that the existence of partial derivatives implies differentiability.
+
+Remember the good-old example, $g(x, y) = \dfrac{2xy(x+y)}{x^2+y^2}$, which we used to show that the existence of partial derivatives does not imply differentiability.
+
+\begin{center}
+\def\funcG(#1,#2){ (#1 * sin(2*#2) * (cos(#2) + sin(#2))) }
+
+\begin{tikzpicture}
+\begin{axis}[
+    view={60}{30},
+    axis lines=center,
+    xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+    xmin=-1.6, xmax=1.6,
+    ymin=-1.6, ymax=1.6,
+    zmin=-1.6, zmax=1.6,
+    ticks=none,
+    clip=false,
+    width=0.8\textwidth,
+    height=7.5cm,
+    z buffer=sort
+]
+    % Main surface: g(x,y) using polar parametrization
+    \addplot3[
+        surf,
+        colormap/cool,
+        opacity=0.35,
+        faceted color=cyan!20!black,
+        domain=0:1.5,         % radius r
+        domain y=0:360,       % angle theta in degrees
+        samples=15,
+        samples y=72,
+        shader=faceted
+    ] (
+        {x*cos(y)},
+        {x*sin(y)},
+        {\funcG(x,y)}
+    );
+
+    % Highlight point at the origin (0,0,0) where partial derivatives exist
+    \node[
+        circle, fill=red!60, inner sep=1.2pt,
+        label={[text=red!60]below left:$(0,0)$}
+    ] at (axis cs:0,0,0) {};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+Again, we can compute the gradient of $g$ at $(0, 0)$, with $\vv{u} = \ang{\cos\theta, \sin\theta}$.
+\begin{align*}
+    \direcd{u}{g} &= \lim_{t \to 0} \frac{g(\vv{r_0} + t\vv{u}) - g(\vv{r_0})}{t} \\[0.5em]
+    &= \lim_{t \to 0} \frac{g(t\cos\theta, t\sin\theta) - g(0, 0)}{t} \\[0.5em]
+    &= \lim_{t \to 0} \frac{\dfrac{2(t\cos\theta)(t\sin\theta)(t\cos\theta+t\sin\theta)}{(t\cos\theta)^2+(t\sin\theta)^2}}{t} \\[0.5em]
+    &= \lim_{t \to 0} \frac{\dfrac{2t^3(\cos^2\theta\sin\theta+\cos\theta\sin^2\theta)}{t^2(\cos^2\theta+\sin^2\theta)}}{t} \\[0.5em]
+    &= \lim_{t \to 0} \frac{2t^3(\cos^2\theta\sin\theta+\cos\theta\sin^2\theta)}{t^3} \\[0.5em]
+    &= \lim_{t \to 0} 2(\cos^2\theta\sin\theta+\cos\theta\sin^2\theta) \\[0.5em]
+    &= 2(\cos^2\theta\sin\theta+\cos\theta\sin^2\theta) \\
+    &= 2\cos\theta\sin\theta(\cos\theta+\sin\theta)
+\end{align*}
+This result is not a constant, and it depends on the direction $\vv{u}$.
+It yields $0$ when $\theta = k\pi/2, k \in \mathbb{Z}$, and $\pm 1$ when $\theta = \pi/4 + k\pi, k \in \mathbb{Z}$.
+
+Note that when
+\[
+    \direcd{u}{f}(x, y) \neq \nabla f \cdot \vv{u}
+\]
+The function is not `behaving like a plane' at the point $(x, y)$, and hence it is not differentiable at that point.
+
+\begin{theorem}{Differentiability and Continuity}{differentiability_and_continuity}
+If $f_x$ and $f_y$ are continuous on an open disk $D$, then $f$ is differentiable on $D$.
+\end{theorem}

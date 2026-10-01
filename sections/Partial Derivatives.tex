@@ -802,10 +802,18 @@ Here, we visualize the gradient vector as a vector that points in the direction 
 
 \begin{theorem}{Gradient Theorem}{gradient_theorem}
 If $f$ is differentiable at $(a, b)$, then
-\[
-    \direcd{u}{f} = \nabla f \cdot \vv{u}
-\]
+\begin{align*}
+    \direcd{u}{f} &= \nabla f \cdot \vv{u} \\
+                  &= \norm{\nabla f} \cos\theta
+\end{align*}
 \end{theorem}
+
+Given this, we know that:
+\begin{itemize}
+    \item $\nabla f$ points in the direction of the \textbf{fastest increase} of $f$.
+    \item $-\nabla f$ points in the direction of the \textbf{fastest decrease} of $f$.
+    \item $\nabla f$ is \textbf{perpendicular} to the level curves of $f$.
+\end{itemize}
 
 \begin{example}[Gradient of a Function of Two Variables]
 Let $f(x, y) = \sin(xy^2)$. We have
@@ -890,3 +898,127 @@ The function is not `behaving like a plane' at the point $(x, y)$, and hence it 
 \begin{theorem}{Differentiability and Continuity}{differentiability_and_continuity}
 If $f_x$ and $f_y$ are continuous on an open disk $D$, then $f$ is differentiable on $D$.
 \end{theorem}
+
+\begin{example}[A Practice Problem]
+Given differentiable functions $\vv{r}(t) = \ang{x(t), y(t)}$ and $f(x, y)$.
+\[
+    \ddt f(\vv{r}(t)) = \lim_{h \to 0} \frac{f(\vv{r}(t+h)) - f(\vv{r}(t))}{h}
+\]
+We now compute the linear approximation of $f$ at $\vv{r}(t+h)$:
+\begin{align*}
+    f(\vv{r}(t+h)) &\approx f(\vv{r}(t)) + f_x(\vv{r}(t))(x(t+h) - x(t)) + f_y(\vv{r}(t))(y(t+h) - y(t)) \\[0.5em]
+    &= f(\vv{r}(t)) + f_x(\vv{r}(t))\Delta x + f_y(\vv{r}(t))\Delta y, \\
+    \text{where } \Delta x &= x(t+h) - x(t), \\
+    \Delta y &= y(t+h) - y(t)
+\end{align*}
+Hence, the original limit becomes
+\begin{align*}
+    \ddt f(\vv{r}(t)) &= \lim_{h \to 0} \frac{f(\vv{r}(t)) + f_x(\vv{r}(t))\Delta x + f_y(\vv{r}(t))\Delta y - f(\vv{r}(t))}{h} \\[0.5em]
+    &= \lim_{h \to 0} \frac{f_x(\vv{r}(t))\Delta x + f_y(\vv{r}(t))\Delta y}{h} \\[0.5em]
+    &= \lim_{h \to 0} \left( f_x(\vv{r}(t))\frac{\Delta x}{h} + f_y(\vv{r}(t))\frac{\Delta y}{h} \right) \\[0.5em]
+    &= f_x(\vv{r}(t))\lim_{h \to 0} \frac{\Delta x}{h} + f_y(\vv{r}(t))\lim_{h \to 0} \frac{\Delta y}{h} \\[0.5em]
+    &= f_x(\vv{r}(t))\ddt x(t) + f_y(\vv{r}(t))\ddt y(t)
+\end{align*}
+\end{example}
+
+\begin{theorem}{Chain Rule for Multivariable Functions}{chain_rule_multivariable}
+Let $f(x, y)$ be a differentiable function of two variables, and let $\vv{r}(t) = \ang{x(t), y(t)}$ be a differentiable vector-valued function of one variable. Then
+\begin{align*}
+    \ddt f(\vv{r}(t)) &= f_x(\vv{r}(t))x'(t) + f_y(\vv{r}(t))y'(t) \\
+                      &= \nabla f(\vv{r}(t)) \cdot \vv{r}'(t)
+\end{align*}
+\end{theorem}
+
+From the Chain Rule and the definition of directional derivative, we can derive the following theorem.
+
+\begin{theorem}{Directional Derivative and Gradient}{directional_derivative_gradient}
+Let $f(x, y)$ be a differentiable function of two variables, and let $\vv{u}$ be a unit vector. Then, $\ang{u_1, u_2, \direcd{u}{f}}$ is tangent to $f$.
+\end{theorem}
+
+Recall that $\direcd{u}{f} \perp$ the level curves of $f$. But why is that? Let's explore this concept further.
+
+If $\vv{r}$ follows a level curve of $f$, then $f(\vv{r}(t))$ is constant. Hence, $\ddt f(\vv{r}(t)) = 0$.
+
+Meanwhile, $\ddt f(\vv{r}(t)) = \nabla f(\vv{r}(t)) \cdot \vv{r}'(t)$.
+
+Therefore, we have
+\begin{align*}
+    \nabla f(\vv{r}(t)) \cdot \vv{r}'(t) &= 0 \\
+    \implies \nabla f(\vv{r}(t)) &\perp \vv{r}'(t)
+\end{align*}
+
+\begin{problem}{Finding the Tangent Plane of a Surface}{tangent_plane_surface}
+Let $f(x, y, z) = x^2 + y^2 - z^2$, and the surface be defined by $f(x, y, z) = 1$. 
+
+Find the tangent plane of the surface at the point $(1, 2, -2)$.
+\end{problem}
+
+\begin{sol}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=center,
+    axis on top,
+    xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+    xmin=-3, xmax=3,
+    ymin=-3, ymax=3,
+    zmin=-4, zmax=4,
+    ticks=none,
+    width=0.5\textwidth,
+    height=8cm,
+    view={120}{30},
+    colormap/cool
+]
+
+% Hyperboloid of one sheet: x^2 + y^2 - z^2 = 1
+% Parametrization: x = sqrt(1+z^2)*cos(u), y = sqrt(1+z^2)*sin(u), z = z
+\addplot3[
+    surf,
+    domain=0:360,
+    domain y=-3:3,
+    samples=40,
+    samples y=20,
+    z buffer=sort,
+    opacity=0.75
+] (
+    {sqrt(1 + y^2) * cos(x)},
+    {sqrt(1 + y^2) * sin(x)},
+    {y}
+);
+
+% Point (1, 2, -2) on the hyperboloid: 1^2 + 2^2 - (-2)^2 = 1
+\addplot3[
+    only marks,
+    mark=*,
+    mark size=2pt,
+    color=red
+] coordinates {(1, 2, -2)};
+
+% Label for the point
+\node[below, red] at (axis cs:1, 2, -2) {$(1, 2, -2)$};
+
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+First, we compute the gradient of $f$:
+\[
+    \nabla f = \ang{f_x, f_y, f_z} = \ang{2x, 2y, -2z}
+\]
+Next, we evaluate the gradient at the point $(1, 2, -2)$:
+\[
+    \nabla f(1, 2, -2) = \ang{2, 4, 4}
+\]
+The equation of the tangent plane at the point $(x_0, y_0, z_0)$ is given by:
+\[
+    \nabla f(x_0, y_0, z_0) \cdot \ang{x - x_0, y - y_0, z - z_0} = 0
+\]
+Substituting the values, we have:
+\begin{align*}
+    \ang{2, 4, 4} \cdot \ang{x - 1, y - 2, z + 2} &= 0 \\
+    2(x - 1) + 4(y - 2) + 4(z + 2) &= 0 \\
+    2x - 2 + 4y - 8 + 4z + 8 &= 0 \\
+    2x + 4y + 4z - 2 &= 0 \\
+    x + 2y + 2z - 1 &= 0
+\end{align*}
+\end{sol}

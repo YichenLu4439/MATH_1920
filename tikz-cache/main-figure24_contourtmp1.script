@@ -1,1 +1,0 @@
-unset surface; set cntrparam levels 12; set contour; set table "tikz-cache/main-figure24_contourtmp1.table"; splot "tikz-cache/main-figure24_contourtmp1.dat";

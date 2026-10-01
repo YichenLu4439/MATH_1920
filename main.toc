@@ -54,4 +54,4 @@
 \contentsline {subsection}{\numberline {10.4}Higher-Order Partial Derivatives}{57}{subsection.10.4}%
 \contentsline {subsection}{\numberline {10.5}Directional Derivatives}{59}{subsection.10.5}%
 \contentsline {subsection}{\numberline {10.6}Gradient}{60}{subsection.10.6}%
-\contentsline {subsection}{\numberline {10.7}Differentiability and Continuity}{61}{subsection.10.7}%
+\contentsline {subsection}{\numberline {10.7}Differentiability and Continuity}{62}{subsection.10.7}%

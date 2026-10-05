@@ -45,13 +45,16 @@
 \contentsline {subsection}{\numberline {8.1}Visualizing Multivariable Functions: Traces and Level Sets}{43}{subsection.8.1}%
 \contentsline {subsection}{\numberline {8.2}Level Sets and Contour Maps}{44}{subsection.8.2}%
 \contentsline {subsection}{\numberline {8.3}Visualizing Higher Dimensions via Slices}{44}{subsection.8.3}%
-\contentsline {section}{\numberline {9}Limits and Continuity of Functions of Several Variables}{46}{section.9}%
-\contentsline {paragraph}{Systematic Path Approaches}{48}{section*.12}%
-\contentsline {section}{\numberline {10}Partial Derivatives}{50}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Definition and Properties of Partial Derivatives}{50}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}Linear Approximation}{53}{subsection.10.2}%
-\contentsline {subsection}{\numberline {10.3}Differentiability}{55}{subsection.10.3}%
-\contentsline {subsection}{\numberline {10.4}Higher-Order Partial Derivatives}{57}{subsection.10.4}%
-\contentsline {subsection}{\numberline {10.5}Directional Derivatives}{59}{subsection.10.5}%
-\contentsline {subsection}{\numberline {10.6}Gradient}{60}{subsection.10.6}%
-\contentsline {subsection}{\numberline {10.7}Differentiability and Continuity}{62}{subsection.10.7}%
+\contentsline {subsection}{\numberline {8.4}Limits of Functions of Several Variables}{45}{subsection.8.4}%
+\contentsline {paragraph}{Systematic Path Approaches}{47}{section*.12}%
+\contentsline {section}{\numberline {9}Partial Derivatives}{49}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Definition and Properties of Partial Derivatives}{49}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Linear Approximation}{52}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Differentiability}{54}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Higher-Order Partial Derivatives}{56}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.5}Directional Derivatives}{58}{subsection.9.5}%
+\contentsline {subsection}{\numberline {9.6}Gradient}{59}{subsection.9.6}%
+\contentsline {subsection}{\numberline {9.7}Differentiability and Continuity}{62}{subsection.9.7}%
+\contentsline {subsection}{\numberline {9.8}Chain Rule for Multivariable Functions}{64}{subsection.9.8}%
+\contentsline {section}{\numberline {10}Optimization and Lagrange Multipliers}{67}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Optimization}{67}{subsection.10.1}%

@@ -394,12 +394,12 @@ INPUT sections/Vector_Valued Functions.aux
 INPUT ./sections/Scalar_Valued Functions of Several Variables.aux
 INPUT ./sections/Scalar_Valued Functions of Several Variables.aux
 INPUT sections/Scalar_Valued Functions of Several Variables.aux
-INPUT ./sections/Limits and Continuity of Functions of Several Variables.aux
-INPUT ./sections/Limits and Continuity of Functions of Several Variables.aux
-INPUT sections/Limits and Continuity of Functions of Several Variables.aux
 INPUT ./sections/Partial Derivatives.aux
 INPUT ./sections/Partial Derivatives.aux
 INPUT sections/Partial Derivatives.aux
+INPUT ./sections/Optimization and Lagrange Multipliers.aux
+INPUT ./sections/Optimization and Lagrange Multipliers.aux
+INPUT sections/Optimization and Lagrange Multipliers.aux
 OUTPUT main.aux
 INPUT /usr/local/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -554,12 +554,6 @@ OUTPUT sections/Scalar_Valued Functions of Several Variables.aux
 INPUT ./sections/Scalar_Valued Functions of Several Variables.tex
 INPUT ./sections/Scalar_Valued Functions of Several Variables.tex
 INPUT sections/Scalar_Valued Functions of Several Variables.tex
-INPUT ./sections/Limits and Continuity of Functions of Several Variables.tex
-INPUT ./sections/Limits and Continuity of Functions of Several Variables.tex
-OUTPUT sections/Limits and Continuity of Functions of Several Variables.aux
-INPUT ./sections/Limits and Continuity of Functions of Several Variables.tex
-INPUT ./sections/Limits and Continuity of Functions of Several Variables.tex
-INPUT sections/Limits and Continuity of Functions of Several Variables.tex
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
 INPUT ./sections/Partial Derivatives.tex
 INPUT ./sections/Partial Derivatives.tex
@@ -573,6 +567,12 @@ INPUT main_contourtmp0.table
 OUTPUT main_contourtmp1.dat
 OUTPUT main_contourtmp1.script
 INPUT main_contourtmp1.table
+INPUT ./sections/Optimization and Lagrange Multipliers.tex
+INPUT ./sections/Optimization and Lagrange Multipliers.tex
+OUTPUT sections/Optimization and Lagrange Multipliers.aux
+INPUT ./sections/Optimization and Lagrange Multipliers.tex
+INPUT ./sections/Optimization and Lagrange Multipliers.tex
+INPUT sections/Optimization and Lagrange Multipliers.tex
 INPUT main.aux
 INPUT ./sections/Vectors in Two and Three Dimensions.aux
 INPUT ./sections/Vectors in Two and Three Dimensions.aux
@@ -595,12 +595,12 @@ INPUT sections/Vector_Valued Functions.aux
 INPUT ./sections/Scalar_Valued Functions of Several Variables.aux
 INPUT ./sections/Scalar_Valued Functions of Several Variables.aux
 INPUT sections/Scalar_Valued Functions of Several Variables.aux
-INPUT ./sections/Limits and Continuity of Functions of Several Variables.aux
-INPUT ./sections/Limits and Continuity of Functions of Several Variables.aux
-INPUT sections/Limits and Continuity of Functions of Several Variables.aux
 INPUT ./sections/Partial Derivatives.aux
 INPUT ./sections/Partial Derivatives.aux
 INPUT sections/Partial Derivatives.aux
+INPUT ./sections/Optimization and Lagrange Multipliers.aux
+INPUT ./sections/Optimization and Lagrange Multipliers.aux
+INPUT sections/Optimization and Lagrange Multipliers.aux
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb

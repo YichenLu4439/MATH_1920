@@ -56,5 +56,5 @@
 \contentsline {subsection}{\numberline {9.6}Gradient}{59}{subsection.9.6}%
 \contentsline {subsection}{\numberline {9.7}Differentiability and Continuity}{62}{subsection.9.7}%
 \contentsline {subsection}{\numberline {9.8}Chain Rule for Multivariable Functions}{64}{subsection.9.8}%
-\contentsline {section}{\numberline {10}Optimization and Lagrange Multipliers}{67}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Optimization}{67}{subsection.10.1}%
+\contentsline {section}{\numberline {10}Optimization and Lagrange Multipliers}{68}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Optimization}{68}{subsection.10.1}%

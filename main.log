@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.22)  5 OCT 2026 19:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.22)  5 OCT 2026 19:42
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1124,10 +1124,10 @@ Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal 
 Package pgfplots Warning: the ticklabel anchor cannot be determined, the normal vector -(-0.62973pt,-0.77678pt) and the unit x vector (-0.78076pt,-0.62494pt) are almost parallel (abs(cos(angle)) = 0.9771pt)! on input line 881.
 
  [warning /pgfplots/warning/ticklabel anchor undetermined]
-[61] [62] [63] [64] [65]) [66]
+[61] [62] [63] [64] [65] [66]) [67]
 \openout2 = `"sections/Optimization and Lagrange Multipliers.aux"'.
 
- (./sections/Optimization and Lagrange Multipliers.tex) [67
+ (./sections/Optimization and Lagrange Multipliers.tex) [68
 
 
 
@@ -1142,18 +1142,18 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 45439 strings out of 467525
- 1070316 string characters out of 5418982
+ 45441 strings out of 467525
+ 1070339 string characters out of 5418982
  4702084 words of memory out of 5000000
- 73354 multiletter control sequences out of 15000+600000
+ 73355 multiletter control sequences out of 15000+600000
  647984 words of font info for 125 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  116i,27n,121p,776b,6607s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/esint-type1/esint10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/esvect/vect10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/esvect/vect6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/esvect/vect8.pfb>
-Output written on main.pdf (70 pages, 801281 bytes).
+Output written on main.pdf (71 pages, 802118 bytes).
 PDF statistics:
- 899 PDF objects out of 1000 (max. 8388607)
- 751 compressed objects within 8 object streams
- 249 named destinations out of 1000 (max. 500000)
+ 903 PDF objects out of 1000 (max. 8388607)
+ 754 compressed objects within 8 object streams
+ 250 named destinations out of 1000 (max. 500000)
  589 words of extra memory for PDF output out of 10000 (max. 10000000)
 

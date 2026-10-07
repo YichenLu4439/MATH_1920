@@ -69,3 +69,169 @@ For $f(x)$, if $f'(a) = 0$, then:
     \item If $f''(a) < 0$, then $f$ has a local maximum at $x = a$.
     \item If $f''(a) = 0$, the test is inconclusive.
 \end{itemize}
+
+For multivariable functions, we can use its quadratic approximation to determine the nature of a critical point.
+
+\begin{problem}{Determining the Critical Points of a Function}{determine_critical_points}
+Find critical points of the function $f(x, y) = x^4 + y^4 + 4xy$. Which are local maxima, local minima, and saddle points?
+\end{problem}
+
+\begin{sol}
+First, we find the critical points by setting the gradient of $f$ to zero. The gradient is given by:
+\[
+\nabla f(x, y) = \ang{\pdv{f}{x}, \pdv{f}{y}} = (4x^3 + 4y, 4y^3 + 4x)
+\]
+Setting each component to zero gives us the system of equations:
+\begin{align*}
+4x^3 + 4y &= 0 \\
+4y^3 + 4x &= 0
+\end{align*}
+
+This implies $y = -x^3$. Substituting $y = -x^3$ into the second equation gives:
+\[
+4(-x^3)^3 + 4x = 0 \implies -4x^9 + 4x = 0 \implies 4x(-x^8 + 1) = 0
+\]
+This gives us $x = 0$ or $x^8 = 1$. The equation $x^8 = 1$ has solutions $x = \pm 1$. So the critical points are $(0, 0)$, $(1, -1)$, and $(-1, 1)$.
+
+To determine the nature of these critical points, we write $f(x, y)$ in the quadratic approximation form around each critical point.
+\begin{align*}
+f(x, y) &\approx a + bx + cy + Ax^2 + Bxy + Cy^2 \\
+\text{If } \nabla f(0, 0) &= 0, \text{ then } b = c = 0, a = f(0, 0) \\
+\implies f(x, y) &\approx f(0, 0) + Ax^2 + Bxy + Cy^2
+\end{align*}
+The second derivative is then given by
+\begin{align*}
+\pdv{f}{x}{x} &= 2A \\
+\pdv{f}{y}{y} &= 2C \\
+\pdv{f}{x}{y} &= B
+\end{align*}
+\end{sol}
+
+Fact: If $(a, b)$ is a critical point of $f$, then the quadratic approximation is given by
+\[
+Q(x, y) = \frac{1}{2} f_{xx}(a, b)(x - a)^2 + f_{xy}(a, b)(x - a)(y - b) + \frac{1}{2} f_{yy}(a, b)(y - b)^2
+\]
+There are three possible nondegenerate behaviors for a quadratic function near a critical point:
+
+\begin{center}
+\begin{minipage}[t]{0.31\textwidth}
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    view={120}{25},
+    width=\textwidth,
+    height=4cm,
+    axis lines=center,
+    ticks=none,
+    domain=-1.2:1.2,
+    domain y=-1.2:1.2,
+    colormap/cool,
+    opacity=0.8
+]
+% Upward-opening paraboloid
+\addplot3[surf, samples=15] {x^2 + y^2};
+\end{axis}
+\end{tikzpicture}
+\[
+Q(x,y)=x^2 + y^2
+\]
+\textbf{Minimum}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.31\textwidth}
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    view={120}{25},
+    width=\textwidth,
+    height=4cm,
+    axis lines=center,
+    ticks=none,
+    domain=-1.2:1.2,
+    domain y=-1.2:1.2,
+    colormap/cool,
+    opacity=0.8
+]
+% Downward-opening paraboloid
+\addplot3[surf, samples=15] {-x^2 - y^2};
+\end{axis}
+\end{tikzpicture}
+\[
+Q(x,y)=-x^2 - y^2
+\]
+\textbf{Maximum}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.31\textwidth}
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    view={120}{25},
+    width=\textwidth,
+    height=4cm,
+    axis lines=center,
+    ticks=none,
+    domain=-1.2:1.2,
+    domain y=-1.2:1.2,
+    colormap/cool,
+    opacity=0.8
+]
+% Hyperbolic paraboloid
+\addplot3[surf, samples=15] {x^2 - y^2};
+\end{axis}
+\end{tikzpicture}
+\[
+Q(x,y)=x^2 - y^2
+\]
+\textbf{Saddle}
+\end{minipage}
+\end{center}
+
+For a general quadratic function
+\[
+Q(x,y)=Ax^2 + Bxy + Cy^2,
+\]
+its behavior is determined by $4AC - B^2$. For the quadratic approximation of $f$ at a critical point $(a,b)$,
+\[
+A=\frac12 f_{xx}(a, b),\qquad
+B=f_{xy}(a, b),\qquad
+C=\frac12 f_{yy}(a, b).
+\]
+Hence,
+\[
+4AC-B^2=f_{xx}(a, b)f_{yy}(a, b)-f_{xy}(a, b)^2.
+\]
+
+\begin{definition}{Second Derivative Test}{second_derivative_test}
+Let $(a,b)$ be a critical point of $f$, and define
+\[
+D=f_{xx}(a, b)f_{yy}(a, b)-f_{xy}(a, b)^2.
+\]
+Then:
+\begin{itemize}
+    \item If $D > 0$ and $f_{xx}(a, b)>0$, then $(a, b)$ is a \textbf{local minimum}.
+    \item If $D > 0$ and $f_{xx}(a, b)<0$, then $(a, b)$ is a \textbf{local maximum}.
+    \item If $D < 0$, then $(a, b)$ is a \textbf{saddle point}.
+    \item If $D = 0$, the test is \textbf{inconclusive}.
+\end{itemize}
+\end{definition}
+
+\begin{example}[Usage of the Discriminant]
+We have $f(x, y) = x^2 + y^2 - 3xy$. 
+
+From calculation, we know that $\nabla f = \ang{2x - 3y, 2y - 3x}$.
+Spot that there is only one critical point at $(0, 0)$.
+
+The discriminant is given by $D = (2)(2) - (-3)^2 = 4 - 9 = -5 < 0$.
+
+We now know that $(0, 0)$ is a saddle.
+% Maybe plot the function here at last
+\end{example}
+
+\begin{definition}{Global Extrema}{global_extrema}
+Given a function $f(x, y)$ defined on some domain $D$, we say that $(a, b) \in D$ is a
+\begin{itemize}
+    \item \textbf{global maximum} if $f(a, b) \geq f(x, y),\ \forall (x, y) \in D$.
+    \item \textbf{global minimum} if $f(a, b) \leq f(x, y),\ \forall (x, y) \in D$.
+\end{itemize}
+\end{definition}

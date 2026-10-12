@@ -1,6 +1,5 @@
 \section{Optimization and Lagrange Multipliers}
-
-\subsection{Optimization}
+\subsection{Extrema of Multivariable Functions}
 
 \begin{definition}{Local Maximum and Minimum}{local_max_min}
 For a function $f(x, y)$ and a point $(a, b)$ in its domain, we say that $(a, b)$ is a 
@@ -220,7 +219,11 @@ Then:
 We have $f(x, y) = x^2 + y^2 - 3xy$. 
 
 From calculation, we know that $\nabla f = \ang{2x - 3y, 2y - 3x}$.
-Spot that there is only one critical point at $(0, 0)$.
+Setting this equal to zero gives us the system of equations:
+\[
+2x - 3y = 0 \quad \text{and} \quad 2y - 3x = 0.
+\]
+Solving this system, we find that the only critical point is $(0, 0)$.
 
 The discriminant is given by $D = (2)(2) - (-3)^2 = 4 - 9 = -5 < 0$.
 
@@ -235,3 +238,135 @@ Given a function $f(x, y)$ defined on some domain $D$, we say that $(a, b) \in D
     \item \textbf{global minimum} if $f(a, b) \leq f(x, y),\ \forall (x, y) \in D$.
 \end{itemize}
 \end{definition}
+
+\subsection{Domains and Boundaries}
+
+
+\begin{definition}{Interior and Boundary Points}{interior_boundary_points}
+Let $D \subseteq \mathbb{R}^2$ be a domain.
+\begin{itemize}
+    \item A point $(a, b) \in D$ is an \textbf{interior point} if is has some disk around it in $D$.
+    \item A point $(a, b) \in D$ is a \textbf{boundary point} such that every disk around it intersects $D$ and $\mathbb{R}^2 \setminus D$.
+\end{itemize}
+* $\mathbb{R}^2 \setminus D$ means the set of points in $\mathbb{R}^2$ that are not in $D$.
+\end{definition}
+
+\begin{definition}{Closed and Bounded Sets}{closed_bounded_sets}
+A set $D \subseteq \mathbb{R}^2$ is \textbf{closed} if it contains all of its boundary points,
+and \textbf{bounded} if it can be contained in a disk of finite radius.
+\end{definition}
+
+\begin{theorem}{Extreme Value Theorem}{extreme_value_theorem}
+Let $f$ be a continuous function on a closed and bounded set $D \subseteq \mathbb{R}^2$.
+
+Then $f$ attains both a global maximum and a global minimum on $D$.
+\end{theorem}
+
+\begin{example}[Finding Global Extrema]
+Given the function $f(x, y) = x^2 + y^2 + xy$, and the domain $D = \{(x, y) : x^2 + y^2 \leq 4\}$.
+
+We set the gradient of $f$ to zero to find critical points:
+\[
+\nabla f = \ang{2x + y, 2y + x} = \ang{0, 0}.
+\]
+This gives us the system of equations:
+\[
+2x + y = 0 \quad \text{and} \quad 2y + x = 0.
+\]
+Solving this system, we find that the only critical point is $(0, 0)$.
+
+Since $D$ is closed and bounded, and $f$ is continuous on $D$, the Extreme Value Theorem guarantees that $f$ attains both a global maximum and a global minimum on $D$.
+Therefore, we need to check the boundary of $D$ to find the global extrema.
+
+The boundary of $D$ is the circle defined by $x^2 + y^2 = 4$. We can parameterize this boundary using polar coordinates:
+\[
+x = 2\cos(t), \quad y = 2\sin(t), \quad 0 \leq t < 2\pi.
+\]
+Hence,
+\begin{align*}
+f(2\cos(t), 2\sin(t)) &= (2\cos(t))^2 + (2\sin(t))^2 + (2\cos(t))(2\sin(t)) \\
+&= 4\cos^2(t) + 4\sin^2(t) + 4\cos(t)\sin(t) \\
+&= 4 + 4\cos(t)\sin(t) \\
+&= 4 + 2\sin(2t).
+\end{align*}
+Therefore, the maximum value of $f$ on the boundary is $4 + 2 = 6$ at $x = 2, y = 0$, and the minimum value is $4 - 2 = 2$ at $x = -2, y = 0$.
+\end{example}
+
+\subsection{Lagrange Multipliers}
+
+\begin{example}[Extrema of a Function on a Curve]
+
+Below is a function $f$ and a curve $C$.
+\begin{figure}[htbp]
+\centering
+\foreach \i in {1,2}{
+\begin{minipage}[t]{0.48\textwidth}
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=\linewidth,
+    height=7cm,
+    axis lines=middle,
+    axis line style={-{Stealth[length=2mm]}},
+    xlabel={$x$},
+    ylabel={$y$},
+    xmin=-4.8, xmax=4.2,
+    ymin=-3.8, ymax=4.2,
+    xtick=\empty,
+    ytick=\empty,
+    enlargelimits=false,
+    view={0}{90},
+    clip=true
+]
+% Contour map of f(x,y)
+\addplot3[
+    contour gnuplot={
+        levels={6,9,12,15,18},
+        labels=true,
+        label distance=100pt,
+        contour label style={
+            sloped=false,
+            font=\small,
+            fill=white,
+            inner sep=1pt,
+            text=blue
+        }
+    },
+    samples=100,
+    samples y=100,
+    domain=-4.8:4.2,
+    y domain=-3.8:4.2,
+    blue,
+    thin
+]
+{6.99 + 0.116*x^3 - 1.468*x + 0.718*(y + 0.328*x)^2};
+
+\ifnum\i=2
+% Parametric curve C
+\addplot[
+    red,
+    very thick,
+    domain=0:2*pi,
+    samples=300,
+    variable=\t
+]
+({0.588 + 0.861*cos(deg(\t)) - 0.560*sin(deg(\t))},
+ {1.061 + 1.502*cos(deg(\t)) + 0.320*sin(deg(\t))});
+\fi
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
+\ifnum\i=1\hfill\fi
+}
+\end{figure}
+
+On the left, we have critical points of $f$ in the plane.
+Apparently, we do not have any maxima, but we do have a minimum.
+Also, another saddle point is on the intersection of the contour line at level $9$.
+
+On the right, we have a curve $C$ and the contour lines of $f$.
+What is the global maximum and minimum of $f$ on the curve $C$?
+
+Apparently, the global maximum is at the intersection of the curve $C$ and the contour line at level $18$, 
+and the global minimum is at the intersection of the curve $C$ and the contour line at level $6$.
+\end{example}

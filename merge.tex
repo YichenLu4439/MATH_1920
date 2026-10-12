@@ -1,0 +1,172 @@
+\documentclass[12pt]{article}
+
+% --- Cover Page & Table of Contents ---
+\usepackage{tocloft}
+\usepackage{hyperref}
+\usepackage{bookmark}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!80!black,
+    urlcolor=blue
+}
+
+% --- Information of Document ---
+\title{\textbf{MATH 1920}\\[0.5em] \Large Lecture Notes}
+\author{\textbf{Yichen Lu}}
+\date{\today}
+
+% --- Core Formatting ---
+\usepackage[margin=1in]{geometry}
+\usepackage{parskip}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{pdfpages}
+
+\setstretch{1.5}
+\setcounter{tocdepth}{3}
+
+\begin{document}
+
+% ================== Cover Page =================
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+
+    {\Huge \bfseries Multivariable Calculus \par}
+    \vspace{0.5cm}
+    {\Large \color{gray} MATH 1920 Lecture Notes \par}
+
+    \vspace{2cm}
+    \rule{0.6\textwidth}{1pt}
+    \vspace{2cm}
+
+    {\large
+    \begin{tabular}{r l}
+        \textbf{Author:} & Yichen \\[0.5em]
+        \textbf{Course:} & MATH 1920 \\[0.5em]
+        \textbf{Date:}   & \today
+    \end{tabular}
+    \par}
+
+    \vfill
+    {\small Compiled with \LaTeX \par}
+\end{titlepage}
+
+\newpage
+
+% ============== Table of Contents ==============
+\pagenumbering{roman}
+\tableofcontents
+\newpage
+
+\pagenumbering{arabic}
+% ===============================================
+\includepdf[
+  pages={1-5},
+  addtotoc={
+    1,section,1,{Vectors in Two and Three Dimensions},merged:0:0,
+    1,subsection,2,{Coordinates},merged:0:1,
+    1,subsection,2,{Vectors and Position Vectors},merged:0:2,
+    3,subsection,2,{Unit Vectors},merged:0:3,
+    4,subsection,2,{Vector Operations},merged:0:4,
+    4,subsection,2,{Parallel Vectors},merged:0:5
+  }
+]{\detokenize{sections_pdf/Vectors in Two and Three Dimensions.pdf}}
+
+\includepdf[
+  pages={1-3},
+  addtotoc={
+    1,section,1,{Discussion Week 1},merged:1:0,
+    2,subsection,2,{Equations of Geometric Shapes},merged:1:1,
+    2,subsection,2,{Linear Equations across Dimensions},merged:1:2
+  }
+]{\detokenize{sections_pdf/Discussion Week 1.pdf}}
+
+\includepdf[
+  pages={1-12},
+  addtotoc={
+    1,section,1,{Vectors and Directions},merged:2:0,
+    3,subsection,2,{Dot Product},merged:2:1,
+    8,subsection,2,{Determinants and Cross Products},merged:2:2,
+    11,subsubsection,3,{Properties of the Cross Product},merged:2:3,
+    11,subsubsection,3,{Algebraic Rules of the Cross Product},merged:2:4,
+    12,subsection,2,{Scalar Triple Product},merged:2:5
+  }
+]{\detokenize{sections_pdf/Vectors and Directions.pdf}}
+
+\includepdf[
+  pages={1-2},
+  addtotoc={
+    1,section,1,{Discussion Week 2},merged:3:0
+  }
+]{\detokenize{sections_pdf/Discussion Week 2.pdf}}
+
+\includepdf[
+  pages={1-7},
+  addtotoc={
+    1,section,1,{Planes and Surfaces},merged:4:0,
+    1,subsection,2,{Determining a Plane},merged:4:1,
+    1,subsection,2,{Mathematical Formulations of a Plane},merged:4:2,
+    2,subsection,2,{Properties of Normal Vectors},merged:4:3,
+    4,section,1,{Spheres and Planes},merged:4:4,
+    4,subsection,2,{Determining a Sphere},merged:4:5,
+    5,subsection,2,{Plane-Sphere Intersections},merged:4:6,
+    5,subsection,2,{Traces of Surfaces},merged:4:7,
+    6,subsection,2,{Quadric Surfaces},merged:4:8
+  }
+]{\detokenize{sections_pdf/Planes and Surfaces.pdf}}
+
+\includepdf[
+  pages={1-13},
+  addtotoc={
+    1,section,1,{Vector Valued Functions},merged:5:0,
+    1,subsection,2,{Coordinate Systems in 3D Space},merged:5:1,
+    1,subsubsection,3,{Polar Coordinates (2D)},merged:5:2,
+    2,subsubsection,3,{Cylindrical Coordinates},merged:5:3,
+    2,subsubsection,3,{Spherical Coordinates},merged:5:4,
+    3,subsection,2,{Coordinate System Transformations},merged:5:5,
+    4,subsection,2,{Vector-Valued Functions},merged:5:6,
+    7,subsection,2,{Gallery of Parametric Space Curves},merged:5:7,
+    7,subsection,2,{Parameterization of Curves and Surfaces},merged:5:8,
+    8,subsection,2,{Calculus of Vector-Valued Functions},merged:5:9,
+    10,subsection,2,{Properties of Vector Derivatives \& Integration},merged:5:10,
+    12,subsection,2,{Arc Length of Curves},merged:5:11
+  }
+]{\detokenize{sections_pdf/Vector Valued Functions.pdf}}
+
+\includepdf[
+  pages={1-6},
+  addtotoc={
+    1,section,1,{Scalar Valued Functions of Several Variables},merged:6:0,
+    1,subsection,2,{Visualizing Multivariable Functions: Traces and Level Sets},merged:6:1,
+    2,subsection,2,{Level Sets and Contour Maps},merged:6:2,
+    2,subsection,2,{Visualizing Higher Dimensions via Slices},merged:6:3,
+    3,subsection,2,{Limits of Functions of Several Variables},merged:6:4
+  }
+]{\detokenize{sections_pdf/Scalar Valued Functions of Several Variables.pdf}}
+
+\includepdf[
+  pages={1-19},
+  addtotoc={
+    1,section,1,{Partial Derivatives},merged:7:0,
+    1,subsection,2,{Definition and Properties of Partial Derivatives},merged:7:1,
+    4,subsection,2,{Linear Approximation},merged:7:2,
+    6,subsection,2,{Differentiability},merged:7:3,
+    8,subsection,2,{Higher-Order Partial Derivatives},merged:7:4,
+    10,subsection,2,{Directional Derivatives},merged:7:5,
+    11,subsection,2,{Gradient},merged:7:6,
+    14,subsection,2,{Differentiability and Continuity},merged:7:7,
+    16,subsection,2,{Chain Rule for Multivariable Functions},merged:7:8
+  }
+]{\detokenize{sections_pdf/Partial Derivatives.pdf}}
+
+\includepdf[
+  pages={1-7},
+  addtotoc={
+    1,section,1,{Optimization and Lagrange Multipliers},merged:8:0,
+    1,subsection,2,{Extrema of Multivariable Functions},merged:8:1,
+    5,subsection,2,{Domains and Boundaries},merged:8:2,
+    6,subsection,2,{Lagrange Multipliers},merged:8:3
+  }
+]{\detokenize{sections_pdf/Optimization and Lagrange Multipliers.pdf}}
+\end{document}

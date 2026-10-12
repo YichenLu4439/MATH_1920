@@ -10,3 +10,4 @@
 *.toc
 *.synctex.gz
 *.auxlock
+.DS_Store

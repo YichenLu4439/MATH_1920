@@ -296,7 +296,7 @@ Therefore, the maximum value of $f$ on the boundary is $4 + 2 = 6$ at $x = 2, y 
 
 \begin{example}[Extrema of a Function on a Curve]
 
-Below is a function $f$ and a curve $C$.
+Below is a function $f$ and a curve $C$ given by $g(x, y) = c$.
 \begin{figure}[htbp]
 \centering
 \foreach \i in {1,2}{
@@ -360,13 +360,107 @@ Below is a function $f$ and a curve $C$.
 }
 \end{figure}
 
-On the left, we have critical points of $f$ in the plane.
-Apparently, we do not have any maxima, but we do have a minimum.
-Also, another saddle point is on the intersection of the contour line at level $9$.
+In this example, the extrema under constraints occur where the level curves of $f$ are tangent to the constraint curve $C$.
+This is a particularly lucky situation, as we can visually identify the points of tangency.
+\end{example}
 
-On the right, we have a curve $C$ and the contour lines of $f$.
-What is the global maximum and minimum of $f$ on the curve $C$?
+\begin{theorem}{Lagrange Multipliers}{lagrange_multipliers}
+Let $f(x, y)$ be a function and $g(x, y) = c$ be a constraint curve.
+If $g(x, y) = c$ is tangent to a level curve of $f$, then
+\[
+    \nabla f \parallel \nabla g \implies \nabla f = \lambda \nabla g
+\] 
 
-Apparently, the global maximum is at the intersection of the curve $C$ and the contour line at level $18$, 
-and the global minimum is at the intersection of the curve $C$ and the contour line at level $6$.
+Therefore, to find the extrema of $f$ under the constraint $g(x, y) = c$, we can solve the system of equations:
+\[
+    \nabla f = \lambda \nabla g, \quad g(x, y) = c
+\]
+for $x$, $y$, and $\lambda$, assuming that $\nabla g \neq 0$ at the points of interest.
+\end{theorem}
+
+\begin{example}[Using Lagrange Multipliers]
+We want to find the extrema of $f(x, y) = x + 2y$ subject to the constraint $3x^2 + 2y^2 = 7$.
+
+First, we compute the gradients:
+\[
+\nabla f = \ang{1, 2}, \quad \nabla g = \ang{6x, 4y}.
+\]
+Setting $\nabla f = \lambda \nabla g$ gives us the system of equations:
+\[
+    \left\{
+    \begin{aligned}
+        &1 = \lambda(6x)\\
+        &2 = \lambda(4y)\\
+        &3x^2 + 2y^2 = 7
+    \end{aligned}
+    \right.
+\]
+
+Solving the first two equations for $\lambda$, we get:
+\[
+    \left\{
+    \begin{aligned}
+        \lambda &= \dfrac{1}{6x} \\
+        \lambda &= \dfrac{1}{2y}
+    \end{aligned}
+    \right.
+\]
+Setting these equal gives us:
+\[
+    \dfrac{1}{6x} = \dfrac{1}{2y} \implies 2y = 6x \implies y = 3x.
+\]
+
+Substituting $y = 3x$ into the constraint equation gives:
+\begin{align*}
+    3x^2 + 2(3x)^2 &= 7 \\
+    3x^2 + 18x^2 &= 7 \\
+    21x^2 &= 7 \\
+    x^2 &= \frac{1}{3} \\
+    x &= \pm \frac{1}{\sqrt{3}}.
+\end{align*}
+Thus, the corresponding $y$ values are:
+\[
+    y = 3\left(\pm \frac{1}{\sqrt{3}}\right) = \pm \sqrt{3}.
+\]
+Therefore, the points of interest are:
+\[\left(\frac{1}{\sqrt{3}}, \sqrt{3}\right) \text{ and } \left(-\frac{1}{\sqrt{3}}, -\sqrt{3}\right).\]
+\end{example}
+
+\begin{example}[Another Example of Lagrange Multipliers]
+Given a function $Q(K, L) = A K^\alpha L^{1-\alpha}$.
+This describes the output when $K$ units of capital and $L$ units of labor are used, where $A > 0$ is a constant and $0 < \alpha < 1$.
+
+Suppose that $A = 1$ and $\alpha = \frac{3}{5}$. Given a budget of $\mathdollar 12$ with the cost of capital being $\mathdollar 3$ per unit and the cost of labor being $\mathdollar 4$ per unit, we want to maximize $Q(K, L)$ subject to the constraint $2K + 3L = 12$.
+
+The process is similar to the previous example. We first rewrite the constraint as $g(K, L) = 2K + 3L - 12 = 0$. Then, we compute the gradients:
+\begin{align*}
+    \nabla Q &= \ang{\frac{3}{5} K^{-\nicefrac{2}{5}} L^{\nicefrac{2}{5}}, \frac{2}{5} K^{\nicefrac{3}{5}} L^{-\nicefrac{3}{5}}} \\
+    \nabla g &= \ang{2, 3}.
+\end{align*}
+Setting $\nabla Q = \lambda \nabla g$ gives us the system of equations:
+\[
+    \left\{
+    \begin{aligned}
+        &\frac{3}{5} K^{-\nicefrac{2}{5}} L^{\nicefrac{2}{5}} = 2\lambda \\
+        &\frac{2}{5} K^{\nicefrac{3}{5}} L^{-\nicefrac{3}{5}} = 3\lambda \\
+        &2K + 3L = 12
+    \end{aligned}
+    \right.
+\]
+Solving the first two equations for $\lambda$, we get:
+\[
+    \frac{3}{10} K^{-\nicefrac{2}{5}} L^{\nicefrac{2}{5}} = \frac{2}{15} K^{\nicefrac{3}{5}} L^{-\nicefrac{3}{5}} \implies 9L = 4K \implies L = \frac{4}{9}K.
+\]
+Substituting $L = \frac{4}{9}K$ into the constraint equation gives:
+\begin{align*}
+    2K + 3\left(\frac{4}{9}K\right) &= 12 \\[0.5em]
+    2K + \frac{4}{3}K &= 12 \\[0.5em]
+    \frac{10}{3}K &= 12 \\[0.5em]
+    K &= \frac{36}{10} = 3.6.
+\end{align*}
+Then, substituting $K = 3.6$ into $L = \dfrac{4}{9}K$ gives:
+\[
+    L = \frac{4}{9} \cdot 3.6 = 1.6.
+\]
+Therefore, the optimal allocation of resources is $K = 3.6$ units of capital and $L = 1.6$ units of labor.
 \end{example}

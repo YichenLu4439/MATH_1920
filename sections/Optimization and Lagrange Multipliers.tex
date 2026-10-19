@@ -232,10 +232,10 @@ We now know that $(0, 0)$ is a saddle.
 \end{example}
 
 \begin{definition}{Global Extrema}{global_extrema}
-Given a function $f(x, y)$ defined on some domain $D$, we say that $(a, b) \in D$ is a
+Given a function $f(x, y)$ defined on some domain $\mathcal{D}$, we say that $(a, b) \in \mathcal{D}$ is a
 \begin{itemize}
-    \item \textbf{global maximum} if $f(a, b) \geq f(x, y),\ \forall (x, y) \in D$.
-    \item \textbf{global minimum} if $f(a, b) \leq f(x, y),\ \forall (x, y) \in D$.
+    \item \textbf{global maximum} if $f(a, b) \geq f(x, y),\ \forall (x, y) \in \mathcal{D}$.
+    \item \textbf{global minimum} if $f(a, b) \leq f(x, y),\ \forall (x, y) \in \mathcal{D}$.
 \end{itemize}
 \end{definition}
 
@@ -243,23 +243,23 @@ Given a function $f(x, y)$ defined on some domain $D$, we say that $(a, b) \in D
 
 
 \begin{definition}{Interior and Boundary Points}{interior_boundary_points}
-Let $D \subseteq \mathbb{R}^2$ be a domain.
+Let $\mathcal{D} \subseteq \mathbb{R}^2$ be a domain.
 \begin{itemize}
-    \item A point $(a, b) \in D$ is an \textbf{interior point} if is has some disk around it in $D$.
-    \item A point $(a, b) \in D$ is a \textbf{boundary point} such that every disk around it intersects $D$ and $\mathbb{R}^2 \setminus D$.
+    \item A point $(a, b) \in \mathcal{D}$ is an \textbf{interior point} if is has some disk around it in $\mathcal{D}$.
+    \item A point $(a, b) \in \mathcal{D}$ is a \textbf{boundary point} such that every disk around it intersects $\mathcal{D}$ and $\mathbb{R}^2 \setminus \mathcal{D}$.
 \end{itemize}
 * $\mathbb{R}^2 \setminus D$ means the set of points in $\mathbb{R}^2$ that are not in $D$.
 \end{definition}
 
 \begin{definition}{Closed and Bounded Sets}{closed_bounded_sets}
-A set $D \subseteq \mathbb{R}^2$ is \textbf{closed} if it contains all of its boundary points,
+A set $\mathcal{D} \subseteq \mathbb{R}^2$ is \textbf{closed} if it contains all of its boundary points,
 and \textbf{bounded} if it can be contained in a disk of finite radius.
 \end{definition}
 
 \begin{theorem}{Extreme Value Theorem}{extreme_value_theorem}
-Let $f$ be a continuous function on a closed and bounded set $D \subseteq \mathbb{R}^2$.
+Let $f$ be a continuous function on a closed and bounded set $\mathcal{D} \subseteq \mathbb{R}^2$.
 
-Then $f$ attains both a global maximum and a global minimum on $D$.
+Then $f$ attains both a global maximum and a global minimum on $\mathcal{D}$.
 \end{theorem}
 
 \begin{example}[Finding Global Extrema]
@@ -275,10 +275,10 @@ This gives us the system of equations:
 \]
 Solving this system, we find that the only critical point is $(0, 0)$.
 
-Since $D$ is closed and bounded, and $f$ is continuous on $D$, the Extreme Value Theorem guarantees that $f$ attains both a global maximum and a global minimum on $D$.
-Therefore, we need to check the boundary of $D$ to find the global extrema.
+Since $\mathcal{D}$ is closed and bounded, and $f$ is continuous on $\mathcal{D}$, the Extreme Value Theorem guarantees that $f$ attains both a global maximum and a global minimum on $\mathcal{D}$.
+Therefore, we need to check the boundary of $\mathcal{D}$ to find the global extrema.
 
-The boundary of $D$ is the circle defined by $x^2 + y^2 = 4$. We can parameterize this boundary using polar coordinates:
+The boundary of $\mathcal{D}$ is the circle defined by $x^2 + y^2 = 4$. We can parameterize this boundary using polar coordinates:
 \[
 x = 2\cos(t), \quad y = 2\sin(t), \quad 0 \leq t < 2\pi.
 \]

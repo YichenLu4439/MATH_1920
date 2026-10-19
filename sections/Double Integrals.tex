@@ -1,0 +1,243 @@
+\renewcommand{\iint}{\mathop{\int\mkern-10mu\int}\nolimits}
+\newcommand{\dint}[1]{\iint_{\mathcal{D}} #1 \, \dd{A}}
+
+\section{Double Integrals}
+\begin{definition}{Imprecise Definition of Double Integral}{def_double_integral_imprecise}
+Let $f(x, y)$ be a function defined on a closed and bounded region $\mathcal{D}$ in the $xy$-plane.
+The \textbf{double integral} is defined by
+\[
+    \dint{f(x, y)}
+\]
+where $\dd{A}$ is the area element in the $xy$-plane.
+
+This integral can be interpreted as the volume under the surface $z = f(x, y)$ and above the region $\mathcal{D}$ in the $xy$-plane.
+\end{definition}
+
+Below are some properties of double integrals that will be useful in evaluating them.
+\begin{itemize}
+    \item $\displaystyle\dint{f(x, y) + g(x, y)} = \dint{f(x, y)} + \dint{g(x, y)}$ \\[-0.5em]
+    \item $\displaystyle\dint{c \cdot f(x, y)} = c \cdot \dint{f(x, y)}$ \\[-0.5em]
+    \item If $f(x, y) \leq g(x, y)$ for all $(x, y) \in \mathcal{D}$, then $\displaystyle\dint{f(x, y)} \leq \dint{g(x, y)}$.
+\end{itemize}
+
+\subsection{Riemann Sums and the Definition of Double Integrals}
+Recall the concept of Riemann sums for single-variable functions.
+
+The Riemann sum for a function $f(x)$ over an interval $[a, b]$ is given by
+\[
+    \sum_{i=1}^n f(p_i) \Delta x_i
+\]
+where $\Delta x_i$ is the width of the $i$-th subinterval,
+and $p_i$ is a sample point in that subinterval, as indicated in the figure below.
+\begin{center}
+\begin{tikzpicture}[x=1.15cm,y=.9cm,font=\small,>=Stealth,
+    declare function={g(\x)=1.25 + .65*sin(42 * \x);}]
+    % Each rectangle meets the curve at its midpoint sample.
+    \foreach \a/\b/\i in {.4/1.2/1,1.2/2.3/2,2.3/3.2/3,3.2/4.6/4}{
+        \pgfmathsetmacro{\p}{(\a + \b)/2}
+        \pgfmathsetmacro{\h}{g(\p)}
+        \filldraw[fill=orange!45,fill opacity=.4,draw=orange!65!black]
+            (\a,0) rectangle (\b,\h);
+        \draw[dashed,black!55] (\p,0)--(\p,\h);
+        \fill (\p,\h) circle (1.4pt);
+        \node[below] at (\p,0) {$p_{\i}$};
+    }
+    \draw[->] (0,0)--(5.2,0) node[right] {$x$};
+    \draw[->] (0,0)--(0,2.5) node[above] {$y$};
+    \draw[blue!70!black,thick,domain=.25:4.8,samples=65]
+        plot (\x,{g(\x)}) node[right] {$y = f(x)$};
+    \node[below left] at (.4,0) {$a$};
+    \node[below right] at (4.6,0) {$b$};
+    \draw[<->] (1.2,-.65)--(2.3,-.65)
+        node[midway,below] {$\Delta x_i$};
+\end{tikzpicture}
+\end{center}
+
+
+We can extend this idea to functions of two variables.
+Assume that $\mathcal{D} = [a, b] \times [c, d]$ is rectangular region in the $xy$-plane.
+
+\begin{center}
+\begin{tikzpicture}[font=\small,>=Stealth,
+    declare function={
+        f(\x,\y)=2.65 - .16 * (\x - 1.5)^2 - .12 * (\y - 1.5)^2;
+    }]
+    \tikzset{
+        top face/.style={
+            fill=orange!25,fill opacity=.35,
+            draw=orange!45!black,line width=.45pt
+        },
+        side face/.style={
+            fill=orange!45,fill opacity=.25,
+            draw=orange!65!black,line width=.45pt
+        },
+        surface mesh/.style={
+            draw=blue!85!black,draw opacity=.85,line width=.15pt
+        }
+    }
+
+    % Both panels use exactly the same surface.
+    \newcommand{\drawSurface}{
+        \path[fill=cyan!40,fill opacity=.18]
+            plot[domain=0:3,variable=\t,samples=25]
+                (\t,0,{f(\t,0)})
+            -- plot[domain=0:3,variable=\t,samples=25]
+                (3,\t,{f(3,\t)})
+            -- plot[domain=3:0,variable=\t,samples=25]
+                (\t,3,{f(\t,3)})
+            -- plot[domain=3:0,variable=\t,samples=25]
+                (0,\t,{f(0,\t)}) -- cycle;
+        \foreach \q in {0,.3,...,3}{
+            \draw[surface mesh]
+                plot[domain=0:3,variable=\t,samples=25]
+                (\t,\q,{f(\t,\q)});
+            \draw[surface mesh]
+                plot[domain=0:3,variable=\t,samples=25]
+                (\q,\t,{f(\q,\t)});
+        }
+        \node[above right,text=blue!75!black] at (0,3,3)
+            {$z = f(x,y)$};
+    }
+
+    \foreach \panel in {0,1}{
+        \begin{scope}[shift={({6.8 * \panel},0)},
+            x={(-.64cm,-.42cm)},
+            y={(.74cm,-.34cm)},
+            z={(0cm,.8cm)}]
+
+            % Base rectangle and coordinate axes.
+            \filldraw[fill=orange!5,draw=black!45]
+                (0,0,0)--(3,0,0)--(3,3,0)--(0,3,0)--cycle;
+            \draw[->] (0,0,0)--(3.65,0,0)
+                node[below left] {$x$};
+            \draw[->] (0,0,0)--(0,3.65,0)
+                node[right] {$y$};
+            \draw[->] (0,0,0)--(0,0,3.65)
+                node[above] {$z$};
+
+            \ifnum\panel=0
+                % A representative cell of a nonuniform partition.
+                \foreach \q in {1.2,2.4}{
+                    \draw[orange!40]
+                        (\q,0,0)--(\q,3,0)
+                        (0,\q,0)--(3,\q,0);
+                }
+
+                % The sample is the center of the rectangular base.
+                \pgfmathsetmacro{\h}{f(1.8,1.8)}
+
+                % Hidden edges.
+                \draw[dashed,orange!50!black]
+                    (1.2,1.2,\h)--(1.2,1.2,0)--(2.4,1.2,0)
+                    (1.2,1.2,0)--(1.2,2.4,0);
+
+                % Translucent side faces and horizontal top.
+                \filldraw[side face]
+                    (2.4,1.2,0)--(2.4,2.4,0)--
+                    (2.4,2.4,\h)--(2.4,1.2,\h)--cycle;
+                \filldraw[side face]
+                    (1.2,2.4,0)--(2.4,2.4,0)--
+                    (2.4,2.4,\h)--(1.2,2.4,\h)--cycle;
+                \filldraw[top face]
+                    (1.2,1.2,\h)--(2.4,1.2,\h)--
+                    (2.4,2.4,\h)--(1.2,2.4,\h)--cycle;
+
+                \draw[dashed,black!50]
+                    (1.8,1.8,0)--(1.8,1.8,\h);
+
+                % Overlay the surface so its intersection remains visible.
+                \drawSurface
+                \fill (1.8,1.8,\h) circle (1.6pt);
+                \fill (1.8,1.8,0) circle (1.3pt);
+                \draw (1.8,1.8,0)--(3.5,.1,.75)
+                    node[left] {$P_{ij}$};
+
+                % Dimension lines outside the base.
+                \draw[densely dotted]
+                    (1.2,2.4,0)--(1.2,3.6,0)
+                    (2.4,2.4,0)--(2.4,3.6,0)
+                    (2.4,1.2,0)--(3.6,1.2,0)
+                    (2.4,2.4,0)--(3.6,2.4,0);
+                \draw[<->] (1.2,3.6,0)--(2.4,3.6,0)
+                    node[midway,below right] {$\Delta x_i$};
+                \draw[<->] (3.6,1.2,0)--(3.6,2.4,0)
+                    node[midway,below left] {$\Delta y_j$};
+
+            \else
+                % Draw exposed column faces from back to front.
+                % Interior walls are omitted to keep the surface readable.
+                \foreach \s in {0,...,8}{
+                    \foreach \i in {0,...,4}{
+                        \pgfmathtruncatemacro{\j}{\s - \i}
+                        \ifnum\j<0\else\ifnum\j>4\else
+                            \pgfmathsetmacro{\u}{.6 * \i}
+                            \pgfmathsetmacro{\v}{.6 * \j}
+
+                            % Each box height is evaluated at its midpoint.
+                            \pgfmathsetmacro{\h}{f(\u + .3,\v + .3)}
+                            \pgfmathsetmacro{\hx}{
+                                \i < 4 ? min(\h,f(\u + .9,\v + .3)) : 0
+                            }
+                            \pgfmathsetmacro{\hy}{
+                                \j < 4 ? min(\h,f(\u + .3,\v + .9)) : 0
+                            }
+
+                            \filldraw[side face]
+                                ({\u + .6},\v,\hx)--
+                                ({\u + .6},{\v + .6},\hx)--
+                                ({\u + .6},{\v + .6},\h)--
+                                ({\u + .6},\v,\h)--cycle;
+                            \filldraw[side face]
+                                (\u,{\v + .6},\hy)--
+                                ({\u + .6},{\v + .6},\hy)--
+                                ({\u + .6},{\v + .6},\h)--
+                                (\u,{\v + .6},\h)--cycle;
+                            \filldraw[top face]
+                                (\u,\v,\h)--({\u + .6},\v,\h)--
+                                ({\u + .6},{\v + .6},\h)--
+                                (\u,{\v + .6},\h)--cycle;
+                        \fi\fi
+                    }
+                }
+
+                % Surface and exact sample intersections.
+                \drawSurface
+                \foreach \i in {0,...,4}{
+                    \foreach \j in {0,...,4}{
+                        \pgfmathsetmacro{\px}{.6 * \i + .3}
+                        \pgfmathsetmacro{\py}{.6 * \j + .3}
+                        \fill (\px,\py,{f(\px,\py)}) circle (.5pt);
+                    }
+                }
+            \fi
+        \end{scope}
+    }
+\end{tikzpicture}
+\end{center}
+
+
+By this, we could write a precise definition of the double integral as follows:
+\begin{definition}{Precise Definition of Double Integral}{def_double_integral_precise}
+Let $f(x, y)$ be a function defined on a closed and bounded region $\mathcal{D}$ in the $xy$-plane.
+
+We partition $\mathcal{D}$ into $m$ subintervals in the $x$-direction and $n$ subintervals in the $y$-direction, forming a grid of rectangles.
+
+Let $\Delta x_i$ and $\Delta y_j$ be the widths of the subintervals in the $x$ and $y$ directions, respectively,
+and let $P_{ij}$ be a sample point in the rectangle formed by the $i$-th subinterval in the $x$-direction and the $j$-th subinterval in the $y$-direction.
+
+The \textbf{double integral} of $f(x, y)$ over the region $\mathcal{D}$ is defined as the limit of the Riemann sum as the maximum width of the subintervals approaches zero:
+\[
+    \dint{f(x, y)} = \lim_{\norm{P} \to 0} \sum_{i=1}^m \sum_{j=1}^n f(P_{ij}) \Delta A_{ij}
+\]
+\end{definition}
+
+Notice that the $\Delta A_{ij}$ here does not always exist. If it does, we call the function $f(x, y)$ \textbf{integrable} over the region $\mathcal{D}$.
+Also, if a function is continuous over a closed and bounded region, then it is integrable over that region.
+
+\subsection{Iterated Integrals and Fubini's Theorem}
+To evaluate double integrals, we can use Fubini's Theorem, which allows us to compute the double integral as an iterated integral.
+\begin{theorem}{Fubini's Theorem}{thm_fubini}
+\[
+    \dint{f(x, y)} = \int_a^b \int_c^d f(x, y) \, \dd{y} \, \dd{x} = \int_c^d \int_a^b f(x, y) \, \dd{x} \, \dd{y}
+\]
+\end{theorem}

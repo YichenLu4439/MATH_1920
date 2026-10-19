@@ -241,3 +241,199 @@ To evaluate double integrals, we can use Fubini's Theorem, which allows us to co
     \dint{f(x, y)} = \int_a^b \int_c^d f(x, y) \, \dd{y} \, \dd{x} = \int_c^d \int_a^b f(x, y) \, \dd{x} \, \dd{y}
 \]
 \end{theorem}
+
+Using this theorem, we can evaluate a double integral by computing two single-variable integrals in succession.
+
+\begin{example}[Evaluating a Double Integral]
+Let $f(x, y) = x^2 - y$ and $\mathcal{D} = [0, 4] \times [0, 6]$.
+We first approximate $\dint{f(x, y)}$ using a midpoint Riemann sum.
+Divide $[0, 4]$ into two equal intervals and $[0, 6]$ into three equal intervals.
+This gives six rectangles, each with area $\Delta A = 2 \cdot 2 = 4$.
+The sample points are their centers:
+\[(1, 1),\ (1, 3),\ (1, 5),\ (3, 1),\ (3, 3),\ (3, 5).\]
+
+\begin{center}
+\begin{minipage}[t]{0.39\linewidth}
+\small
+\centering
+\begin{tikzpicture}[scale=0.63, font=\small]
+    % Partition the domain and mark the midpoint samples.
+    \fill[blue!5] (0, 0) rectangle (4, 6);
+    \draw[step=2, gray!65] (0, 0) grid (4, 6);
+    \draw[-{Stealth}] (0, 0) -- (4.8, 0) node[right] {$x$};
+    \draw[-{Stealth}] (0, 0) -- (0, 6.8) node[above] {$y$};
+    \foreach \x in {0, 2, 4}
+        \node[below] at (\x, 0) {$\x$};
+    \foreach \y in {2, 4, 6}
+        \node[left] at (0, \y) {$\y$};
+    \foreach \x/\y/\h in {1/1/0, 1/3/-2, 1/5/-4, 3/1/8, 3/3/6, 3/5/4} {
+        \fill[blue!70!black] (\x, \y) circle (2pt);
+        \node[above=3pt] at (\x, \y) {$\h$};
+    }
+\end{tikzpicture}
+
+Midpoint samples, labeled by $f(x_i, y_i)$.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.57\linewidth}
+\small
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    view={-45}{45}, width=0.94\linewidth, height=7.2cm,
+    hide axis,
+    xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+    xmin=0, xmax=4.8, ymin=0, ymax=7, zmin=-6.5, zmax=18,
+    xtick={2, 4}, ytick={2, 4, 6}, ztick={-4, 4, 8, 12, 16},
+    tick label style={font=\scriptsize},
+    label style={font=\small},
+    clip=false, line join=round
+]
+    % Draw nonzero prisms from back to front; omit horizontal faces at z = 0.
+    \pgfplotsextra{
+    \foreach \a/\b/\h in {2/4/4, 2/2/6, 2/0/8, 0/4/-4, 0/2/-2} {
+        \pgfmathsetmacro{\r}{\a + 2}
+        \pgfmathsetmacro{\t}{\b + 2}
+        \ifdim\h pt<0pt
+            \def\prismcolor{red}
+        \else
+            \def\prismcolor{blue}
+        \fi
+        \path[draw=\prismcolor!55!black, fill=\prismcolor!8]
+            (axis cs:\a,\b,\h) -- (axis cs:\r,\b,\h)
+            -- (axis cs:\r,\t,\h) -- (axis cs:\a,\t,\h) -- cycle;
+        \path[draw=\prismcolor!55!black, fill=\prismcolor!28]
+            (axis cs:\a,\b,0) -- (axis cs:\a,\t,0)
+            -- (axis cs:\a,\t,\h) -- (axis cs:\a,\b,\h) -- cycle;
+       \path[draw=\prismcolor!55!black, fill=\prismcolor!18]
+            (axis cs:\a,\b,0) -- (axis cs:\r,\b,0)
+            -- (axis cs:\r,\b,\h) -- (axis cs:\a,\b,\h) -- cycle;
+     }
+    }
+    % Overlay the exact surface as a light mesh for comparison.
+    \addplot3[
+        surf, domain=0:4, y domain=0:6, samples=17, samples y=13,
+        shader=flat, draw=orange!75!black, fill=orange!35,
+        fill opacity=0.13, draw opacity=0.65, line width=0.25pt
+    ] {x^2 - y};
+    % Every midpoint lies on both the surface and its prism height.
+    \addplot3[only marks, mark=*, mark size=1.3pt, black]
+        coordinates {(1,1,0) (1,3,-2) (1,5,-4) (3,1,8) (3,3,6) (3,5,4)};
+    \node[anchor=south, text=orange!65!black]
+        at (axis cs:3.8,1,16.5) {$z = x^2 - y$};
+\end{axis}
+\end{tikzpicture}
+
+Midpoint prisms and the surface $z = x^2 - y$.
+\end{minipage}
+\end{center}
+
+Thus the midpoint Riemann sum is
+\begin{align*}
+    S &= \sum_{i=1}^{6} f(x_i, y_i) \Delta A \\
+      &= 4\bigl(0 - 2 - 4 + 8 + 6 + 4\bigr) = 48.
+\end{align*}
+The negative terms represent contributions below the $xy$-plane.
+
+By Fubini's theorem, the exact value is
+\begin{align*}
+    \dint{f(x, y)}
+    &= \int_0^4 \int_0^6 (x^2 - y) \, \dd{y} \, \dd{x} \\
+    &= \int_0^4 \left[ x^2y - \frac{y^2}{2} \right]_0^6 \, \dd{x} \\
+    &= \int_0^4 (6x^2 - 18) \, \dd{x} \\
+    &= \left[ 2x^3 - 18x \right]_0^4 = \boxed{56}.
+\end{align*}
+\end{example}
+
+For a non-rectangular region, the limits of the inner integral may depend on the outer variable.
+
+\begin{example}[Setting Up a Double Integral over a Non-Rectangular Region]
+Let $\mathcal{D}$ be the region bounded by $y = x^2$ and $y = 1$, and let $f$ be continuous on $\mathcal{D}$.
+The curves intersect where $x^2 = 1$, so $x = \pm 1$.
+
+\begin{center}
+\begin{minipage}[t]{0.48\linewidth}
+\small
+\centering
+\begin{tikzpicture}[x=1.7cm, y=2.3cm, font=\small]
+    % A vertical slice runs from the parabola to the line.
+    \fill[blue!8] plot[domain=-1:1, samples=61] (\x, {(\x)^2}) -- cycle;
+    \fill[blue!22] (0.40, 1) -- (0.50, 1) -- (0.50, 0.25) -- (0.40, 0.16) -- cycle;
+    \draw[-{Stealth}] (-1.35, 0) -- (1.45, 0) node[right] {$x$};
+    \draw[-{Stealth}] (0, -0.12) -- (0, 1.3) node[above] {$y$};
+    \draw[blue!65!black, thick, domain=-1.08:1.08, samples=61]
+        plot (\x, {(\x)^2});
+    \draw[blue!65!black, thick] (-1.2, 1) -- (1.2, 1);
+    \draw[blue!75!black, {Stealth}-{Stealth}] (0.45, 0.2025) -- (0.45, 1);
+    \node[below] at (-1, 0) {$-1$};
+    \node[below] at (1, 0) {$1$};
+    \node[below left] at (0, 0) {$0$};
+    \node[above right] at (0.48, 1) {$y = 1$};
+    \node[right] at (0.8, 0.55) {$y = x^2$};
+    \node[below] at (0.45, 0) {$x$};
+    \node at (-0.45, 0.64) {$\mathcal{D}$};
+\end{tikzpicture}
+
+Vertical slice: $x^2 \leq y \leq 1$.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\linewidth}
+\small
+\centering
+\begin{tikzpicture}[x=1.7cm, y=2.3cm, font=\small]
+    % A horizontal slice runs from the left branch to the right branch.
+    \fill[blue!8] plot[domain=-1:1, samples=61] (\x, {(\x)^2}) -- cycle;
+    \fill[blue!22] (-0.7, 0.49) -- (0.7, 0.49) -- (0.7681, 0.59) -- (-0.7681, 0.59) -- cycle;
+    \draw[-{Stealth}] (-1.35, 0) -- (1.45, 0) node[right] {$x$};
+    \draw[-{Stealth}] (0, -0.12) -- (0, 1.3) node[above] {$y$};
+    \draw[blue!65!black, thick, domain=-1.08:1.08, samples=61]
+        plot (\x, {(\x)^2});
+    \draw[blue!65!black, thick] (-1.2, 1) -- (1.2, 1);
+    \draw[blue!75!black, {Stealth}-{Stealth}] (-0.735, 0.54) -- (0.735, 0.54);
+    \node[below] at (-1, 0) {$-1$};
+    \node[below] at (1, 0) {$1$};
+    \node[below left] at (0, 0) {$0$};
+    \node[above right] at (0.48, 1) {$y = 1$};
+    \node[above left] at (-0.735, 0.54) {$-\sqrt{y}$};
+    \node[above right] at (0.735, 0.54) {$\sqrt{y}$};
+    \node[below right] at (0, 0.54) {$y$};
+    \node at (-0.45, 0.85) {$\mathcal{D}$};
+\end{tikzpicture}
+
+Horizontal slice: $-\sqrt{y} \leq x \leq \sqrt{y}$.
+\end{minipage}
+\end{center}
+
+For vertical slices, fix $x$ and let $y$ run from the lower boundary $y = x^2$ to the upper boundary $y = 1$.
+The slices cover the region as $x$ runs from $-1$ to $1$, so
+\[\mathcal{D} = \{(x, y) \mid -1 \leq x \leq 1,\ x^2 \leq y \leq 1\}.\]
+Hence
+\[\dint{f(x, y)} = \int_{-1}^{1} \int_{x^2}^{1} f(x, y) \, \dd{y} \, \dd{x}.\]
+
+For horizontal slices, fix $y$ and solve $x^2 \leq y$ to obtain $-\sqrt{y} \leq x \leq \sqrt{y}$.
+The slices cover the region as $y$ runs from $0$ to $1$, so
+\[\mathcal{D} = \{(x, y) \mid 0 \leq y \leq 1,\ -\sqrt{y} \leq x \leq \sqrt{y}\}.\]
+Thus the other order of integration is
+\[\dint{f(x, y)} = \int_0^1 \int_{-\sqrt{y}}^{\sqrt{y}} f(x, y) \, \dd{x} \, \dd{y}.\]
+\end{example}
+
+\begin{definition}{Simple Region}{def_simple_region}
+A region $\mathcal{D}$ is
+\begin{itemize}
+    \item \textbf{Vertically simple} if
+    \[\mathcal{D} = \{(x, y) \mid a \leq x \leq b,\ g_1(x) \leq y \leq g_2(x)\},\]
+    where $g_1$ and $g_2$ are continuous on $[a, b]$ and $g_1(x) \leq g_2(x)$.
+    Each vertical line intersects $\mathcal{D}$ in a single line segment, a point, or not at all.
+
+    \item \textbf{Horizontally simple} if
+    \[\mathcal{D} = \{(x, y) \mid c \leq y \leq d,\ h_1(y) \leq x \leq h_2(y)\},\]
+    where $h_1$ and $h_2$ are continuous on $[c, d]$ and $h_1(y) \leq h_2(y)$.
+    Each horizontal line intersects $\mathcal{D}$ in a single line segment, a point, or not at all.
+\end{itemize}
+\end{definition}
+
+If $f$ is continuous on the corresponding simple region, then
+\begin{align*}
+    \text{Vertically simple:}\quad
+    \dint{f(x, y)} &= \int_a^b \int_{g_1(x)}^{g_2(x)} f(x, y) \, \dd{y} \, \dd{x}, \\
+    \text{Horizontally simple:}\quad
+    \dint{f(x, y)} &= \int_c^d \int_{h_1(y)}^{h_2(y)} f(x, y) \, \dd{x} \, \dd{y}.
+\end{align*}

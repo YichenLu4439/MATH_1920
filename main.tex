@@ -43,6 +43,17 @@
 }
 \renewcommand{\dd}[1]{\mathrm{d}#1}
 \newcommand{\direcd}[2]{D_{\vv{#1}}{#2}} % Directional derivative
+
+\renewcommand{\iint}{\mathop{\int\mkern-10mu\int}\nolimits}
+\newcommand{\diint}[1]{\iint_{\mathcal{D}} #1 \, \dd{A}}
+\newcommand{\xiint}[2]{\iint_{#1} #2 \, \dd{A}}
+
+\renewcommand{\iiint}{\mathop{\int\mkern-10mu\int\mkern-10mu\int}\nolimits}
+\newcommand{\wiiint}[1]{\iiint_{\mathcal{W}} #1 \, \dd{V}}
+\newcommand{\xiiint}[2]{\iiint_{#1} #2 \, \dd{V}}
+
+
+
 % --- Custom Theorem Environments ---
 \tcbuselibrary{theorems}
 
@@ -95,21 +106,21 @@
 \setstretch{1.5}
 
 % ===============================================
-\includeonly{sections/Double Integrals}
+\includeonly{sections/Triple Integrals}
+% \includeonly{sections/Double Integrals}
 
 \begin{document}
 
 \pagenumbering{arabic} 
 % ===============================================
 \include{sections/Vectors in Two and Three Dimensions}
-\include{sections/Discussion Week 1}
 \include{sections/Vectors and Directions}
-\include{sections/Discussion Week 2}
 \include{sections/Planes and Surfaces}
 \include{sections/Vector Valued Functions}
 \include{sections/Scalar Valued Functions of Several Variables}
 \include{sections/Partial Derivatives}
 \include{sections/Optimization and Lagrange Multipliers}
 \include{sections/Double Integrals}
+\include{sections/Triple Integrals}
 
 \end{document}

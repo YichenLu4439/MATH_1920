@@ -1,0 +1,97 @@
+\section{Applications of Integration}
+
+\subsection{Applications of Multiple Integrals}
+
+\begin{definition}{Mass in Three Dimensions}{mass_in_3d}
+The mass of a three-dimensional object with density function $\rho(x, y, z)$ is given by
+\[
+m = \wiiint{\rho(x, y, z)}
+\]
+where $\mathcal{W}$ is the region occupied by the object.
+\end{definition}
+
+\begin{definition}{Center of Mass in Three Dimensions}{center_of_mass_3d}
+The center of mass $(\bar{x}, \bar{y}, \bar{z})$ of a three-dimensional object with density function $\rho(x, y, z)$ is given by
+\[
+    \left\{
+        \begin{aligned}
+            \bar{x} &= \frac{1}{m} \wiiint{x\, \rho(x, y, z)}, \\
+            \bar{y} &= \frac{1}{m} \wiiint{y\, \rho(x, y, z)}, \\
+            \bar{z} &= \frac{1}{m} \wiiint{z\, \rho(x, y, z)}
+        \end{aligned}
+    \right.
+\]
+where $m$ is the mass of the object and $\mathcal{W}$ is the region occupied by the object.
+\end{definition}
+
+Note that the center of mass transforms as the solid transforms.
+Therefore, we can use symmetry to find the center of mass of a solid.
+
+For example, if a solid is rotating about a line which passes through the center of mass, then the center of mass must be invariant under the rotation.
+
+\begin{problem}{Find the Center of Mass of a Solid}{center_of_mass_solid}
+Find the center of mass of a solid bounded by the surfaces $z \geq \sqrt{x^2 + y^2}$ and $2 \leq z \leq 4$. 
+The density function of the solid is given by $\rho(x, y, z) = 10 - z$.
+\end{problem}
+
+\begin{sol}
+First, we need to find the mass of the solid. The mass is given by
+\[
+    m = \wiiint{\rho(x, y, z)} = \wiiint{10 - z}.
+\]
+
+Note that the solid is rotationally symmetric about the $z$-axis. 
+Therefore, it might be easier to use cylindrical coordinates to evaluate the integral.
+In cylindrical coordinates, we have $x = r\cos\theta$, $y = r\sin\theta$, and $z = z$.
+
+Hence, the mass of the solid can be expressed as
+\begin{align*}
+    m &= \int_{z = 2}^{4}\int_{\theta = 0}^{2\pi}\int_{r = 0}^{z} (10 - z) r \, \dd{r} \, \dd{\theta} \, \dd{z} \\[0.5em]
+    &= \int_{z = 2}^{4}\int_{\theta = 0}^{2\pi} \left[ \int_{r = 0}^{z} (10 - z) r \, \dd{r} \right] \, \dd{\theta} \, \dd{z} \\[0.5em]
+    &= \int_{z = 2}^{4}\int_{\theta = 0}^{2\pi} (10 - z) \left[ \frac{r^2}{2} \right]_{r = 0}^{r = z} \, \dd{\theta} \, \dd{z} \\[0.5em]
+    &= \int_{z = 2}^{4}\int_{\theta = 0}^{2\pi} (10 - z) \cdot \frac{z^2}{2} \, \dd{\theta} \, \dd{z} \\[0.5em]
+    &= \int_{z = 2}^{4} (10 - z) \cdot \frac{z^2}{2} \cdot 2\pi \, \dd{z} \\[0.5em]
+    &= \pi\int_{z = 2}^{4}(10 - z) z^2\, dz \\[0.5em]
+    &= \pi\left[10\frac{z^3}{3}-\frac{z^4}{4}\right]_{z = 2}^{z = 4} \\[0.5em]
+    &= \pi\left(\frac{640}{3}-\frac{256}{4}-\frac{80}{3}+4\right) \\[0.5em]
+    &= \frac{380}{3}\pi
+\end{align*}
+
+By symmetry, we know that $\bar{x} = 0$ and $\bar{y} = 0$.
+Next, we need to find $\bar{z}$.
+The $z$-coordinate of the center of mass is given by
+\begin{align*}
+    \bar{z} &= \frac{1}{m} \wiiint{z (10 - z)} \\[0.5em]
+    &= \dots = \frac{1506}{475}
+\end{align*}
+
+Hence, the center of mass of the solid is given by
+\[
+    (\bar{x}, \bar{y}, \bar{z}) = \left(0, 0, \frac{1506}{475}\right).
+\]
+\end{sol}
+
+
+\subsection{Probability}
+For a discrete random variable, the probability is given by
+\[
+    \mathbb{P}(\text{an event}) = \frac{\text{number of favorable outcomes}}{\text{total number of outcomes}}.
+\]
+
+Similarly, for a uniform continuous random variable, the ``total number of outcomes'' is given by the area of the region $\mathcal{D}$ in which the random variable is defined.
+Note that $\mathcal{D} \subseteq \mathbb{R}^n$ for some $n \geq 1$.
+
+If the random variable is not uniform, however, we need to use a density function $p$ to describe the distribution of the random variable.
+
+\begin{definition}{Joint Probability Density Function}{joint_pdf}
+A joint probability density function for two continuous random variables $X$ and $Y$ is a function $p(x, y)$ such that
+\begin{itemize}
+    \item $p(x, y) \geq 0$ for all $(x, y) \in \mathbb{R}^2$,
+    \item $\displaystyle\xiint{\mathbb{R}^2}{p(x, y)} = 1$
+\end{itemize}
+
+For a region $\mathcal{D} \subseteq \mathbb{R}^2$, the probability that $(X, Y)$ lies in $\mathcal{D}$ is given by
+\[ 
+    \frac{\displaystyle\diint{p(x, y)}}{\displaystyle\xiint{\mathbb{R}^2}{p(x, y)}} = \diint{p(x, y)}.
+\]
+\end{definition}

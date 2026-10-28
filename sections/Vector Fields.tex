@@ -1,0 +1,239 @@
+\section{Vector Fields}
+
+\begin{problem}{The Gaussian Integral}{gaussian_integral}
+Evaluate
+\[
+    \int_0^{2\pi}\int_0^\infty e^{-r^2}r\,\dd{r}\,\dd{\theta},
+    \qquad I = \int_{-\infty}^\infty e^{-x^2}\,\dd{x}.
+\]
+\end{problem}
+
+\begin{sol}
+With $u = r^2$, we have $\dd{u} = 2r\,\dd{r}$. Therefore,
+\[
+    \int_0^{2\pi}\int_0^\infty e^{-r^2}r\,\dd{r}\,\dd{\theta}
+    = 2\pi\left(\frac{1}{2}\int_0^\infty e^{-u}\,\dd{u}\right)
+    = \pi.
+\]
+To evaluate $I$, square the integral and interpret the product as an integral over the whole plane:
+\begin{align*}
+    I^2
+    &= \left(\int_{-\infty}^\infty e^{-x^2}\,\dd{x}\right)
+       \left(\int_{-\infty}^\infty e^{-y^2}\,\dd{y}\right)\\
+    &= \xiint{\mathbb{R}^2}{e^{-(x^2 + y^2)}}\\
+    &= \int_0^{2\pi}\int_0^\infty e^{-r^2}r\,\dd{r}\,\dd{\theta}
+    = \pi.
+\end{align*}
+Since $I > 0$, we obtain
+\[
+    \boxed{\int_{-\infty}^\infty e^{-x^2}\,\dd{x} = \sqrt{\pi}.}
+\]
+\end{sol}
+
+\newpage
+\subsection{Vector Fields and Their Plots}
+
+\begin{definition}{Vector Field}{vector_field}
+A \textbf{vector field} on a domain $\mathcal{D} \subseteq \mathbb{R}^n$ is a function
+\[
+    \vv{F}:\mathcal{D} \longrightarrow \mathbb{R}^n
+\]
+that assigns a vector $\vv{F}(P)$ to each point $P \in \mathcal{D}$. In a plot, the vector is drawn with its tail at $P$.
+
+In two and three dimensions, respectively, we write
+\begin{align*}
+    \vv{F}(x,y) &= \ang{F_1(x,y),F_2(x,y)},\\
+    \vv{F}(x,y,z) &= \ang{F_1(x,y,z),F_2(x,y,z),F_3(x,y,z)}.
+\end{align*}
+The scalar-valued functions $F_1,F_2,F_3$ are called the \textbf{components} of $\vv{F}$.
+\end{definition}
+
+To identify a vector field from a plot, compare both the \textbf{direction} and the \textbf{magnitude} of its vectors. Check where the field vanishes or is undefined, and how it changes as the point moves along a coordinate direction.
+
+\newpage
+\begin{example}[Matching Vector Fields in Two Dimensions]
+To distinguish the following fields, examine how their directions and magnitudes change across the plots:
+\[
+    \vv{F}_1(x,y) = \ang{1,x},\qquad
+    \vv{F}_2(x,y) = \ang{2x,2y},\qquad
+    \vv{F}_3(x,y) = \frac{\ang{x,y}}{\sqrt{x^2 + y^2}}.
+\]
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=0.58]
+    % Preserve the plot labels from the lecture handout.
+    \foreach \panel/\sx/\sy in {A/0/0,B/8/0,C/0/-8,D/8/-8}{
+        \begin{scope}[shift={(\sx,\sy)}]
+            \node[font=\bfseries] at (-3,3.7) {\panel};
+            \draw[->,gray] (-3.6,0) -- (3.7,0) node[right] {$x$};
+            \draw[->,gray] (0,-3.6) -- (0,3.7) node[above] {$y$};
+            \foreach \x in {-3,-2,...,3}{
+                \foreach \y in {-3,-2,...,3}{
+                    \ifnum\pdfstrcmp{\panel}{A}=0
+                        \draw[->,blue!70!black] (\x,\y) -- ++(0.23,{0.23 * \x});
+                    \else
+                        \ifnum\pdfstrcmp{\panel}{C}=0
+                            \draw[->,blue!70!black] (\x,\y) -- ++({-0.23 * \y},{0.23 * \x});
+                        \else
+                            \pgfmathsetmacro{\r}{sqrt((\x)^2 + (\y)^2)}
+                            \ifdim\r pt>0pt
+                                \ifnum\pdfstrcmp{\panel}{B}=0
+                                    \draw[->,blue!70!black] (\x,\y) -- ++({0.65 * \x / \r},{0.65 * \y / \r});
+                                \else
+                                    \draw[->,blue!70!black] (\x,\y) -- ++({0.23 * \x},{0.23 * \y});
+                                \fi
+                            \fi
+                        \fi
+                    \fi
+                }
+            }
+        \end{scope}
+    }
+\end{tikzpicture}\par\nopagebreak
+\small Arrows are scaled by a constant within each panel for readability.
+\end{center}
+
+\begin{enumerate}
+    \item $\vv{F}_1$ matches \textbf{A}. Every vector points right, with vertical component $x$: downward for $x < 0$, horizontal for $x = 0$, and upward for $x > 0$. The field is independent of $y$.
+    \item $\vv{F}_2$ matches \textbf{D}. Vectors point radially outward with magnitude $2\sqrt{x^2 + y^2}$. They grow longer farther from the origin, where the field is $\vv{0}$.
+    \item $\vv{F}_3$ matches \textbf{B}. Vectors point radially outward with constant magnitude $1$. The field is undefined at the origin.
+\end{enumerate}
+Plot \textbf{C} shows counterclockwise rotation, as in $\ang{-y,x}$, so it does not match any of the given fields.
+\end{example}
+
+\newpage
+\begin{example}[Matching Vector Fields in Three Dimensions]
+To distinguish the following fields, examine how their directions and magnitudes change across the plots:
+\begin{align*}
+    \vv{F}_1(x,y,z) &= \ang{0,0,-1},\\
+    \vv{F}_2(x,y,z) &= -x\vv{i} - y\vv{j} - z\vv{k},\\
+    \vv{F}_3(x,y,z) &= \frac{\ang{-x,-y,-z}}{(x^2 + y^2 + z^2)^{3/2}}.
+\end{align*}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth]
+    % Draw three comparable samples with a common spatial projection.
+    \foreach \panel/\offset in {A/0,B/5.4,C/10.8}{
+        \begin{scope}[shift={(\offset,0)},x={(0.9cm,-0.3cm)},y={(0.55cm,0.45cm)},z={(0cm,1cm)}]
+            \node[font=\bfseries] at (0,0,2.25) {\panel};
+            \draw[->,gray] (-1.5,0,0) -- (1.8,0,0) node[right] {$x$};
+            \draw[->,gray] (0,-1.5,0) -- (0,1.8,0) node[right] {$y$};
+            \draw[->,gray] (0,0,-1.5) -- (0,0,1.8) node[above] {$z$};
+            \foreach \x in {-1,0,1}{
+                \foreach \y in {-1,0,1}{
+                    \foreach \z in {-1,0,1}{
+                        \pgfmathsetmacro{\r}{sqrt((\x)^2 + (\y)^2 + (\z)^2)}
+                        \ifnum\pdfstrcmp{\panel}{B}=0
+                            \draw[->,blue!70!black] (\x,\y,\z) -- ++(0,0,-0.45);
+                        \else
+                            \ifdim\r pt>0pt
+                                \ifnum\pdfstrcmp{\panel}{A}=0
+                                    \pgfmathsetmacro{\s}{0.65 / \r^3}
+                                \else
+                                    \pgfmathsetmacro{\s}{0.38}
+                                \fi
+                                \draw[->,blue!70!black] (\x,\y,\z) -- ++({-\s * \x},{-\s * \y},{-\s * \z});
+                            \fi
+                        \fi
+                    }
+                }
+            }
+        \end{scope}
+    }
+\end{tikzpicture}\par\nopagebreak
+\small Arrows are scaled by a constant within each panel for readability.
+\end{center}
+
+Let $r = \sqrt{x^2 + y^2 + z^2}$ denote the distance from the origin.
+\begin{enumerate}
+    \item $\vv{F}_1$ matches \textbf{B}: all vectors point downward with constant magnitude $1$.
+    \item $\vv{F}_2$ matches \textbf{C}: vectors point toward the origin and have magnitude $r$. They become shorter near the origin, where the field is $\vv{0}$.
+    \item $\vv{F}_3$ matches \textbf{A}: vectors point toward the origin and have magnitude
+    \[
+        \norm{\vv{F}_3} = \frac{r}{r^3} = \frac{1}{r^2},\qquad r > 0.
+    \]
+    They become longer near the origin and shorter farther away. The field is undefined at the origin.
+\end{enumerate}
+\end{example}
+
+\newpage
+\subsection{Operations on Vector Fields}
+
+\begin{definition}{The Del Operator}{del_operator}
+In three dimensions, the \textbf{del operator} is
+\[
+    \nabla = \ang{\pdv{x},\pdv{y},\pdv{z}}.
+\]
+In two dimensions, omit the $z$-component.
+\end{definition}
+
+\subsubsection{Divergence}
+
+\begin{definition}{Divergence}{divergence}
+For a differentiable vector field $\vv{F} = \ang{F_1,F_2,F_3}$, its \textbf{divergence} is the scalar-valued function
+\[
+    \operatorname{div}\vv{F} = \nabla\cdot\vv{F}
+    = \pdv{F_1}{x} + \pdv{F_2}{y} + \pdv{F_3}{z}.
+\]
+In two dimensions, omit the term $\pdv{F_3}{z}$.
+\end{definition}
+
+Divergence measures local net outward flow: positive divergence indicates a local source, negative divergence indicates a local sink, and zero divergence indicates no net local outflow.
+
+\begin{example}[Computing Divergence at a Point]
+Consider $\vv{F} = \ang{2xy,yz,e^z}$. To find its divergence at $(1,0,0)$, first compute the divergence as a function of position.
+
+Differentiate each component with respect to its corresponding variable:
+\begin{align*}
+    \nabla\cdot\vv{F}
+    &= \pdv{(2xy)}{x} + \pdv{(yz)}{y} + \pdv{e^z}{z}\\
+    &= 2y + z + e^z.
+\end{align*}
+Hence,
+\[
+    (\nabla\cdot\vv{F})(1,0,0) = 0 + 0 + 1 = \boxed{1}.
+\]
+\end{example}
+
+\subsubsection{Curl}
+
+\begin{definition}{Curl}{curl}
+For a differentiable vector field $\vv{F} = \ang{F_1,F_2,F_3}$ in $\mathbb{R}^3$, its \textbf{curl} is the vector field
+\begin{align*}
+    \operatorname{curl}\vv{F} = \nabla\times\vv{F}
+    &= \begin{vmatrix}
+        \vv{i} & \vv{j} & \vv{k}\\
+        \pdv{x} & \pdv{y} & \pdv{z}\\
+        F_1 & F_2 & F_3
+    \end{vmatrix}\\[0.5em]
+    &= \ang{\pdv{F_3}{y} - \pdv{F_2}{z},
+        \pdv{F_1}{z} - \pdv{F_3}{x},
+        \pdv{F_2}{x} - \pdv{F_1}{y}}.
+\end{align*}
+
+\end{definition}
+
+Curl is \textbf{vector-valued} and describes local rotation, with direction given by the right-hand rule.
+
+\begin{example}[Curl of a Rotational Field]
+Consider the rotational field $\vv{F} = \ang{-y,x,0}$. Its curl describes both the direction and the strength of its local rotation.
+
+Using the component formula,
+\begin{align*}
+    \nabla\times\vv{F}
+    &= \ang{0 - 0,0 - 0,\pdv{x}{x} - \pdv{(-y)}{y}}\\
+    &= \ang{0,0,1 - (-1)}
+    = \boxed{\ang{0,0,2}}.
+\end{align*}
+Counterclockwise rotation in the $xy$-plane gives curl in the positive $z$-direction.
+\end{example}
+
+\subsection{Conservative Vector Fields and Potential Functions}
+
+\begin{definition}{Conservative Vector Field}{conservative_vector_field}
+A vector field $\vv{F}$ is \textbf{conservative}, or a \textbf{gradient vector field}, if there exists a scalar-valued function $f$ such that
+\[
+    \vv{F} = \nabla f.
+\]
+The function $f$ is called a \textbf{potential function} for $\vv{F}$.
+\end{definition}

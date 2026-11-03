@@ -1,0 +1,545 @@
+\section{Line Integrals}
+\subsection{Scalar Line Integrals}
+
+\begin{definition}{Scalar Line Integral}{scalar_line_integral}
+Let $C$ be a piecewise smooth curve parametrized by $\vv{r}(t)$, $a \le t \le b$, and let $f$ be continuous on $C$. The \textbf{scalar line integral} is
+\[
+    \int_C f\,\dd{s}
+    = \lim_{\max\Delta s_i\to 0}\sum_i f(P_i^*)\Delta s_i
+    = \int_a^b f(\vv{r}(t))\norm{\vv{r}'(t)}\,\dd{t}.
+\]
+Here $\Delta s_i$ is the length of a small piece of $C$, and
+\[
+    \dd{s} = \norm{\vv{r}'(t)}\,\dd{t}
+    = \sqrt{(x'(t))^2 + (y'(t))^2 + (z'(t))^2}\,\dd{t}.
+\]
+In two dimensions, omit the $z$-term.
+
+In the plot below, the area of the shaded strip is approximately $f(P_i^*)\Delta s_i$. The integral sums these areas along the curve.
+\begin{center}
+\begin{tikzpicture}[>=Stealth,font=\small,scale=1.05,
+    x={(-0.5cm,-0.45cm)},y={(0.95cm,0.1cm)},z={(0cm,0.95cm)},
+    declare function={curtainHeight(\x,\y) = 2.3 - 0.13 * \x + 0.18 * sin(45 * \y);
+        curveY(\t) = 2 + 4 * \t + sin(360 * \t);}]
+    % Draw a translucent surface z = f(x,y) behind the curtain.
+    \foreach \i in {0,...,21}{
+        \foreach \j in {0,...,29}{
+            \pgfmathsetmacro{\xa}{0.2 * \i}
+            \pgfmathsetmacro{\xb}{0.2 * (\i + 1)}
+            \pgfmathsetmacro{\ya}{1 + 0.2 * \j}
+            \pgfmathsetmacro{\yb}{1 + 0.2 * (\j + 1)}
+            \fill[blue!45!gray,opacity=0.14]
+                (\xa,\ya,{curtainHeight(\xa,\ya)}) -- (\xb,\ya,{curtainHeight(\xb,\ya)})
+                -- (\xb,\yb,{curtainHeight(\xb,\yb)}) -- (\xa,\yb,{curtainHeight(\xa,\yb)}) -- cycle;
+        }
+    }
+    \foreach \u in {0,1.1,2.2,3.3,4.4}{
+        \draw[blue!35!gray,opacity=0.3,thin,domain=1:7,samples=35,variable=\v]
+            plot (\u,\v,{curtainHeight(\u,\v)});
+    }
+    \foreach \v in {1,2.5,4,5.5,7}{
+        \draw[blue!35!gray,opacity=0.3,thin,domain=0:4.4,samples=25,variable=\u]
+            plot (\u,\v,{curtainHeight(\u,\v)});
+    }
+    \node[anchor=west] at (0,7.1,{curtainHeight(0,7)}) {$z = f(x,y)$};
+    % Keep the coordinate axes black and leave the origin unlabeled.
+    \draw[->,black] (0,0,0) -- (5.2,0,0) node[below left] {$x$};
+    \draw[->,black] (0,0,0) -- (0,7.4,0) node[right] {$y$};
+    \draw[->,black] (0,0,0) -- (0,0,3.1) node[above] {$z$};
+    % Lift a winding base curve vertically to the same surface.
+    \foreach \i in {0,...,99}{
+        \pgfmathsetmacro{\ta}{\i / 100}
+        \pgfmathsetmacro{\tb}{(\i + 1) / 100}
+        \fill[cyan!22] ({4 * \ta},{curveY(\ta)},0)
+            -- ({4 * \tb},{curveY(\tb)},0)
+            -- ({4 * \tb},{curveY(\tb)},{curtainHeight(4 * \tb,curveY(\tb))})
+            -- ({4 * \ta},{curveY(\ta)},{curtainHeight(4 * \ta,curveY(\ta))}) -- cycle;
+    }
+    \foreach \t in {0,0.04,...,1}{
+        \draw[cyan!60!blue,thin] ({4 * \t},{curveY(\t)},0)
+            -- ({4 * \t},{curveY(\t)},{curtainHeight(4 * \t,curveY(\t))});
+    }
+    \draw[magenta!80!black,thick,domain=0:1,samples=150,variable=\t]
+        plot ({4 * \t},{curveY(\t)},0);
+    \draw[magenta!80!black,thick,domain=0:1,samples=150,variable=\t]
+        plot ({4 * \t},{curveY(\t)},{curtainHeight(4 * \t,curveY(\t))});
+    % Place the height annotation to the right of the curtain.
+    \coordinate (P) at (1,4,0);
+    \coordinate (Q) at (1,4,{curtainHeight(1,4)});
+    \draw[densely dotted,gray] (P) -- ++(0,2.1,0);
+    \draw[densely dotted,gray] (Q) -- ++(0,2.1,0);
+    \draw[<->,black] ($(P) + (0,2.1,0)$) -- node[right=3pt] {$f(x,y)$} ($(Q) + (0,2.1,0)$);
+    \fill[magenta!80!black] (P) circle (1.8pt);
+    \node[below right=5pt] at (P) {$(x,y)$};
+    \node[magenta!80!black,below left=3pt] at (2.8,{curveY(0.7)},0) {$C$};
+\end{tikzpicture}
+\end{center}
+\end{definition}
+
+\newpage
+The factor $\norm{\vv{r}'(t)}$ converts a parameter increment into arc length. In particular,
+\[
+    L = \int_C 1\,\dd{s}
+\]
+is the length of $C$. A scalar line integral is independent of the direction of traversal and of any parametrization tracing the curve once. For piecewise smooth curves, add the integrals over the individual pieces.
+
+\begin{theorem}{Mass and Center of Mass of a Wire}{wire_mass}
+For a wire along $C$ with continuous linear density $\delta \ge 0$ and positive total mass,
+\[
+    m = \int_C \delta\,\dd{s},\qquad
+    (\bar{x},\bar{y},\bar{z})
+    = \frac{1}{m}\left(\int_C x\delta\,\dd{s},
+    \int_C y\delta\,\dd{s},\int_C z\delta\,\dd{s}\right).
+\]
+For constant positive density, this point is the \textbf{centroid}:
+\[
+    \bar{\vv{r}} = \frac{1}{L}\int_a^b \vv{r}(t)\norm{\vv{r}'(t)}\,\dd{t}.
+\]
+\end{theorem}
+
+\begin{problem}{A Straight Wire}{straight_wire}
+A wire lies on the $x$-axis from $x = 0$ to $x = 5$ with density $\delta(x) = x$. Find its mass and center of mass.
+\end{problem}
+\begin{sol}
+Since $\dd{s} = \dd{x}$ along this segment,
+\[
+    m = \int_0^5 x\,\dd{x} = \frac{25}{2},\qquad
+    \bar{x} = \frac{1}{m}\int_0^5 x^2\,\dd{x}
+    = \frac{2}{25}\cdot\frac{125}{3} = \frac{10}{3}.
+\]
+The center of mass is $\boxed{(10/3,0,0)}$. It lies to the right of the midpoint because the wire is denser there.
+\end{sol}
+
+
+
+
+\newpage
+\begin{problem}{Mass of a Helical Wire}{helical_wire}
+A wire follows $\vv{r}(t) = \ang{\cos t,\sin t,t}$, $0 \le t \le 6\pi$, with coordinates in centimeters and density $\delta(x,y,z) = \sqrt{z}$ grams per centimeter. Find its mass.
+\end{problem}
+\begin{sol}
+Along the helix,
+\[
+    \vv{r}'(t) = \ang{-\sin t,\cos t,1},\qquad
+    \norm{\vv{r}'(t)} = \sqrt{2},\qquad \delta(\vv{r}(t)) = \sqrt{t}.
+\]
+Therefore,
+\[
+    m = \int_0^{6\pi}\sqrt{t}\sqrt{2}\,\dd{t}
+    = \frac{2\sqrt{2}}{3}(6\pi)^{3/2}
+    = \boxed{8\pi\sqrt{3\pi}\ \mathrm{g}}.
+\]
+\end{sol}
+
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,font=\small,x={(1.1cm,-0.35cm)},y={(0.7cm,0.45cm)},z={(0cm,0.27cm)}]
+    % Use the actual helix coordinates; color encodes increasing density.
+    \draw[->,gray] (0,0,0) -- (1.7,0,0) node[right] {$x$};
+    \draw[->,gray] (0,0,0) -- (0,1.7,0) node[right] {$y$};
+    \draw[->,gray] (0,0,0) -- (0,0,21) node[above] {$z$};
+    \foreach \i in {0,...,107}{
+        \pgfmathsetmacro{\shade}{20 + 75 * sqrt(\i / 107)}
+        \draw[blue!\shade!white,very thick,domain={10 * \i}:{10 * (\i + 1)},samples=5,variable=\u]
+            plot ({cos(\u)},{sin(\u)},{\u * pi / 180});
+    }
+    \fill (1,0,0) circle (2pt) node[right] {$t = 0$};
+    \fill[blue!95!black] (1,0,{6 * pi}) circle (2pt) node[right] {$t = 6\pi$};
+    \draw[->,red!75!black,thick,domain=450:495,samples=12,variable=\u]
+        plot ({cos(\u)},{sin(\u)},{\u * pi / 180});
+    \node[align=left,anchor=west] at (2.5,0,12) {Three turns; $z = t$.\\Darker wire: larger $\delta = \sqrt{z}$.\\Each increment $\dd{t}$ gives\\arc length $\dd{s} = \sqrt{2}\,\dd{t}$.};
+\end{tikzpicture}
+\end{center}
+
+\newpage
+\begin{problem}{Question 1: Is the Centroid the Parameter Midpoint?}{centroid_midpoint}
+If $C = \vv{r}(t)$, $0 \le t \le 1$, has constant density, must its centroid be $\vv{r}(1/2)$?
+\end{problem}
+\begin{sol}
+False.
+The centroid averages position with respect to arc length, rather than the parameter. For example, the uniform upper unit semicircle
+\[
+    \vv{r}(t) = \ang{\cos(\pi t),\sin(\pi t)},\qquad 0 \le t \le 1,
+\]
+has constant speed $\pi$ and length $L = \pi$. Its centroid is
+\[
+    (\bar{x},\bar{y})
+    = \frac{1}{\pi}\int_0^1\ang{\cos(\pi t),\sin(\pi t)}\pi\,\dd{t}
+    = \boxed{\left(0,\frac{2}{\pi}\right)},
+\]
+whereas $\vv{r}(1/2) = (0,1)$. Even constant speed does not make the centroid equal to the middle point of the curve; the centroid need not lie on the wire.
+\end{sol}
+
+
+
+
+\newpage
+\subsection{Work and Orientation}
+For a constant force $\vv{F}$ moving an object from $A$ to $B$, work is
+\[
+    W = \vv{F}\cdot\overrightarrow{AB}
+    = \norm{\vv{F}}\norm{\overrightarrow{AB}}\cos\theta.
+\]
+Only the component of force in the direction of displacement contributes. With force in newtons and displacement in meters, work is measured in joules.
+
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,font=\small]
+    % Resolve force along the instantaneous direction of motion.
+    \draw[->,very thick,blue!70!black] (0,0) -- (3.5,0) node[right] {$\vv{T}$ (motion)};
+    \draw[->,very thick,red!75!black] (0,0) -- (2.2,1.9) node[above] {$\vv{F}$};
+    \draw[dashed,gray] (2.2,1.9) -- (2.2,0);
+    \draw[->,very thick,orange!85!black] (0,-0.12) -- (2.2,-0.12);
+    \node[below] at (1.1,-0.25) {$(\vv{F}\cdot\vv{T})\vv{T}$};
+    \draw (0.65,0) arc (0:41:0.65) node[right=3pt] {$\theta$};
+    \node[align=left,anchor=west] at (4.5,1.2) {$\dd{W} = (\vv{F}\cdot\vv{T})\,\dd{s}$\\[4pt]
+        $= \norm{\vv{F}}\cos\theta\,\dd{s}$};
+\end{tikzpicture}
+
+\medskip
+\begin{tikzpicture}[>=Stealth,font=\small]
+    % Show the three possible signs of the tangential contribution.
+    \foreach \offset/\angle/\sign in {0/35/{positive},4.2/90/{zero},8.4/145/{negative}}{
+        \begin{scope}[shift={(\offset,0)}]
+            \draw[->,blue!70!black,thick] (0,0) -- (2,0) node[right] {$\vv{T}$};
+            \draw[->,red!75!black,thick] (0,0) -- ({1.3 * cos(\angle)},{1.3 * sin(\angle)}) node[above] {$\vv{F}$};
+            \node at (0.6,-0.65) {\sign\ work};
+        \end{scope}
+    }
+\end{tikzpicture}
+\end{center}
+
+\begin{example}[Work Done by a Constant Force]
+Let $\vv{F} = \ang{2,-5,2}$ move an object from $A = (-2,-5,3)$ to $B = (-5,-2,7)$. Then
+\[
+    \overrightarrow{AB} = \ang{-3,3,4},\qquad
+    W = 2(-3) + (-5)(3) + 2(4) = \boxed{-13\ \mathrm{J}}.
+\]
+The negative sign means the force opposes the displacement overall.
+\end{example}
+
+\newpage
+\begin{definition}{Orientation of a Curve}{curve_orientation}
+An \textbf{orientation} of $C$ is a choice of direction of traversal. A parametrization specifies the direction in which $t$ increases. The notation $-C$ means the same curve with the opposite orientation.
+
+If $\vv{r}(t)$, $a \le t \le b$, parametrizes $C$, then $\widetilde{\vv{r}}(t) = \vv{r}(a + b - t)$ parametrizes $-C$.
+\end{definition}
+
+\subsection{Vector Line Integrals}
+\begin{definition}{Vector Line Integral and Work}{vector_line_integral}
+Let $C$ be an oriented, piecewise smooth curve and $\vv{F}$ a continuous vector field on $C$. Its \textbf{vector line integral} is
+\[
+    \int_C \vv{F}\cdot\dd{\vv{r}}
+    = \int_a^b \vv{F}(\vv{r}(t))\cdot\vv{r}'(t)\,\dd{t}
+    = \int_C \vv{F}\cdot\vv{T}\,\dd{s},
+\]
+where $\vv{T} = \vv{r}'(t)/\norm{\vv{r}'(t)}$ is the oriented unit tangent wherever the speed is nonzero, and
+\[
+    \dd{\vv{r}} = \vv{r}'(t)\,\dd{t} = \vv{T}\,\dd{s}.
+\]
+For $\vv{F} = \ang{P,Q,R}$, this is also written
+\[
+    \int_C P\,\dd{x} + Q\,\dd{y} + R\,\dd{z}.
+\]
+When $\vv{F}$ is a force field, the integral is the work done along $C$.
+\end{definition}
+
+\begin{theorem}{Effect of Reversing Orientation}{reverse_orientation}
+Reversing direction preserves scalar line integrals and reverses vector line integrals:
+\[
+    \int_{-C} f\,\dd{s} = \int_C f\,\dd{s},\qquad
+    \int_{-C}\vv{F}\cdot\dd{\vv{r}}
+    = -\int_C\vv{F}\cdot\dd{\vv{r}}.
+\]
+Both integrals are unchanged by a change of parametrization that preserves orientation and traces the curve once.
+\end{theorem}
+
+\newpage
+\begin{problem}{Work on an Ant along a Semicircle}{ant_work}
+Let $\vv{F}(x,y) = \ang{1,-xy}$ and let $C$ be the upper half of $x^2 + y^2 = 1$. Determine the sign of the work, then calculate it when the ant walks from $(1,0)$ to $(-1,0)$.
+\end{problem}
+\begin{center}
+\begin{tikzpicture}[scale=2,>=Stealth]
+    % Sample the force field and overlay the oriented path.
+    \foreach \x in {-1,-0.75,...,1}{
+        \foreach \y in {-0.25,0,...,1.25}{
+            \draw[->,gray!65] (\x,\y) -- ++(0.14,{-0.14 * \x * \y});
+        }
+    }
+    \draw[->] (-1.3,0) -- (1.4,0) node[right] {$x$};
+    \draw[->] (0,-0.3) -- (0,1.5) node[above] {$y$};
+    \draw[very thick,blue!70!black] (1,0) arc (0:180:1);
+    \draw[->,very thick,blue!70!black] ({cos(55)},{sin(55)}) arc (55:90:1);
+    \fill (1,0) circle (0.025) node[below] {$(1,0)$};
+    \fill (-1,0) circle (0.025) node[below] {$(-1,0)$};
+\end{tikzpicture}
+\end{center}
+\begin{sol}
+Without an orientation, the sign cannot be determined. For the specified direction, choose
+\[
+    \vv{r}(t) = \ang{\cos t,\sin t},\qquad 0 \le t \le \pi.
+\]
+Then
+\begin{align*}
+    \vv{F}(\vv{r}(t))\cdot\vv{r}'(t)
+    &= \ang{1,-\cos t\sin t}\cdot\ang{-\sin t,\cos t}\\
+    &= -\sin t - \cos^2 t\sin t \le 0.
+\end{align*}
+Thus the force opposes the motion along the open arc. With $u = \cos t$,
+\[
+    W = \int_0^\pi -\sin t(1 + \cos^2 t)\,\dd{t}
+    = \int_1^{-1}(1 + u^2)\,\dd{u}
+    = \boxed{-\frac{8}{3}\ \mathrm{J}}.
+\]
+The reverse traversal gives $+8/3\ \mathrm{J}$.
+\end{sol}
+
+\newpage
+\begin{problem}{Question 2: Different Speeds along the Same Path}{work_reparametrization}
+Two particles follow $\vv{r}_1(t) = \ang{t,t}$ and $\vv{r}_2(t) = \ang{t^2,t^2}$, $0 \le t \le 1$, in the field $\vv{F}(x,y) = \ang{x,-y}$. Compare the work done on the particles.
+\end{problem}
+\begin{sol}
+\textbf{A: The work is the same.} Both particles traverse the segment from $(0,0)$ to $(1,1)$ once, with the same orientation. Direct calculation gives
+\begin{align*}
+    W_1 &= \int_0^1\ang{t,-t}\cdot\ang{1,1}\,\dd{t} = 0,\\
+    W_2 &= \int_0^1\ang{t^2,-t^2}\cdot\ang{2t,2t}\,\dd{t} = 0.
+\end{align*}
+The force is perpendicular to the path, so it does no work. The zero speed of $\vv{r}_2$ at the initial endpoint does not affect this calculation.
+\end{sol}
+
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,font=\small,scale=2.5]
+    % Equal parameter increments give unequal positions for the second particle.
+    \foreach \offset/\kind in {0/1,2.5/2}{
+        \begin{scope}[shift={(\offset,0)}]
+            \draw[->,gray] (-0.1,0) -- (1.3,0) node[right] {$x$};
+            \draw[->,gray] (0,-0.1) -- (0,1.3) node[above] {$y$};
+            \draw[blue!70!black,thick,->] (0,0) -- (1,1);
+            \foreach \t in {0,0.25,0.5,0.75,1}{
+                \pgfmathsetmacro{\p}{\t^\kind}
+                \fill[blue!70!black] (\p,\p) circle (0.7pt);
+            }
+            \draw[->,red!75!black,thick] (0.6,0.6) -- (0.95,0.25) node[right] {$\vv{F}$};
+            \draw[->,blue!70!black,thick] (0.6,0.6) -- (0.95,0.95) node[right] {$\vv{T}$};
+            \node at (0.55,-0.3) {$\vv{r}_{\kind}(t)$};
+        \end{scope}
+    }
+\end{tikzpicture}\par
+\small Dots mark $t = 0,1/4,1/2,3/4,1$. Both paths have the same direction;\\
+$\vv{F}$ is perpendicular to the tangent, so both work integrals vanish.
+\end{center}
+
+\newpage
+\subsubsection{Work along a Quarter Circle}
+\begin{problem}{A Horizontal Force on a Circular Arc}{quarter_circle_work}
+Find the work done by $\vv{F} = \ang{3x,0}$ along the first-quadrant arc of $x^2 + y^2 = 1$, oriented counterclockwise.
+\end{problem}
+\begin{sol}
+The orientation runs from $(1,0)$ to $(0,1)$. Set
+\[
+    \vv{r}(t) = \ang{\cos t,\sin t},\qquad 0 \le t \le \frac{\pi}{2}.
+\]
+Then $\vv{F}(\vv{r}(t)) = \ang{3\cos t,0}$ and $\vv{r}'(t) = \ang{-\sin t,\cos t}$, so
+\[
+    W = \int_0^{\pi/2} -3\cos t\sin t\,\dd{t}
+    = \left[\frac{3}{2}\cos^2 t\right]_0^{\pi/2}
+    = \boxed{-\frac{3}{2}}.
+\]
+The force points right while the particle moves leftward along the arc, giving negative work.
+\end{sol}
+
+\subsubsection{Additivity over Pieces}
+\begin{theorem}{Integrating a Piecewise Smooth Path}{line_integral_additivity}
+If an oriented curve $C = C_1 + C_2$ is traversed along $C_1$ and then $C_2$, with compatible endpoints and orientations, then
+\[
+    \int_C\vv{F}\cdot\dd{\vv{r}}
+    = \int_{C_1}\vv{F}\cdot\dd{\vv{r}}
+    + \int_{C_2}\vv{F}\cdot\dd{\vv{r}}.
+\]
+The same principle holds for any finite number of pieces, and for scalar line integrals. Reversing one piece reverses its contribution to a vector line integral.
+\end{theorem}
+
+\newpage
+\begin{problem}{Three Paths between Two Endpoints}{three_paths_work}
+For $\vv{F} = \ang{y + 3x^2,x}$, calculate $\int_C\vv{F}\cdot\dd{\vv{r}}$ along:
+\begin{enumerate}
+    \item $C_1$: $y = x^2 - 4$, from $(2,0)$ to $(-2,0)$;
+    \item $C_2$: the line segment from $(-2,0)$ to $(2,0)$;
+    \item $C_3$: $y = x^3 - 4x$, from $(2,0)$ to $(-2,0)$.
+\end{enumerate}
+\end{problem}
+\begin{center}
+\begin{tikzpicture}[>=Stealth,font=\small,x=1.25cm,y=0.35cm]
+    % Display the different paths with their assigned directions.
+    \draw[->,black] (-2.6,0) -- (2.8,0) node[right] {$x$};
+    \draw[->,black] (0,-4.7) -- (0,3.9) node[above] {$y$};
+    \draw[blue!70!black,thick,domain=-2:2,samples=70] plot (\x,{(\x)^2 - 4});
+    \draw[->,blue!70!black,thick] (1,-3) -- (0.8,-3.36);
+    \draw[magenta!80!black,thick,domain=-2:2,samples=90] plot (\x,{\x^3 - 4 * \x});
+    \draw[->,magenta!80!black,thick] (-0.7,2.457) -- (-0.9,2.871);
+    \draw[->,orange!85!black,very thick] (-2,0) -- (2,0);
+    \node[blue!70!black,below] at (1.2,-3) {$C_1$};
+    \node[orange!85!black,above] at (1.3,0) {$C_2$};
+    \node[magenta!80!black,above] at (-1.3,3) {$C_3$};
+    \fill (-2,0) circle (1.6pt) node[below] {$(-2,0)$};
+    \fill (2,0) circle (1.6pt) node[above] {$(2,0)$};
+\end{tikzpicture}
+\end{center}
+\begin{sol}
+Use $\vv{F}\cdot\dd{\vv{r}} = (y + 3x^2)\,\dd{x} + x\,\dd{y}$, with the $x$-limits matching each orientation:
+\begin{align*}
+    I_1 &= \int_2^{-2}\bigl[(x^2 - 4 + 3x^2) + x(2x)\bigr]\,\dd{x}
+        = \int_2^{-2}(6x^2 - 4)\,\dd{x} = \boxed{-16},\\
+    I_2 &= \int_{-2}^2 3x^2\,\dd{x} = \boxed{16},\\
+    I_3 &= \int_2^{-2}\bigl[(x^3 - 4x + 3x^2) + x(3x^2 - 4)\bigr]\,\dd{x}\\
+        &= \int_2^{-2}(4x^3 + 3x^2 - 8x)\,\dd{x} = \boxed{-16}.
+\end{align*}
+\end{sol}
+
+\newpage
+\subsection{Flux across a Planar Curve}
+\begin{definition}{Flux and the Right-Hand Normal}{planar_flux}
+Let $C$ be an oriented, piecewise smooth planar curve and let $\vv{F} = \ang{P,Q}$ be a continuous velocity field. The \textbf{flux} across $C$ measures signed flow across the curve per unit time, using the unit normal $\vv{n}$ pointing to the \textbf{right} of the direction of traversal:
+\[
+    \Phi = \int_C\vv{F}\cdot\vv{n}\,\dd{s}.
+\]
+For $\vv{r}(t) = \ang{x(t),y(t)}$, $a \le t \le b$, rotate the tangent clockwise by $90^\circ$:
+\[
+    \vv{N}(t) = \ang{y'(t),-x'(t)},\qquad
+    \vv{n}(t) = \frac{\vv{N}(t)}{\norm{\vv{r}'(t)}}.
+\]
+Consequently,
+\begin{align*}
+    \Phi &= \int_a^b\vv{F}(\vv{r}(t))\cdot\ang{y'(t),-x'(t)}\,\dd{t}\\
+    &= \boxed{\int_C P\,\dd{y} - Q\,\dd{x}}.
+\end{align*}
+\end{definition}
+
+Positive flux means net flow toward the right side of the oriented curve; negative flux means net flow toward the left. For a simple closed curve traversed counterclockwise, the right normal is outward. Reversing the curve reverses this normal and the sign of the flux.
+
+\newpage
+\begin{problem}{Flux of a Rotational Field across a Segment}{segment_flux}
+Find the flux of $\vv{F} = \ang{-y,x}$ across the line segment from $(-1,1)$ to $(3,-1)$, using the right-hand normal.
+\end{problem}
+\begin{sol}
+Parametrize the segment in the required direction:
+\[
+    \vv{r}(t) = \ang{-1 + 4t,1 - 2t},\qquad 0 \le t \le 1.
+\]
+Then
+\[
+    \vv{r}'(t) = \ang{4,-2},\qquad
+    \vv{N}(t) = \ang{-2,-4},\qquad
+    \vv{F}(\vv{r}(t)) = \ang{-1 + 2t,-1 + 4t}.
+\]
+Thus
+\begin{align*}
+    \Phi &= \int_0^1\ang{-1 + 2t,-1 + 4t}\cdot\ang{-2,-4}\,\dd{t}\\
+    &= \int_0^1(6 - 20t)\,\dd{t}
+    = \boxed{-4}.
+\end{align*}
+The net flow crosses to the left of the direction of traversal. The vector $\vv{N}$ already includes the speed factor: do not multiply by $\norm{\vv{r}'(t)}$ again.
+\end{sol}
+\begin{center}
+\begin{tikzpicture}[>=Stealth,font=\small,scale=1.05]
+    % Sample the rotational field and mark the chosen right normal.
+    \foreach \x in {-1,0,1,2,3}{
+        \foreach \y in {-1,0,1}{
+            \draw[->,gray!65] (\x,\y) -- ++({-0.17 * \y},{0.17 * \x});
+        }
+    }
+    \draw[->,black] (-1.5,0) -- (3.8,0) node[right] {$x$};
+    \draw[->,black] (0,-2) -- (0,1.8) node[above] {$y$};
+    \draw[blue!70!black,very thick,->] (-1,1) -- (3,-1);
+    \draw[orange!85!black,thick,->] (1,0) -- (0.5,-1) node[below right] {$\vv{N} = \ang{-2,-4}$};
+    \fill (-1,1) circle (1.8pt) node[above left] {$(-1,1)$};
+    \fill (3,-1) circle (1.8pt) node[below right] {$(3,-1)$};
+\end{tikzpicture}
+\end{center}
+
+\newpage
+\begin{problem}{Comparing Flux across a Quarter Circle}{quarter_flux_comparison}
+Let $C$ be the first-quadrant arc of the unit circle, oriented counterclockwise. Sketch the fields and determine which has the greatest and least flux:
+\[
+    \text{A: }\ang{1,0},\quad \text{B: }\ang{x,y},\quad
+    \text{C: }\ang{0,x},\quad \text{D: }\ang{x,0}.
+\]
+\end{problem}
+\begin{center}
+\begin{tikzpicture}[>=Stealth,font=\small,scale=1.8]
+    % Use a common arrow scale to compare four fields on the same arc.
+    \foreach \panel/\sx/\sy in {A/0/0,B/3.4/0,C/0/-2.4,D/3.4/-2.4}{
+        \begin{scope}[shift={(\sx,\sy)}]
+            \node[font=\bfseries] at (0.6,1.55) {\panel};
+            \draw[->,black] (-0.1,0) -- (1.5,0) node[right] {$x$};
+            \draw[->,black] (0,-0.1) -- (0,1.4) node[above] {$y$};
+            \foreach \x in {0.2,0.6,1}{
+                \foreach \y in {0.2,0.6,1}{
+                    \ifnum\pdfstrcmp{\panel}{A}=0
+                        \draw[->,gray!80] (\x,\y) -- ++(0.25,0);
+                    \else\ifnum\pdfstrcmp{\panel}{B}=0
+                        \draw[->,gray!80] (\x,\y) -- ++({0.25 * \x},{0.25 * \y});
+                    \else\ifnum\pdfstrcmp{\panel}{C}=0
+                        \draw[->,gray!80] (\x,\y) -- ++(0,{0.25 * \x});
+                    \else
+                        \draw[->,gray!80] (\x,\y) -- ++({0.25 * \x},0);
+                    \fi\fi\fi
+                }
+            }
+            \draw[blue!70!black,thick] (1,0) arc (0:90:1);
+            \draw[->,blue!70!black,thick] ({cos(40)},{sin(40)}) arc (40:65:1);
+            \draw[->,orange!85!black,thick] ({cos(45)},{sin(45)}) -- ({1.35 * cos(45)},{1.35 * sin(45)}) node[right] {$\vv{n}$};
+        \end{scope}
+    }
+\end{tikzpicture}
+\end{center}
+\begin{sol}
+Use $\vv{r}(t) = \ang{\cos t,\sin t}$, $0 \le t \le \pi/2$. The right normal is outward, and $\vv{N} = \ang{\cos t,\sin t}$ since the speed is $1$. Hence
+\[
+\begin{array}{c|c|c}
+    \text{Field} & \vv{F}(\vv{r}(t))\cdot\vv{N}(t) & \Phi\\ \hline
+    \mathrm{A} & \cos t & 1\\
+    \mathrm{B} & 1 & \pi/2\\
+    \mathrm{C} & \cos t\sin t & 1/2\\
+    \mathrm{D} & \cos^2 t & \pi/4
+\end{array}
+\]
+Thus $\boxed{\Phi_{\mathrm{B}} > \Phi_{\mathrm{A}} > \Phi_{\mathrm{D}} > \Phi_{\mathrm{C}}}$: \textbf{B is greatest; C is least.}
+\end{sol}
+
+\newpage
+\subsection{Setting Up a Line Integral}
+\begin{enumerate}
+    \item Choose $\vv{r}(t)$ and its parameter interval. For work, check the starting point, ending point, and direction.
+    \item Substitute the parametrization into the scalar function or vector field.
+    \item For $\int_C f\,\dd{s}$, multiply by the \textbf{speed} $\norm{\vv{r}'(t)}$. For $\int_C\vv{F}\cdot\dd{\vv{r}}$, take the \textbf{dot product} with $\vv{r}'(t)$. For planar flux with the right normal, take the dot product with $\ang{y'(t),-x'(t)}$.
+    \item Integrate over the parameter interval, adding contributions if the path has several pieces.
+\end{enumerate}
+
+\[
+    \boxed{\begin{aligned}
+        \text{Scalar:}\quad &\int_a^b f(\vv{r}(t))\norm{\vv{r}'(t)}\,\dd{t},\\
+        \text{Work:}\quad &\int_a^b \vv{F}(\vv{r}(t))\cdot\vv{r}'(t)\,\dd{t},\\
+        \text{Planar flux:}\quad &\int_a^b \vv{F}(\vv{r}(t))\cdot\ang{y'(t),-x'(t)}\,\dd{t}.
+    \end{aligned}}
+\]
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,font=\small]
+    % Reverse only the direction; preserve the geometric curve and its length.
+    \foreach \offset/\direction/\label in {0/1/C,6/-1/{-C}}{
+        \begin{scope}[shift={(\offset,0)}]
+            \draw[thick,blue!70!black] (0,0) .. controls (1,1.5) and (3,1.5) .. (4,0);
+            \draw[->,thick,blue!70!black] (2,1.125) -- ({2 + 0.8 * \direction},1.125)
+                node[above] {$\vv{T}$};
+            \draw[->,red!75!black,thick] (2,1.125) -- (2.8,2.1) node[above] {$\vv{F}$};
+            \node at (2,-0.4) {$\label$};
+        \end{scope}
+    }
+    \node[align=center] at (5,-1.4) {Same arc length $\dd{s}$; opposite tangent $\vv{T}$.\\
+        Scalar contributions stay the same; work contributions change sign.};
+\end{tikzpicture}
+\end{center}
+
+A vector line integral produces a scalar. Its value depends on the oriented path, but not on how quickly that path is traversed.

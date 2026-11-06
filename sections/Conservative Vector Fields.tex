@@ -1,0 +1,391 @@
+\section{Conservative Vector Fields}
+\subsection{Potential Functions and the Fundamental Theorem}
+
+\begin{definition}{Conservative Field and Potential}{conservative_field}
+A continuous vector field $\vv{F}$ on an open domain $D$ is \textbf{conservative} if there is a differentiable scalar function $f$ on $D$ such that
+\[
+    \vv{F} = \nabla f.
+\]
+The function $f$ is a \textbf{potential function}. Adding a constant to $f$ gives another potential for the same field.
+\end{definition}
+
+\begin{theorem}{Fundamental Theorem for Line Integrals}{fundamental_line_integrals}
+If $\vv{F} = \nabla f$ on $D$ and $C$ is a piecewise smooth oriented curve in $D$ from $P$ to $Q$, then
+\[
+    \boxed{\int_C\vv{F}\cdot\dd{\vv{r}} = f(Q) - f(P).}
+\]
+Only the endpoint values of the potential matter.
+\end{theorem}
+For a parametrization $\vv{r}(t)$, $a \le t \le b$, the chain rule gives
+\[
+    \nabla f(\vv{r}(t))\cdot\vv{r}'(t) = \frac{\dd{}}{\dd{t}}f(\vv{r}(t)).
+\]
+Integrating and applying the ordinary Fundamental Theorem of Calculus proves the result.
+
+\begin{example}[Reading a Potential Contour Diagram]
+\begin{minipage}[c]{0.55\linewidth}
+\vspace{1em}
+In the diagram, $P$ lies on $f = 2$ and $Q$ on $f = 8$. Every path from $P$ to $Q$ gives
+\[
+    \int_C\vv{F}\cdot\dd{\vv{r}} = 8 - 2 = \boxed{6}.
+\]
+Read the endpoint contours, rather than counting crossings. Reversing the endpoints gives $-6$.
+\end{minipage}\hfill
+\begin{minipage}[c]{0.41\linewidth}
+\centering
+\begin{tikzpicture}[>=Stealth,font=\small,x=0.65cm,y=0.4cm]
+    % Use schematic level sets to emphasize endpoint values rather than path shape.
+    \foreach \y in {2,4,6,8}{
+        \draw[green!45!black,thin] (-0.5,\y) -- (4,\y) node[right] {$f = \y$};
+    }
+    \draw[blue!70!black,thick,->] (0,2) .. controls (-1,6) and (1,9) .. (3,8);
+    \draw[magenta!80!black,thick,->] (0,2) .. controls (3,1) and (4,5) .. (3,8);
+    \fill (0,2) circle (1.8pt) node[below left] {$P$};
+    \fill (3,8) circle (1.8pt) node[above right] {$Q$};
+\end{tikzpicture}
+\end{minipage}
+\end{example}
+
+\newpage
+\subsection{Path Independence}
+\begin{definition}{Path Independence}{path_independence}
+A vector field is \textbf{path independent} on $D$ if its vector line integral has the same value along any two piecewise smooth paths in $D$ with the same starting and ending points.
+\end{definition}
+
+\begin{theorem}{Equivalent Characterizations}{conservative_equivalences}
+For a continuous vector field on an open connected domain $D$, the following statements are equivalent:
+\begin{enumerate}
+    \item $\vv{F}$ is conservative on $D$. \vspace{0.5em}
+    \item $\displaystyle\int_C\vv{F}\cdot\dd{\vv{r}}$ is independent of the path in $D$. \vspace{0.5em}
+    \item $\displaystyle\oint_C\vv{F}\cdot\dd{\vv{r}} = 0$ for every closed piecewise smooth curve in $D$. \vspace{0.5em}
+\end{enumerate}
+
+Here, $\displaystyle\oint_C$ denotes the line integral around a closed curve $C$.
+\end{theorem}
+
+If $C_1$ and $C_2$ both run from $P$ to $Q$, then $C_1 + (-C_2)$ is closed. Thus zero circulation around every closed curve gives
+\[
+    0 = \int_{C_1}\vv{F}\cdot\dd{\vv{r}} - \int_{C_2}\vv{F}\cdot\dd{\vv{r}}.
+\]
+Conversely, path independence makes the integral around a closed path equal to the integral around the constant path, namely $0$.
+
+\subsubsection{Constructing a Potential}
+
+Suppose $\vv{F}$ is a continuous and path independent vector field on an open connected
+domain $\mathcal{D}$, so that $\vv{F} = \nabla f$ for some function $f$. Fix a base point $P_0 \in \mathcal{D}$.
+
+For each $P \in \mathcal{D}$, choose a piecewise smooth path $C_P$ from $P_0$ to $P$
+and define
+\[
+    f(P) = \int_{C_P} \vv{F}\cdot\dd{\vv{r}}.
+\]
+Connectedness ensures that such a path exists. Path independence ensures
+that every choice of $C_P$ gives the same value, so $f(P)$ is well defined.
+
+\newpage
+\noindent\begin{minipage}[c]{0.62\linewidth}
+To compute $f_x(P)$, let $h \ne 0$ be small enough that the entire segment
+from $P$ to $P + h\vv{i}$ lies in $\mathcal{D}$. Such a segment exists
+because $\mathcal{D}$ is open.
+
+To evaluate $f(P + h\vv{i})$, first follow
+$C_P$ to $P$, then follow the short segment $S_h$ to $P + h\vv{i}$.
+\end{minipage}\hfill
+\begin{minipage}[c]{0.34\linewidth}
+\centering\small
+\begin{tikzpicture}[>=Stealth,font=\small]
+\coordinate (A) at (0,0);
+\coordinate (B) at (2.2,0.5);
+\coordinate (H) at (3.5,0.5);
+% The short segment extends the shared path.
+\draw[blue!70!black,very thick,->] (A) to[out=65,in=155] node[above] {$C_P$} (B);
+\draw[orange!85!black,very thick,->] (B) -- node[above] {$S_h$} (H);
+\fill (A) circle (1.6pt) node[below] {$P_0$};
+\fill (B) circle (1.6pt) node[below] {$P$};
+\fill (H) circle (1.6pt) node[below] {$P + h\vv{i}$};
+\end{tikzpicture}\par\smallskip
+The blue contribution cancels. Shown for $h > 0$.
+\end{minipage}\par
+
+By additivity,
+\[
+    f(P + h\vv{i}) = f(P) + \int_{S_h}\vv{F}\cdot\dd{\vv{r}}.
+\]
+Parametrize the segment by $\vv{r}(t) = P + th\vv{i}$,
+$0 \le t \le 1$. Its velocity is $h\vv{i}$, so the dot product
+selects the $x$-component of $\vv{F}$ and multiplies it by $h$:
+\[
+    f(P + h\vv{i}) - f(P)
+    = h\int_0^1 F_1(P + th\vv{i})\,\dd{t}.
+\]
+This parametrization works for both signs of $h$. Dividing by $h$ gives
+\[
+    \frac{f(P + h\vv{i}) - f(P)}{h}
+    = \int_0^1 F_1(P + th\vv{i})\,\dd{t}.
+\]
+Every point $P + th\vv{i}$ is within distance $|h|$ of $P$. By continuity,
+all the values of $F_1$ in this average approach $F_1(P)$ as $h \to 0$.
+Therefore $f_x(P) = F_1(P)$. Taking short segments in the other
+coordinate directions gives the remaining partial derivatives, so
+$\nabla f = \vv{F}$.
+
+\noindent\begin{minipage}[c]{0.62\linewidth}
+\textbf{Changing the base point.}
+If we start at $Q_0$ instead, we can reach $P$ by first going from $Q_0$
+to $P_0$ and then following $C_P$. The new potential is
+\[
+    \widetilde f(P)
+    = \int_{Q_0}^{P_0}\vv{F}\cdot\dd{\vv{r}} + f(P).
+\]
+The first term depends only on the two fixed base points. Thus changing
+the base point adds the same constant to every value of $f$.
+\end{minipage}\hfill
+\begin{minipage}[c]{0.34\linewidth}
+\centering\small
+\begin{tikzpicture}[>=Stealth,font=\small]
+\coordinate (Q) at (0,0);
+\coordinate (A) at (1.4,0);
+\coordinate (B) at (3.5,0.55);
+% The initial path is fixed as P varies.
+\draw[orange!85!black,very thick,->] (Q) -- node[above] {fixed path} (A);
+\draw[blue!70!black,very thick,->] (A) to[out=65,in=155] node[above] {$C_P$} (B);
+\fill (Q) circle (1.6pt) node[below] {$Q_0$};
+\fill (A) circle (1.6pt) node[below] {$P_0$};
+\fill (B) circle (1.6pt) node[below] {$P$};
+\end{tikzpicture}\par\smallskip
+The orange contribution is fixed.
+\end{minipage}\par
+
+\newpage
+\subsubsection{Choosing an Easier Path}
+\begin{problem}{A Complicated Component That Need Not Be Integrated}{easy_path}
+The field $\vv{F} = \ang{x^{17}e^{x^2},7}$ is path independent. Let $C$ be the right half of $(x - 3)^2 + (y - 5)^2 = 4$, from $(3,3)$ to $(3,7)$. Evaluate $\int_C\vv{F}\cdot\dd{\vv{r}}$.
+\end{problem}
+\begin{sol}
+Replace the semicircle by the vertical segment $\vv{r}(t) = \ang{3,t}$, $3 \le t \le 7$. Along this segment $\dd{x} = 0$, so
+\[
+    \int_C\vv{F}\cdot\dd{\vv{r}}
+    = \int_3^7 7\,\dd{y} = \boxed{28}.
+\]
+There is no need to find an antiderivative of $x^{17}e^{x^2}$.
+\end{sol}
+\begin{center}
+\begin{tikzpicture}[>=Stealth,font=\small,scale=0.65]
+    % Both paths connect the same endpoints in the field's domain.
+    \draw[blue!70!black,thick] (0,-2) arc (-90:90:2);
+    \draw[->,blue!70!black,thick] (2,0) arc (0:25:2);
+    \draw[->,orange!85!black,thick] (0,-2) -- (0,2);
+    \fill (0,-2) circle (2pt) node[left] {$(3,3)$};
+    \fill (0,2) circle (2pt) node[left] {$(3,7)$};
+    \node[right] at (2,0) {$C$};
+    \node[anchor=west] at (3,0) {Use the vertical shortcut.};
+\end{tikzpicture}
+\end{center}
+
+In the three-path example from Section~16, $\vv{F} = \ang{y + 3x^2,x} = \nabla(xy + x^3)$. The endpoint difference from $(2,0)$ to $(-2,0)$ is $-8 - 8 = -16$, which accounts for both curved paths. The straight segment runs in reverse and gives $16$.
+
+\begin{problem}{Does a Conservative Field Have Path-Independent Flux?}{flux_not_work}
+If $\vv{F}$ is conservative and $C_1,C_2$ run from $A$ to $B$, must the flux across the two curves be the same?
+\end{problem}
+\begin{sol}
+\textbf{False.} Conservativeness controls $\int_C\vv{F}\cdot\dd{\vv{r}}$, not $\int_C\vv{F}\cdot\vv{n}\,\dd{s}$.
+For $\vv{F} = \ang{x,0} = \nabla(x^2/2)$, the right-normal flux is $\int_C x\,\dd{y}$. From $(0,0)$ to $(1,1)$, the diagonal $x = y = t$ gives $\int_0^1 t\,\dd{t} = 1/2$. Going first horizontally to $(1,0)$ and then vertically to $(1,1)$ gives $0 + 1 = 1$.
+\end{sol}
+
+\newpage
+\subsection{Simply Connected Domains}
+\begin{definition}{Simply Connected Domain}{simply_connected}
+A domain $D$ is \textbf{simply connected} if it is path connected and every closed curve in $D$ can be continuously contracted to a point while staying in $D$.
+\end{definition}
+In the plane, a hole can obstruct this contraction. In three dimensions, removing a point and removing an entire line have different effects.
+\begin{center}
+\begin{tikzpicture}[>=Stealth,font=\small]
+    % Contrast an annulus with the same band opened by a radial gap.
+    \begin{scope}
+        \fill[cyan!20,even odd rule] (0,0) circle (1.3) (0,0) circle (0.6);
+        \draw[cyan!60!black] (0,0) circle (1.3) (0,0) circle (0.6);
+        \draw[blue!70!black,thick] (0,0) circle (0.95);
+        \draw[->,blue!70!black,thick] (0.95,0) arc (0:35:0.95);
+        \node at (0,-1.8) {A: annulus --- no};
+    \end{scope}
+    \begin{scope}[shift={(5,0)}]
+        \filldraw[fill=cyan!20,draw=cyan!60!black]
+            (35:1.3) arc (35:325:1.3) -- (325:0.6) arc (325:35:0.6) -- cycle;
+        \node at (0,-1.8) {B: open C-shaped band --- yes};
+        \node[align=center] at (0,0) {gap};
+    \end{scope}
+\end{tikzpicture}
+\end{center}
+\begin{problem}{Which Domains Are Simply Connected?}{domain_classification}
+Classify the two planar regions above and the following three-dimensional domains:
+\[
+    \text{C: }\mathbb{R}^3\setminus\{(0,0,0)\},\qquad
+    \text{D: }\{(x,y,z):x^2 + y^2 > 0\}.
+\]
+\end{problem}
+\begin{sol}
+\textbf{B and C are simply connected; A and D are not.}
+\begin{itemize}
+    \item \textbf{A:} A loop winding around the annulus's hole cannot contract within the annulus.
+    \item \textbf{B:} The gap opens the ring. Every loop can contract within the band.
+    \item \textbf{C:} A loop can move through the third dimension and contract without meeting the missing point. Equivalently, the punctured space retracts onto the simply connected sphere $S^2$.
+    \item \textbf{D:} This removes the entire $z$-axis. A loop winding around that axis cannot contract while avoiding it.
+\end{itemize}
+\end{sol}
+
+\newpage
+\subsection{Testing Whether a Field Is Conservative}
+\begin{theorem}{Cross-Partials Test}{cross_partials_test}
+Let $\vv{F}$ have continuous first partial derivatives on an open domain $D$.
+\begin{itemize}
+    \item If $\vv{F}$ is conservative, its cross partials agree:
+    \[
+        P_y = Q_x\quad\text{in two dimensions},\qquad
+        \nabla\times\vv{F} = \vv{0}\quad\text{in three dimensions}.
+    \]
+    \item If $D$ is also simply connected, these conditions are sufficient for $\vv{F}$ to be conservative.
+\end{itemize}
+\end{theorem}
+For $\vv{F} = \ang{P,Q,R}$, zero curl means all three equalities
+\[
+    P_y = Q_x,\qquad P_z = R_x,\qquad Q_z = R_y.
+\]
+On a domain with a hole, passing the derivative test alone does not settle conservativeness. Failing the test at even one point rules out a potential on the whole domain.
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,font=\small,
+    box/.style={draw,rounded corners,align=center,inner sep=7pt}]
+    % Separate unconditional equivalences from the converse requiring topology.
+    \node[box,draw=blue!70!black] (a) at (0,0) {$\vv{F} = \nabla f$};
+    \node[box] (b) at (4.7,0) {path independence};
+    \node[box] (c) at (4.7,-2) {$\displaystyle\oint_C\vv{F}\cdot\dd{\vv{r}} = 0$\\for every closed $C$};
+    \node[box,draw=red!70!black] (d) at (0,-2) {cross-partials\\condition};
+    \draw[<->,thick] (a) -- (b);
+    \draw[<->,thick] (b) -- (c);
+    \draw[->,thick] (a) -- (d);
+    \draw[->,dashed,thick] (d.west) -- ++(-1.2,0) |- (a.west);
+    \node[align=center] at (2.1,-3.1) {Dashed converse: $D$ must be simply connected.};
+\end{tikzpicture}
+\end{center}
+The equivalences use an open connected domain and a continuous field; the derivative statements additionally use continuous first partial derivatives.
+
+For the rotational field from Section~15, the nonzero curl rules out a potential.
+
+\newpage
+\subsection{The Angle Field and the Importance of the Domain}
+\begin{problem}{The Arctangent Warmup}{arctangent_domain}
+Let $f(x,y) = \arctan(y/x)$. Find $\nabla f$ and examine the proposed integral $\oint_C\nabla f\cdot\dd{\vv{r}}$ around the counterclockwise unit circle.
+\end{problem}
+\begin{sol}
+For $x \ne 0$, the chain rule gives
+\[
+    f_x = \frac{-y/x^2}{1 + y^2/x^2} = \frac{-y}{x^2 + y^2},\qquad
+    f_y = \frac{1/x}{1 + y^2/x^2} = \frac{x}{x^2 + y^2}.
+\]
+However, $f$ and its gradient are undefined at the circle's points $(0,1)$ and $(0,-1)$. Thus the proposed integral of this gradient over the entire circle is \textbf{not defined in the usual sense}. The fundamental theorem cannot be applied there.
+
+The formula for the gradient extends to a different field on the punctured plane:
+\[
+    \vv{G}(x,y) = \ang{\frac{-y}{x^2 + y^2},\frac{x}{x^2 + y^2}},\qquad
+    D = \mathbb{R}^2\setminus\{(0,0)\}.
+\]
+For $\vv{r}(t) = \ang{\cos t,\sin t}$, $0 \le t \le 2\pi$,
+\[
+    \vv{G}(\vv{r}(t)) = \ang{-\sin t,\cos t} = \vv{r}'(t),\qquad
+    \oint_C\vv{G}\cdot\dd{\vv{r}} = \int_0^{2\pi}1\,\dd{t} = \boxed{2\pi}.
+\]
+So $\vv{G}$ is not conservative on $D$. Nevertheless,
+\[
+    \pdv{G_1}{y} = \frac{y^2 - x^2}{(x^2 + y^2)^2}
+    = \pdv{G_2}{x}
+\]
+throughout $D$. The missing origin prevents the curl-free test from implying conservativeness on this domain.
+\end{sol}
+
+\newpage
+\subsubsection{A Local Angle Is Not a Global Potential}
+\begin{center}
+\begin{tikzpicture}[>=Stealth,font=\small,scale=1.4]
+    % Show circulation on the punctured plane without assigning a global angle.
+    \foreach \x in {-1.5,-0.75,0,0.75,1.5}{
+        \foreach \y in {-1.5,-0.75,0,0.75,1.5}{
+            \pgfmathsetmacro{\rsq}{(\x)^2 + (\y)^2}
+            \ifdim\rsq pt>0pt
+                \draw[->,gray!75] (\x,\y) -- ++({-0.3 * \y / \rsq},{0.3 * \x / \rsq});
+            \fi
+        }
+    }
+    \draw[->,black] (-2,0) -- (2,0) node[right] {$x$};
+    \draw[->,black] (0,-2) -- (0,2) node[above] {$y$};
+    \filldraw[fill=white,draw=red!75!black] (0,0) circle (0.06);
+    \draw[blue!70!black,thick] (0,0) circle (1);
+    \draw[->,blue!70!black,thick] (1,0) arc (0:45:1);
+    \node[anchor=west] at (2.3,0.7) {$\displaystyle\oint_C\vv{G}\cdot\dd{\vv{r}} = 2\pi$};
+    \node[anchor=west,align=left] at (2.3,-0.5) {One full turn changes\\a continuously tracked angle by $2\pi$.};
+\end{tikzpicture}
+\end{center}
+Locally one can choose an angle $\theta$ with $\nabla\theta = \vv{G}$. On the whole punctured plane there is no single-valued differentiable angle potential: after one full turn the point is the same, but a continuously tracked angle has increased by $2\pi$.
+
+For example, on the slit plane obtained by removing the nonpositive $x$-axis, a continuous branch $-\pi < \theta < \pi$ is a valid potential. A full circle is not contained in that domain. Similarly, $\arctan(y/x)$ is a potential separately on each half-plane $x > 0$ and $x < 0$.
+
+\begin{tcolorbox}[colback=orange!5!white,colframe=orange!80!black,title=Check the Domain First]
+A potential must be a single-valued function defined on a domain containing the \emph{entire} curve. Writing a local formula $\vv{G} = \nabla\theta$ does not prove that such a global potential exists.
+\end{tcolorbox}
+
+\newpage
+\subsection{Finding a Potential Function}
+For a planar field $\vv{F} = \ang{P,Q}$, first check the domain and $P_y = Q_x$. To construct a potential:
+\begin{enumerate}
+    \item Integrate $f_x = P$ with respect to $x$, treating $y$ as constant:
+    \[
+        f(x,y) = \int P(x,y)\,\dd{x} + g(y).
+    \]
+    \item Differentiate this expression with respect to $y$ and set $f_y = Q$. Solve for $g'(y)$, then integrate.
+    \item Verify both components of $\nabla f$. In three dimensions, start with an unknown function $g(y,z)$ and match both remaining components.
+\end{enumerate}
+
+\begin{problem}{Work along a Spiral}{spiral_potential}
+Let $\vv{F} = \ang{2xy + 3x^2,x^2 + \cos y}$ and
+\[
+    \vv{r}(t) = \ang{\sqrt{t}\cos(2\pi t),\sqrt{t}\sin(2\pi t)},\qquad 0 \le t \le 9.
+\]
+Evaluate $\int_C\vv{F}\cdot\dd{\vv{r}}$.
+\end{problem}
+\begin{sol}
+On $\mathbb{R}^2$, $P_y = 2x = Q_x$, so the field is conservative. Integrate the first component:
+\[
+    f(x,y) = x^2y + x^3 + g(y),\qquad
+    f_y = x^2 + g'(y) = x^2 + \cos y.
+\]
+Thus $g(y) = \sin y + K$, and a potential is
+\[
+    f(x,y) = x^2y + x^3 + \sin y.
+\]
+The endpoints are $\vv{r}(0) = (0,0)$ and $\vv{r}(9) = (3,0)$. Hence
+\[
+    \int_C\vv{F}\cdot\dd{\vv{r}} = f(3,0) - f(0,0) = \boxed{27}.
+\]
+\end{sol}
+
+\newpage
+\subsubsection{The Spiral: Geometry versus Computation}
+\begin{center}
+\begin{tikzpicture}[>=Stealth,font=\small,scale=0.7]
+    % Use radius as parameter to keep the origin regular and retain all nine turns.
+    \draw[->,black] (-3.5,0) -- (3.8,0) node[right] {$x$};
+    \draw[->,black] (0,-3.5) -- (0,3.5) node[above] {$y$};
+    \draw[blue!70!black,thin,domain=0:3,samples=1200,variable=\u]
+        plot ({\u * cos(360 * \u^2)},{\u * sin(360 * \u^2)});
+    \fill[red!75!black] (0,0) circle (2pt) node[above left] {$(0,0)$};
+    \fill[red!75!black] (3,0) circle (2pt) node[below right] {$(3,0)$};
+\end{tikzpicture}\par
+\small Nine turns, but only two endpoint values are needed.
+\end{center}
+Although the original speed is unbounded at $t = 0$, substituting $u = \sqrt{t}$ gives a smooth regular parametrization:
+\[
+    \widetilde{\vv{r}}(u) = \ang{u\cos(2\pi u^2),u\sin(2\pi u^2)},\qquad 0 \le u \le 3.
+\]
+The fundamental theorem therefore applies to the geometric curve.
+
+\subsection{When to Use an Endpoint Shortcut}
+With a known potential, compute $f(Q) - f(P)$. With path independence already established, an easier path in the domain is another option. To justify either shortcut, verify a potential directly or check the cross partials together with the domain. For direct computation, use the work formula in the line integral reference in Section~16.

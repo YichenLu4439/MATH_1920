@@ -509,14 +509,8 @@ Thus $\boxed{\Phi_{\mathrm{B}} > \Phi_{\mathrm{A}} > \Phi_{\mathrm{D}} > \Phi_{\
 \end{sol}
 
 \newpage
-\subsection{Setting Up a Line Integral}
-\begin{enumerate}
-    \item Choose $\vv{r}(t)$ and its parameter interval. For work, check the starting point, ending point, and direction.
-    \item Substitute the parametrization into the scalar function or vector field.
-    \item For $\int_C f\,\dd{s}$, multiply by the \textbf{speed} $\norm{\vv{r}'(t)}$. For $\int_C\vv{F}\cdot\dd{\vv{r}}$, take the \textbf{dot product} with $\vv{r}'(t)$. For planar flux with the right normal, take the dot product with $\ang{y'(t),-x'(t)}$.
-    \item Integrate over the parameter interval, adding contributions if the path has several pieces.
-\end{enumerate}
-
+\subsection{Line Integral Reference}
+Choose a parametrization $\vv{r}(t)$, $a \le t \le b$, and substitute it into the integrand. For work and flux, match the direction of traversal to the given orientation.
 \[
     \boxed{\begin{aligned}
         \text{Scalar:}\quad &\int_a^b f(\vv{r}(t))\norm{\vv{r}'(t)}\,\dd{t},\\
@@ -525,21 +519,6 @@ Thus $\boxed{\Phi_{\mathrm{B}} > \Phi_{\mathrm{A}} > \Phi_{\mathrm{D}} > \Phi_{\
     \end{aligned}}
 \]
 
-\begin{center}
-\begin{tikzpicture}[>=Stealth,font=\small]
-    % Reverse only the direction; preserve the geometric curve and its length.
-    \foreach \offset/\direction/\label in {0/1/C,6/-1/{-C}}{
-        \begin{scope}[shift={(\offset,0)}]
-            \draw[thick,blue!70!black] (0,0) .. controls (1,1.5) and (3,1.5) .. (4,0);
-            \draw[->,thick,blue!70!black] (2,1.125) -- ({2 + 0.8 * \direction},1.125)
-                node[above] {$\vv{T}$};
-            \draw[->,red!75!black,thick] (2,1.125) -- (2.8,2.1) node[above] {$\vv{F}$};
-            \node at (2,-0.4) {$\label$};
-        \end{scope}
-    }
-    \node[align=center] at (5,-1.4) {Same arc length $\dd{s}$; opposite tangent $\vv{T}$.\\
-        Scalar contributions stay the same; work contributions change sign.};
-\end{tikzpicture}
-\end{center}
+For work, project the field along the tangent. For planar flux, project it onto the right normal. The parametrized formulas above already account for arc length.
 
-A vector line integral produces a scalar. Its value depends on the oriented path, but not on how quickly that path is traversed.
+In the three-path example, $C_1$ and $C_3$ have the same oriented endpoints and both give $-16$. Reversing $C_2$ also gives $-16$. Section~17 explains why this agreement holds for every path with those endpoints.

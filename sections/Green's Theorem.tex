@@ -1,0 +1,217 @@
+\section{Green's Theorem}
+% Based on Class 34, Section 18.1 of the lecture handout.
+
+\subsection{From Circulation to a Double Integral}
+
+\begin{problem}{Warmup: Two Counterclockwise Curves}{green_warmup}
+Evaluate (a) $\oint_{\partial Q}\ang{0,x}\cdot\dd{\vv{r}}$ for the unit square $Q = [0,1]^2$, and (b) $\oint_C\ang{-y,x}\cdot\dd{\vv{r}}$ for the unit circle $C$. Both boundaries are counterclockwise.
+\end{problem}
+\begin{sol}
+\textbf{(a)} The integrand is $x\,\dd{y}$. Horizontal edges contribute zero. On the right edge $x = 1$ and $y$ increases from $0$ to $1$; on the left edge $x = 0$. Thus
+\[
+    \oint_{\partial Q}x\,\dd{y} = \int_0^1 1\,\dd{y} = \boxed{1}.
+\]
+\textbf{(b)} Set $\vv{r}(t) = \ang{\cos t,\sin t}$, $0 \le t \le 2\pi$. Then
+\[
+    \vv{F}(\vv{r}(t)) = \ang{-\sin t,\cos t} = \vv{r}'(t),\qquad
+    \oint_C\vv{F}\cdot\dd{\vv{r}} = \int_0^{2\pi}1\,\dd{t} = \boxed{2\pi}.
+\]
+\end{sol}
+
+\begin{theorem}{Green's Theorem: Circulation Form}{green}
+Let $\mathcal{D} \subset \mathbb{R}^2$ be a bounded region with a positively oriented, piecewise smooth boundary $\partial\mathcal{D}$. Suppose $\vv{F} = \ang{P,Q}$ has continuous first partial derivatives on an open set containing $\overline{\mathcal{D}}$. Then
+\[
+    \boxed{\oint_{\partial\mathcal{D}}\vv{F}\cdot\dd{\vv{r}}
+    = \oint_{\partial\mathcal{D}}P\,\dd{x} + Q\,\dd{y}
+    = \iint_{\mathcal{D}}\left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right)\dd{A}.}
+\]
+Positive orientation keeps the region on your left: an outer boundary is counterclockwise and a boundary around a hole is clockwise.
+\end{theorem}
+
+The \textbf{scalar curl}, $\operatorname{curl}_z\vv{F} = Q_x - P_y$, is the $z$-component of $\nabla \times \ang{P,Q,0}$. It measures signed circulation per unit area in the small-region limit. The warmup curls are $1$ and $2$, so the integrals equal $1$ times the square's area and $2$ times the disk's area.
+
+\newpage
+\subsection{Why Green's Theorem Works}
+
+\textbf{Step 1: a rectangle.}
+Let $\mathcal{R} = [a,b] \times [c,d]$. Following its four edges counterclockwise gives
+\begin{align*}
+    \oint_{\partial\mathcal{R}} P\,\dd{x}
+    &= \int_a^b\left[P(x,c) - P(x,d)\right]\dd{x}
+     = -\int_a^b\!\int_c^d P_y(x,y)\,\dd{y}\,\dd{x},\\
+    \oint_{\partial\mathcal{R}} Q\,\dd{y}
+    &= \int_c^d\left[Q(b,y) - Q(a,y)\right]\dd{y}
+     = \int_c^d\!\int_a^b Q_x(x,y)\,\dd{x}\,\dd{y}.
+\end{align*}
+The fundamental theorem of calculus gives each second equality. Adding and using Fubini's theorem yields
+\[
+    \oint_{\partial\mathcal{R}}P\,\dd{x} + Q\,\dd{y}
+    = \iint_{\mathcal{R}}(Q_x - P_y)\,\dd{A}.
+\]
+
+\textbf{Step 2: cancellation of interior edges.}
+Subdivide a region into smaller pieces and orient each boundary counterclockwise. An interior edge is traversed once in each direction, so its two line integrals cancel. Only the outer boundary and any hole boundaries remain.
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,font=\small,scale=1.0]
+    % Shared edges cancel because adjacent cells induce opposite directions.
+    \fill[blue!8] (0,0) rectangle (4,2);
+    \draw[blue!70!black,thick] (0,0) rectangle (4,2);
+    \draw[gray!60] (2,0) -- (2,2);
+    \draw[->,blue!70!black,thick] (0.4,0) -- (1.4,0);
+    \draw[->,blue!70!black,thick] (4,0.4) -- (4,1.4);
+    \draw[->,blue!70!black,thick] (3.5,2) -- (2.5,2);
+    \draw[->,blue!70!black,thick] (0,1.6) -- (0,0.6);
+    \draw[->,orange!85!black,thick] (1.9,0.35) -- (1.9,1.65);
+    \draw[->,green!40!black,thick] (2.1,1.65) -- (2.1,0.35);
+    \node at (1,1) {$\mathcal{D}_1$};
+    \node at (3,1) {$\mathcal{D}_2$};
+    \node[anchor=west,align=left] at (4.55,1) {Shared edge:\\equal integrands,\\opposite directions.};
+\end{tikzpicture}
+\end{center}
+
+For general piecewise smooth regions, one proves the same identity on suitable simple pieces and adds them, or justifies a limiting subdivision. The diagram explains the cancellation mechanism; the smoothness hypotheses justify the calculus steps.
+
+\textbf{A domain check.}
+For the angle field
+$\vv{F} = \ang{-y,x}/(x^2 + y^2)$, the scalar curl is zero wherever the field is defined. Its counterclockwise circulation around the unit circle is nevertheless $2\pi$ because the field is undefined at the origin. Green's theorem cannot be applied to the entire disk.
+
+On an annulus excluding the origin, the theorem does apply: the outer circle contributes $2\pi$ and the clockwise inner circle contributes $-2\pi$. Their sum is zero, agreeing with the double integral of the curl.
+
+\newpage
+\subsection{Computing Area from a Boundary Curve}
+
+\begin{theorem}{Area Formulas}{green_area}
+If $\partial\mathcal{D}$ is positively oriented and $A = \operatorname{area}(\mathcal{D})$, then
+\[
+    \boxed{A = \oint_{\partial\mathcal{D}}x\,\dd{y}
+    = -\oint_{\partial\mathcal{D}}y\,\dd{x}
+    = \frac12\oint_{\partial\mathcal{D}}(x\,\dd{y} - y\,\dd{x}).}
+\]
+These follow by choosing $\ang{P,Q}$ with $Q_x - P_y = 1$, for example
+$\ang{0,x}$, $\ang{-y,0}$, or $\frac12\ang{-y,x}$.
+\end{theorem}
+
+\begin{problem}{Area Enclosed by a Polynomial Curve}{polynomial_area}
+Find the area enclosed by $\vv{r}(t) = \ang{t - t^2,t - t^3}$, $0 \le t \le 1$.
+\end{problem}
+\begin{sol}
+The curve starts and ends at the origin. For $0 < t < 1$,
+$x = t(1 - t) > 0$ and $y/x = 1 + t$ strictly increases, so no two interior parameter values give the same point. The curve is simple and is traversed counterclockwise: it leaves along the lower branch and returns along the upper branch.
+
+Since $y'(t) = 1 - 3t^2$, Green's area formula gives
+\begin{align*}
+    A &= \int_0^1 x(t)y'(t)\,\dd{t}
+       = \int_0^1(t - t^2)(1 - 3t^2)\,\dd{t}\\
+      &= \left[\frac{t^2}{2} - \frac{t^3}{3} - \frac{3t^4}{4} + \frac{3t^5}{5}\right]_0^1
+       = \boxed{\frac{1}{60}}.
+\end{align*}
+\end{sol}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,font=\small,x=16cm,y=8cm]
+    % Increasing t follows the lower branch out and the upper branch back.
+    \fill[blue!12] plot[domain=0:1,samples=100] ({\x - \x * \x},{\x - \x * \x * \x}) -- cycle;
+    \draw[->,gray!70] (-0.01,0) -- (0.30,0) node[right] {$x$};
+    \draw[->,gray!70] (0,-0.02) -- (0,0.45) node[above] {$y$};
+    \draw[blue!70!black,thick] plot[domain=0:1,samples=100] ({\x - \x * \x},{\x - \x * \x * \x});
+    \draw[->,blue!70!black,thick] plot[domain=0.12:0.27,samples=20] ({\x - \x * \x},{\x - \x * \x * \x});
+    \draw[->,blue!70!black,thick] plot[domain=0.72:0.85,samples=20] ({\x - \x * \x},{\x - \x * \x * \x});
+    \draw[gray!70] (0.25,0.008) -- (0.25,-0.008) node[below] {$1/4$};
+    \node[below left] at (0,0) {$O$};
+    \node[above right] at (0.25,0.375) {$t = 1/2$};
+    \node at (0.18,0.265) {$\mathcal{D}$};
+\end{tikzpicture}
+\end{center}
+
+For a clockwise parametrization, these integrals give the negative of the area.
+
+\newpage
+\subsection{Centroids from Boundary Integrals}
+
+\begin{theorem}{First Moments and Centroid of a Lamina}{green_centroid}
+For a region of uniform density and positive area $A$, Green's theorem gives
+\begin{align*}
+    \iint_{\mathcal{D}}x\,\dd{A}
+    &= \frac12\oint_{\partial\mathcal{D}}x^2\,\dd{y}
+     = -\oint_{\partial\mathcal{D}}xy\,\dd{x},\\
+    \iint_{\mathcal{D}}y\,\dd{A}
+    &= \oint_{\partial\mathcal{D}}xy\,\dd{y}
+     = -\frac12\oint_{\partial\mathcal{D}}y^2\,\dd{x}.
+\end{align*}
+Divide the first line by $A$ to obtain $\bar{x}$, and the second by $A$ to obtain $\bar{y}$. The boundary is positively oriented throughout.
+\end{theorem}
+
+\begin{problem}{Which Formula Gives the $x$-Coordinate?}{green_centroid_choice}
+For a counterclockwise boundary $\partial\mathcal{D}$, which expression equals $\bar{x}$?
+\[
+    \text{A: }\frac{1}{A}\oint x^2\,\dd{y},\qquad
+    \text{B: }\frac{1}{A}\oint xy\,\dd{x},\qquad
+    \text{C: }-\frac{1}{A}\oint xy\,\dd{x},\qquad
+    \text{D: }\frac{1}{A}\oint xy\,\dd{y}.
+\]
+All integrals are over $\partial\mathcal{D}$.
+\end{problem}
+\begin{sol}
+We want $A\bar{x} = \iint_{\mathcal{D}}x\,\dd{A}$. Choose $P = -xy$ and $Q = 0$. Then
+\[
+    Q_x - P_y = 0 - (-x) = x,
+\]
+so
+\[
+    A\bar{x} = \iint_{\mathcal{D}}x\,\dd{A}
+    = \oint_{\partial\mathcal{D}}(-xy)\,\dd{x}.
+\]
+Thus the correct answer is $\boxed{\text{C}}$.
+\end{sol}
+
+For the other choices, A has scalar curl $2x$ and gives $2\bar{x}$; B has scalar curl $-x$ and gives $-\bar{x}$; D has scalar curl $y$ and gives $\bar{y}$.
+
+\textbf{Choosing a useful field.} To express $\iint_{\mathcal{D}}f\,\dd{A}$ as a boundary integral, choose $P$ and $Q$ so that $Q_x - P_y = f$.
+
+\newpage
+\subsection{Closing an Open Curve}
+
+\begin{problem}{Work Along an Upper Semicircle}{green_semicircle}
+Let $\vv{F}(x,y) = \ang{\cos x + y^2,e^{y^2}}$ and let $C$ run from $(-2,0)$ to $(2,0)$ along the upper half of $x^2 + y^2 = 4$. Evaluate $\int_C\vv{F}\cdot\dd{\vv{r}}$.
+\end{problem}
+\begin{sol}
+Add the segment $L$ from $(2,0)$ back to $(-2,0)$. Then $C + L$ bounds the upper half-disk $\mathcal{D}$ \textbf{clockwise}, so Green's theorem carries a minus sign.
+\[
+    Q_x - P_y = \frac{\partial}{\partial x}e^{y^2}
+    - \frac{\partial}{\partial y}(\cos x + y^2) = -2y.
+\]
+Therefore, using polar coordinates on $\mathcal{D}$,
+\begin{align*}
+    \int_C\vv{F}\cdot\dd{\vv{r}} + \int_L\vv{F}\cdot\dd{\vv{r}}
+    &= -\iint_{\mathcal{D}}(-2y)\,\dd{A}\\
+    &= 2\int_0^{\pi}\!\int_0^2 r^2\sin\theta\,\dd{r}\,\dd{\theta}
+     = \frac{32}{3}.
+\end{align*}
+On $L$, $y = 0$, $\dd{y} = 0$, and $x$ decreases from $2$ to $-2$. Hence
+\[
+    \int_L\vv{F}\cdot\dd{\vv{r}} = \int_2^{-2}\cos x\,\dd{x} = -2\sin 2.
+\]
+Subtracting this added contribution gives
+\[
+    \boxed{\int_C\vv{F}\cdot\dd{\vv{r}} = \frac{32}{3} + 2\sin 2.}
+\]
+\end{sol}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,font=\small,scale=1.05]
+    % The arc and closing segment together form a clockwise boundary.
+    \fill[blue!10] (2,0) arc (0:180:2) -- cycle;
+    \draw[->,gray!65] (-2.65,0) -- (2.7,0) node[right] {$x$};
+    \draw[->,gray!65] (0,-0.35) -- (0,2.45) node[above] {$y$};
+    \draw[blue!70!black,thick] (-2,0) arc (180:0:2);
+    \draw[->,blue!70!black,thick] (125:2) arc (125:65:2);
+    \draw[->,orange!85!black,thick] (2,0) -- (-2,0);
+    \node[blue!70!black,above right] at (45:2) {$C$};
+    \node[orange!85!black,below] at (1,-0.04) {$L$};
+    \node[below left] at (-2,0) {$(-2,0)$};
+    \node[below right] at (2,0) {$(2,0)$};
+    \node at (0.65,0.8) {$\mathcal{D}$};
+\end{tikzpicture}
+\end{center}
+
